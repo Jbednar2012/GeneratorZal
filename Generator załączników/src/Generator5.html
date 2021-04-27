@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Generator załączników - 5</title>
+	<meta name="author" content="Jakub Bednarski">
+	<link rel="Stylesheet" style="text/css" href="generator_style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo%20Narrow">
+	<style>
+		body {
+			background-color: white;
+			font-family: Archivo Narrow;
+			font-size: 4mm;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="ready" style='display: none;'></div>
+	<div id="not_ready" style='background-attachment: fixed; background-repeat: no-repeat; background-size: contain; background-position: center; background-image: url("bg.jpg");'>
+	<a href="../main.html" class="menu_hyperlink"><div class="title" id="title"><font style="font-size:0.5in">Politechnika Świętokrzyska</font><br><font style="font-size:0.3in">Generator załączników</font></div></a>
+	<div class="other_att" id="other_att">
+		<a href="Generator1.html">1<span class='att_info'>Oświadczenie o studiowaniu i niepobieraniu świadczeń pomocy materialnej na więcej niż jednym kierunku</span></a>
+		<a href="Generator3.html">3<span class='att_info'>Oświadczenie o nieprowadzeniu wspólnego gospodarstwa domowego</span></a>
+		<a href="Generator4.html">4<span class='att_info'>Wniosek o ustalenie prawa do świadczeń pomocy materialnej</span></a>
+		<b>5</b>
+		<a href="Generator9.html">9<span class='att_info'>Oświadczenie o zmianie sytuacji materialnej dla stypendium socjalnego</span></a>
+		<a href="Generator10b.html">10b<span class='att_info'>Wniosek o przyznanie stypendium Rektora na kolejny semestr tego samego roku studiów</span></a>
+		<a href="Generator13.html">13<span class='att_info'>Klauzula w sprawie przetwarzania danych osobowych</span></a>
+		<a href="Generator16.html">16<span class='att_info'>Zgoda na otrzymywanie korespondencji drogą elektroniczną</span></a>
+	</div>
+	<div id="preparing" class="preparing">
+	<div id="help_button" class="help_button" onmouseover=show_help() onmouseout=hide_help()>
+	<div id="help" class="help">
+	Ten dokument wypełnia członek rodziny studenta.
+	</div>
+	<script>
+		function show_help() {
+			document.getElementById('help').style.display = 'block';
+		}
+		
+		function hide_help() {
+			document.getElementById('help').style.display = 'none';
+		}
+		
+		function return_to_edition() {
+			document.getElementById('ready').style.display = 'none';
+			document.getElementById('not_ready').style.display = 'block';
+		}
+		
+		function print_page(){
+			if (!window.print){
+				return_to_edition();
+				document.getElementById("troubleshoot").innerHTML = "Niestety, twoja przeglądarka nie ma opcji drukowania<br>";
+				return 0;
+			}
+			window.print();
+		}
+	</script>
+	</div>
+	<h1>Generator załącznika nr 5</h1>
+	<h2>Oświadczenie o wysokości składek na ubezpieczenie zdrowotne w roku kalendarzowym poprzedzającym rok akademicki</h2>
+	<section>
+		<h3>Dane osobowe</h3>
+		<label for="imie">Imię:</label>
+		<input id="imie" maxlength="50"><br>
+		<label for="nazwisko">Nazwisko:</label>
+		<input id="nazwisko" maxlength="100"><br><br>
+		<label for="miejscowosc">Miejscowość pobytu:</label>
+		<input id="miejscowosc" maxlength="75"><br><br>
+	</section>
+	<section>
+		<h3>Inne</h3>
+		<label for="kwota">Wysokość składki:</label>
+		<input id="kwota_zl" maxlength="5" placeholder="0"> zł
+		<input id="kwota_gr" maxlength="2" placeholder="00"> gr<br>
+	</section>
+	<section>
+	<label for="writing_char">Charakter pisma: </label>
+	<select id="writing_char" style="font-size: 0.4cm">
+		<option name="hand_font" value="0" style="font-family: Mistral" checked>Numer 1</option>
+		<option name="hand_font" value="1" style="font-family: Segoe Print">Numer 2</option>
+		<option name="hand_font" value="2" style="font-family: Segoe Script">Numer 3</option>
+	</select><br>
+	<label for="writing_col">Kolor długopisu: </label>
+	<select id="writing_col" style="font-size: 0.4cm">
+		<option name="hand_color" value="blue" style="color: blue" checked>Niebieski</option>
+		<option name="hand_color" value="black" style="color: black">Czarny</option>
+		<option name="hand_color" value="green" style="color: green">Zielony</option>
+		<option name="hand_color" value="red" style="color: red">Czerwony</option>
+	</select><br><br>
+	<div class="troubleshoot" id="troubleshoot"></div>
+	<button onClick=ask_for_confirm()>Generuj</button>
+	<button onClick=ask_for_clear()>Wyczyść</button>
+	<button onClick=example()>Przykładowe dane</button><br>
+	</section>
+	</div>
+	</div>
+	<script>
+	function ask_for_confirm() {
+		if(confirm("Czy na pewno chcesz teraz zacząć generować?"))
+			generate();
+	}
+	
+	function ask_for_clear() {
+		if(confirm("Czy na pewno chcesz usunąć wszystkie ustawienia? Wszystkie wprowadzone dane zostaną usunięte."))
+			clear();
+	}
+	
+	function ask_for_return() {
+		if(confirm("Czy na pewno chcesz wrócić do trybu edycji?"))
+			return_to_edition();
+	}
+	
+	document.getElementById('writing_char').style.fontFamily = "Mistral";
+	
+	document.getElementById('writing_char').addEventListener('change', function () {
+		var style = this.value;
+		switch(style) {
+		case '0': 	document.getElementById('writing_char').style.fontFamily = "Mistral";
+					break;
+		case '1': 	document.getElementById('writing_char').style.fontFamily = "Segoe Print";
+					break;
+		case '2': 	document.getElementById('writing_char').style.fontFamily = "Segoe Script";
+					break;
+		}		
+	});
+	
+	document.getElementById('writing_col').style.color = "blue";
+	
+	document.getElementById('writing_col').addEventListener('change', function () {
+		var style = this.value;
+		document.getElementById('writing_col').style.color = style;
+	});
+	
+	function example() {
+		document.getElementById("imie").value = "Anna";
+		document.getElementById("nazwisko").value = "Nowak";
+		document.getElementById("miejscowosc").value = "Warszawa";
+		document.getElementById("kwota_zl").value = "1000";
+		document.getElementById("kwota_gr").value = "00";
+		document.getElementById("writing_char").value = "0";
+		document.getElementById('writing_char').style.fontFamily = "Mistral";
+		document.getElementById("writing_col").value = "green";
+		document.getElementById("writing_col").style.color = "green";
+	}
+	
+	var name, surname, miasto, zl, gr, ch_p, k_dl;
+	
+	function getValues() {
+		name = document.getElementById("imie").value;
+		surname = document.getElementById("nazwisko").value;
+		miasto = document.getElementById("miejscowosc").value;
+		zl = document.getElementById("kwota_zl").value;
+		gr = document.getElementById("kwota_gr").value;
+		ch_p = parseInt(document.getElementById("writing_char").value);
+		k_dl = document.getElementById("writing_col").value;
+	}
+	
+	function clear() {
+		document.getElementById("imie").value = "";
+		document.getElementById("nazwisko").value = "";
+		document.getElementById("miejscowosc").value = "";
+		document.getElementById("kwota_zl").value = "0";
+		document.getElementById("kwota_gr").value = "00";
+		document.getElementById("writing_char").value = "0";
+		document.getElementById('writing_char').style.fontFamily = "Mistral";
+		document.getElementById("writing_col").value = "blue";
+		document.getElementById("writing_col").style.color = "blue";
+	}
+	
+	function is_value_numeric(value) {
+		var i=0, faults=0;
+		for(i;i<value.length;i++){
+			if(value[i]<'0' || value[i]>'9')
+				faults++;
+		}
+		if(faults>0)
+			return false;
+		else return true;
+	}
+	
+	function numbers_are_in(value) {
+		var i=0, faults=0;
+		for(i;i<value.length;i++){
+			if(!isNaN(parseInt(value[i])))
+				faults++;
+		}
+		if(faults>0)
+			return true;
+		else return false;
+	}
+	
+	function other_factors() {
+		return (miasto=="" || numbers_are_in(miasto) || zl=="" || !is_value_numeric(zl) || gr=="" || !is_value_numeric(gr) || gr.length != 2);
+	}
+	
+	function legit() {
+		if(name=="" || numbers_are_in(name) || surname=="" || numbers_are_in(surname) || other_factors())
+			return false;
+		else return true;
+	}
+	
+	function generate() {
+		var obecny = new Date();
+		getValues();
+		if(legit()) {
+			document.getElementById('troubleshoot').style.display = 'none';
+			var y = obecny.getFullYear(), poprzedni = y-1;
+			if(obecny.getMonth() < 2 || obecny.getMonth() > 8)
+				poprzedni -= 1;
+			document.getElementById('ready').style.display = 'block';
+			document.getElementById('not_ready').style.display = 'none';
+			var art_title = "Załącznik nr 5 do Regulaminu świadczeń dla studentów PŚk wprowadzonego zarządzeniem nr 58/19";
+			var innards = "<div class='buttons'><button onClick=ask_for_return()>Wróc do trybu edycji</button><button onClick=print_page()>Drukuj</button></div></div><div class='fill_text' style='text-align:right; font-size: 13px; width: 100%'><i>"+art_title+"</i></div><br><br><br>";
+			innards += "<font class='fill_text'>Data wpływu ....................</font><br><br>";
+			innards += "<div class='handwriting"+ch_p+"' style='color: "+k_dl+"; width: 100%;'>"+name+" "+surname+"</div>";
+			innards += "<div class='label' style=' width: 100%;'>Nazwisko i imię wnioskodawcy</div>";
+			innards += "<div class='fill_text' style='width: 100%; text-align: center; padding-bottom: 0.2mm; margin-bottom: 0'><p><b><p>OŚWIADCZENIE</p><p>O WYSOKOŚCI SKŁADEK NA UBEZPIECZENIE ZDROWOTNE W ROKU KALENDARZOWYM</p><p>POPRZEDZAJĄCYM ROK AKADEMICKI</p></p></b></div>";
+			innards += "<div class='fill_text' style='width: 100%; margin-bottom: 0.3mm; padding-bottom: 5mm'><p>Oświadczam, że w roku kalendarzowym <font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+poprzedni+"</font> wysokość składki na ubezpieczenie zdrowotne wyniosła <font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+zl+"</font> zł, <font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+gr+"</font> gr.</p><p>Świadomy odpowiedzialności dyscyplinarnej za podanie nieprawdziwych danych i obowiązku zwrotu całości pobranych na takiej podstawie świadczeń pomocy materialnej, oświadczam że podane informacje są zgodne ze stanem faktycznym.</p></div>";
+			var dzisiejsza_data = "";
+			if(obecny.getDate()<10)
+				dzisiejsza_data += "0"+obecny.getDate()+".";
+			else dzisiejsza_data += obecny.getDate()+".";
+			if(obecny.getMonth()<9)
+				dzisiejsza_data += "0"+(obecny.getMonth()+1)+".";
+			else dzisiejsza_data += (obecny.getMonth()+1)+".";
+			dzisiejsza_data += (obecny.getFullYear());
+			innards += "<div class = 'fill_text' style='text-align: center;'><font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+miasto+", "+dzisiejsza_data+"</font></div><div class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+name+" "+surname+"</div><div class='label' style='text-align: center;'>Miejscowość, data</div><div class='label' style='text-align: center'>Czytelny podpis oświadczającego</div>";
+			document.getElementById("ready").innerHTML = innards+"<br>";
+		}
+		else {
+			var problems = "";
+			document.getElementById("troubleshoot").style.display = "block";
+			if(name=="")
+				problems += "Nie wpisano imienia<br>";
+			else if(numbers_are_in(name))
+				problems += "Imię nie może mieć cyfer<br>";
+			if(surname=="")
+				problems += "Nie wpisano naziwska<br>";
+			else if(numbers_are_in(surname))
+				problems += "Nazwisko nie może mieć cyfer<br>";
+			if(miasto=="")
+				problems += "Nie wpisano naziwy miejscowości<br>";
+			else if(numbers_are_in(miasto))
+				problems += "Nazwa miejscowości nie może mieć cyfer<br>";
+			if(zl=="")
+				problems += "Nie wpisano kwoty wysokości składki (złote)<br>";
+			else if(!is_value_numeric(zl))
+				problems += "Kwota wysokości składki (złote) nie jest liczbą<br>";
+			if(gr=="")
+				problems += "Nie wpisano kwoty wysokości składki (grosze)<br>";
+			else if(!is_value_numeric(gr))
+				problems += "Kwota wysokości składki (grosze) nie jest liczbą<br>";
+			else if(gr.length != 2)
+				problems += "Kwota wysokości składki (grosze) powinna być zapisana w formie dwóch cyfr<br>";
+			
+			document.getElementById("troubleshoot").innerHTML = problems;
+		}
+	}
+	</script>
+</body>
+</html>

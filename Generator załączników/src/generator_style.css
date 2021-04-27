@@ -1,0 +1,289 @@
+div.title {
+	position: relative;
+	top: 0%;
+	left: 10%;
+	right: 10%;
+	width: 80%;
+	border-radius: 10px 10px 3px 3px;
+	text-align: center;
+	font-weight: bold;
+	letter-spacing: 2px;
+	background-color: #0000ffe0;
+	color: white;
+	text-shadow: #0000ff7f;
+}
+
+a.menu_hyperlink {
+	text-decoration: none;
+}
+
+button {
+	background-color: blue;
+	font-family: Archivo Narrow;
+	font-size: 4mm;
+	border: none;
+	color: white;
+	border-radius: 10px 10px 10px 10px;
+	box-shadow: 1px 1px #00007f7f;
+	padding: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin: 3px;
+}
+
+div.buttons {
+	position: fixed;
+	bottom: 0%; right: 0%;
+}
+
+div.other_att {
+	position: relative;
+	top: 20%;
+	left: 10%;
+	right: 10%;
+	width: 80%;
+	height: 5%;
+	border-radius: 3px 3px 10px 10px;
+	font-weight: bold;
+	text-align: center;
+	font-size: 7mm;
+	background-color: #7f7fffe0;
+}
+
+div.other_att a:link, div.other_att a:visited {
+	color: #d0d0ff;
+	text-shadow: #0000ff7f 1px 1px;
+}
+
+div.other_att a .att_info {
+  visibility: hidden;
+  background-color: #00000000;
+  color: #ffffff;
+  font-size: 3mm;
+  text-align: center;
+  border-radius: 3px;
+  border-width: 1px;
+  padding: 2px 0;
+  position: absolute;
+  z-index: 1;
+}
+
+div.other_att a:hover {
+	color: white;
+	text-shadow: #0000007f 1px 1px;
+}
+
+div.other_att a:hover .att_info {
+	visibility: visible;
+}
+
+div.other_att b {
+	color: #00007f;
+	text-shadow: #7f7f007f 0px 0px;
+}
+
+div.help_button {
+	 position: relative;
+	 top: 0%;
+	 left: 0%;
+	 width: 20px;
+	 height: 20px;
+	 border-radius: 10px;
+	 background-image: url("help.png");
+}
+
+div.help {
+	background-color: blue;
+	color: white;
+	text-shadow: #ffff007f 1px 1px;
+	position: relative;
+	left: 0%;
+	top: 0%;
+	display: none;
+	width: 17.5cm; 
+	border-radius: 10px 10px 10px 10px;
+	font-family: Arial;
+	font-size: 12px;
+	padding: 3px;
+}
+
+div.preparing {
+	background-color: #ffffffd0;
+	color: blue;
+	text-shadow: 1px 1px #0000004f;
+	position: relative;
+	top: 30%;
+	width: 80%;
+	border-radius: 10px 10px 10px 10px;
+	padding: 10px;
+	margin-left: 9%;
+	margin-right: 9%;
+	margin-top: 10px;
+}
+
+select, input {
+	font-family: Consolas;
+}
+
+input::placeholder, textarea::placeholder {
+	color: #0000003f;
+}
+
+.doc_title {
+	font-family: Calibri;
+	font-size: 15px;
+	text-align: right;
+}
+
+div.ready {
+	font-family: Calibri;
+	font-size: 10px;
+	color: black;
+	background-color: white;
+}
+
+table.numer_konta0 td {
+	font-family: Mistral;
+	font-size: 0.55cm;
+	border: solid 1px black;
+	margin: 0;
+	padding: 0;
+	width: 4mm;
+	height: 5mm;
+	text-decoration: none;
+}
+
+table.numer_konta1 td {
+	font-family: Segoe Print;
+	font-size: 0.4cm;
+	border: solid 1px black;
+	margin: 0;
+	padding: 0;
+	width: 4mm;
+	height: 5mm;
+	text-decoration: none;
+}
+
+table.numer_konta2 td {
+	font-family: Segoe Script;
+	font-size: 0.4cm;
+	border: solid 1px black;
+	margin: 0;
+	padding: 0;
+	width: 4mm;
+	height: 5mm;
+	text-decoration: none;
+}
+
+table.numer_konta0 td.empty, table.numer_konta1 td.empty, table.numer_konta2 td.empty {
+	border-color: white;
+}
+
+font.empty_handwriting {
+	font-family: Impact;
+	font-size: 0.6cm;
+	color: #ffffff00;
+	text-decoration: underline dotted black;
+}
+
+div.empty_handwriting  {
+	font-family: Impact;
+	font-size: 0.6cm;
+	color: #ffffff00;
+	text-decoration: underline dotted black;
+	float: left;
+	width: 50%;
+}
+
+font.handwriting0 {
+	font-family: Mistral;
+	font-size: 0.55cm;
+	text-decoration: underline dotted black;
+}
+
+div.handwriting0  {
+	font-family: Mistral;
+	font-size: 0.55cm;
+	text-decoration: underline dotted black;
+	float: left;
+	width: 50%;
+}
+
+font.handwriting1 {
+	font-family: Segoe Print;
+	font-size: 0.4cm;
+	text-decoration: underline dotted black;
+}
+
+div.handwriting1  {
+	font-family: Segoe Print;
+	font-size: 0.4cm;
+	text-decoration: underline dotted black;
+	float: left;
+	width: 50%;
+}
+
+font.handwriting2 {
+	font-family: Segoe Script;
+	font-size: 0.35cm;
+	text-decoration: underline dotted black;
+}
+
+div.handwriting2  {
+	font-family: Segoe Script;
+	font-size: 0.35cm;
+	text-decoration: underline dotted black;
+	float: left;
+	width: 50%;
+}
+
+.label {
+	font-family: Calibri;
+	font-size: 3mm;
+	float: left;
+	width: 50%;
+}
+
+font.fill_text {
+	font-family: Calibri;
+	font-size: 16px;
+}
+
+div.fill_text {
+	font-family: Calibri;
+	font-size: 15px;
+	float: left;
+	width: 50%;
+}
+
+div.sp {
+	float: left;
+	width: 100%;
+	height: 0.7cm;
+}
+
+div.info {
+	position: fixed;
+	right: 0%;
+	top: 0%;
+	display: none;
+	width: 50%;
+	font-family: Arial;
+	font-size: 12px;
+}
+
+div.troubleshoot {
+	display: none;
+	font-family: Arial;
+	font-size: 15px;
+	color: red;
+	text-decoration: underline solid;
+	text-shadow: white 0px 0px;
+	padding: 5mm;
+}
+
+@media print {
+	div.buttons {
+		display: none;
+	}
+}
