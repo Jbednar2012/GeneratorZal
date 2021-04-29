@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Generator załączników - 1</title>
+	<meta name="author" content="Jakub Bednarski">
+	<link rel="Stylesheet" style="text/css" href="generator_style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo%20Narrow">
+	<style>
+		body {
+			background-color: white;
+			font-family: Archivo Narrow;
+			font-size: 4mm;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="ready" style='display: none;'></div>
+	<div id="not_ready" style='background-attachment: fixed; background-repeat: no-repeat; background-size: contain; background-position: center; background-image: url("bg.jpg");'>
+	<a href="../main.html" class="menu_hyperlink"><div class="title" id="title"><font style="font-size:0.5in">Politechnika Świętokrzyska</font><br><font style="font-size:0.3in">Generator załączników</font></div></a>
+	<div class="other_att" id="other_att">
+		<b>1</b>
+		<a href="Generator3.html">3<span class='att_info'>Oświadczenie o nieprowadzeniu wspólnego gospodarstwa domowego</span></a>
+		<a href="Generator4.html">4<span class='att_info'>Wniosek o ustalenie prawa do świadczeń pomocy materialnej</span></a>
+		<a href="Generator5.html">5<span class='att_info'>Oświadczenie o wysokości składek na ubezpieczenie zdrowotne w roku kalendarzowym poprzedzającym rok akademicki</span></a>
+		<a href="Generator9.html">9<span class='att_info'>Oświadczenie o zmianie sytuacji materialnej dla stypendium socjalnego</span></a>
+		<a href="Generator10b.html">10b<span class='att_info'>Wniosek o przyznanie stypendium Rektora na kolejny semestr tego samego roku studiów</span></a>
+		<a href="Generator13.html">13<span class='att_info'>Klauzula w sprawie przetwarzania danych osobowych</span></a>
+		<a href="Generator16.html">16<span class='att_info'>Zgoda na otrzymywanie korespondencji drogą elektroniczną</span></a>
+	</div>
+	<div id="preparing" class="preparing">
+	<div id="help_button" class="help_button" onmouseover=show_help() onmouseout=hide_help()>
+	<div id="help" class="help">
+	Należy podać wszystkie ukończone uczelnie.
+	</div>
+	<script>
+		function show_help() {
+			document.getElementById('help').style.display = 'block';
+		}
+		
+		function hide_help() {
+			document.getElementById('help').style.display = 'none';
+		}
+		
+		function return_to_edition() {
+			document.getElementById('ready').style.display = 'none';
+			document.getElementById('not_ready').style.display = 'block';
+		}
+		
+		function print_page(){
+			if (!window.print){
+				return_to_edition();
+				document.getElementById("troubleshoot").innerHTML = "Niestety, twoja przeglądarka nie ma opcji drukowania<br>";
+				return 0;
+			}
+			window.print();
+		}
+	</script>
+	</div>
+	<h1>Generator załącznika nr 1</h1>
+	<h2>Oświadczenie o studiowaniu i niepobieraniu świadczeń pomocy materialnej na więcej niż jednym kierunku</h2>
+	<section>
+		<h3>Dane osobowe</h3>
+		<label for="imie">Imię:</label>
+		<input id="imie" maxlength="50"><br>
+		<label for="nazwisko">Nazwisko:</label>
+		<input id="nazwisko" maxlength="100"><br><br>
+		<label for="pesel">PESEL:</label>
+		<input id="pesel" maxlength="11" size="11"><br><br>
+		<input type="checkbox" id="same_addresses" checked="checked">Adres zamieszkania to też adres do korespondencji</br>
+		<label for="adres_zam">Adres zameldowania:</label>
+		<input type="text" id="adres_zam1" maxlength="30" placeholder="Ulica"> 
+		<input type="text" id="adres_zam2a" maxlength="4" size="4" placeholder="0000">/<input type="text" id="adres_zam2c" maxlength="3" size="3" placeholder="000"> <input type="text" id="adres_zam2b" maxlength="1" size="1" placeholder="A"> 
+		<input type="text" id="adres_zam3a" maxlength="2" size="2" placeholder="00">-<input type="text" id="adres_zam3b" maxlength="3" size="3" placeholder="000"> 
+		<input type="text" id="adres_zam4" maxlength="75" placeholder="Miejscowość"><br>
+		<label for="adres_kor">Adres do korespondencji:</label>
+		<input type="text" id="adres_kor1" maxlength="30" disabled="disabled" placeholder="Ulica"> 
+		<input type="text" id="adres_kor2a" maxlength="4" size="4" placeholder="0000" disabled="disabled">/<input type="text" id="adres_kor2c" maxlength="3" size="3" placeholder="000" disabled="disabled"> <input type="text" id="adres_kor2b" maxlength="1" size="1" disabled="disabled" placeholder="A"> 
+		<input type="text" id="adres_kor3a" maxlength="2" size="2" disabled="disabled" placeholder="00">-<input type="text" id="adres_kor3b" maxlength="3" size="3" disabled="disabled" placeholder="000"> 
+		<input type="text" id="adres_kor4" maxlength="75" disabled="disabled" placeholder="Miejscowość"><br><br>
+		<label for="email">Adres e-mail:</label>
+		<input type="text" id="email_nick" maxlength="30" placeholder="Nick">
+		<select id="poczta">
+			<option value="">--poczta--</option>
+			<option name="pocz" value="gmail.com">Gmail (Google)</option>
+			<option name="pocz" value="wp.pl">WP</option>
+			<option name="pocz" value="onet.pl">Onet</option>
+			<option name="pocz" value="o2.pl">O2</option>
+			<option name="pocz" value="interia.pl">Interia</option>
+			<option name="pocz" value="gazeta.pl">Gazeta.pl</option>
+			<option name="pocz" value="yahoo.com">Yahoo</option>
+		</select><br>
+		<label for="telefon">Numer telefonu:</label>
+		<input id="telefon" maxlength="9" size="9"><br><br>
+		<script>
+			var same_address = true;
+			
+			document.getElementById('same_addresses').addEventListener('change', function () {	
+				document.getElementById("adres_kor1").disabled = this.checked;
+				document.getElementById("adres_kor2a").disabled = this.checked;
+				document.getElementById("adres_kor2b").disabled = this.checked;
+				document.getElementById("adres_kor2c").disabled = this.checked;
+				document.getElementById("adres_kor3a").disabled = this.checked;
+				document.getElementById("adres_kor3b").disabled = this.checked;
+				document.getElementById("adres_kor4").disabled = this.checked;
+				same_address = document.getElementById("same_addresses").checked;
+			});
+			
+			document.getElementById('adres_zam1').addEventListener('keyup', function () {
+				if(same_address == true) {
+					document.getElementById("adres_kor1").value = this.value;
+				}
+			});
+			
+			document.getElementById('adres_zam2a').addEventListener('keyup', function () {
+				if(same_address == true) {
+					document.getElementById("adres_kor2a").value = this.value;
+				}
+			});
+			
+			document.getElementById('adres_zam2b').addEventListener('keyup', function () {
+				if(same_address == true) {
+					document.getElementById("adres_kor2b").value = this.value;
+				}
+			});
+			
+			document.getElementById('adres_zam2c').addEventListener('keyup', function () {
+				if(same_address == true) {
+					document.getElementById("adres_kor2c").value = this.value;
+				}
+			});
+			
+			document.getElementById('adres_zam3a').addEventListener('keyup', function () {
+				if(same_address == true) {
+					document.getElementById("adres_kor3a").value = this.value;
+				}
+			});
+			
+			document.getElementById('adres_zam3b').addEventListener('keyup', function () {
+				if(same_address == true) {
+					document.getElementById("adres_kor3b").value = this.value;
+				}
+			});
+			
+			document.getElementById('adres_zam4').addEventListener('keyup', function () {
+				if(same_address == true) {
+					document.getElementById("adres_kor4").value = this.value;
+				}
+			});
+		</script>
+	</section>
+	<section>
+		<h3>Studia</h3>
+		<label for="adres_zam">Numer albumu:</label>
+		<input id="num_album" maxlength="6" size="6"><br>
+		<input type="radio" name="forma" value="stacjonarne" checked="checked">stacjonarne      
+		<input type="radio" name="forma" value="niestacjonarne">niestacjonarne<br>
+		<label for="stopien">Stopień:</label>
+		<input type="radio" name="stopien" value="I" checked="checked">I     
+		<input type="radio" name="stopien" value="II">II<br>
+		<label for="wydzial">Wydział:</label> 
+		<select id="wydzial">
+			<option value="">--wybierz--</option>
+			<option name="wyd" value="Budownictwa i Architektury" checked>Wydział Budownictwa i Architektury</option>
+			<option name="wyd" value="Elektrotechniki, Automatyki i Informatyki">Wydział Elektrotechniki, Automatyki i Informatyki</option>
+			<option name="wyd" value="Inżynierii Środowiska, Geomatyki i Energetyki">Wydział Inżynierii Środowiska, Geomatyki i Energetyki</option>
+			<option name="wyd" value="Mechatroniki i Budowy Maszyn">Wydział Mechatroniki i Budowy Maszyn</option>
+			<option name="wyd" value="Zarządzania i Modelowania Komputerowego">Wydział Zarządzania i Modelowania Komputerowego</option>
+		</select><br>
+		<div id='kierunek_div' style="display: none;">
+		<label for='kierunek'>Kierunek:</label>
+		<input type='text' id='kierunek' maxlength='50'>
+		</div>
+		<input type="checkbox" id="specjalnosc">Jestem na specjalności<br>
+		<div id='specjalizacja_div' style="display: none;">
+		<label for='specjalizacja'>Specjalność:</label>
+		<input type='text' id='specjalizacja' maxlength='50'>
+		</div>
+		<script>
+			document.getElementById('wydzial').addEventListener('change', function () {
+				var style = this.value != "" ? 'block' : 'none';
+				document.getElementById('kierunek_div').style.display = style;
+			});
+			
+			document.getElementById('specjalnosc').addEventListener('change', function () {
+				var style = this.checked == true ? 'block' : 'none';
+				document.getElementById('specjalizacja_div').style.display = style;
+			});
+		</script>
+	</section>
+	<section>
+	<h3>Inne</h3>
+	<label for="nazwa1">Rok rozpoczęcia studiowania:</label>
+	<input type="text" id="rok_rozp" size="4" maxlength="4"><br>
+	<input type="checkbox" id="czy_uczelnia1">Uczęszczałem do innej uczelni<br>
+	<div id="uczel1" style="display: none;">
+	<label for="nazwa1">Nazwa uczelni:</label>
+	<input type="text" id="nazwa1"><br>
+	<label for="rocznik1">Okres:</label> od <input type="text" id="rocznik11" maxlength="4" size="4"> do  <input type="text" id="rocznik12" maxlength="4" size="4"><br>
+	<label for="mies1">Ile miesięcy:</label>
+	<input type="number" id="mies1" size="2" value="0"><br><br>
+	<input type="checkbox" id="czy_uczelnia2">Uczęszczałem do jeszcze jednej uczelni<br>
+	</div>
+	<div id="uczel2" style="display: none;">
+	<label for="nazwa2">Nazwa uczelni:</label>
+	<input type="text" id="nazwa2"><br>
+	<label for="rocznik2">Okres:</label> od <input type="text" id="rocznik21" maxlength="4" size="4"> do  <input type="text" id="rocznik22" maxlength="4" size="4"><br>
+	<label for="mies2">Ile miesięcy:</label>
+	<input type="number" id="mies2" size="2" value="0"><br><br>
+	<input type="checkbox" id="czy_uczelnia3">Uczęszczałem do jeszcze jednej uczelni<br>
+	</div>
+	<div id="uczel3" style="display: none;">
+	<label for="nazwa3">Nazwa uczelni:</label>
+	<input type="text" id="nazwa3"><br>
+	<label for="rocznik3">Okres:</label> od <input type="text" id="rocznik31" maxlength="4" size="4"> do  <input type="text" id="rocznik32" maxlength="4" size="4"><br>
+	<label for="mies3">Ile miesięcy:</label>
+	<input type="number" id="mies3" size="2" value="0"><br><br>
+	</div>
+	<script>
+	var obecny = new Date();
+	document.getElementById('rok_rozp').value = obecny.getYear() + 1900 - 1;
+	
+	document.getElementById('czy_uczelnia1').addEventListener('change', function () {
+		var style = this.checked == true ? 'block' : 'none';
+		document.getElementById('uczel1').style.display = style;
+		if(style=='none') {
+			document.getElementById('nazwa1').value = "";
+			document.getElementById('rocznik11').value = "";
+			document.getElementById('rocznik12').value = "";
+			document.getElementById('mies1').value = 0;
+			document.getElementById('uczel2').style.display = 'none';
+			document.getElementById('czy_uczelnia2').checked = false;
+			document.getElementById('nazwa2').value = "";
+			document.getElementById('rocznik21').value = "";
+			document.getElementById('rocznik22').value = "";
+			document.getElementById('mies2').value = 0;
+			document.getElementById('uczel3').style.display = 'none';
+			document.getElementById('czy_uczelnia3').checked = false;
+			document.getElementById('nazwa3').value = "";
+			document.getElementById('rocznik31').value = "";
+			document.getElementById('rocznik32').value = "";
+			document.getElementById('mies3').value = 0;
+		}
+	});
+	document.getElementById('czy_uczelnia2').addEventListener('change', function () {
+		var style = this.checked == true ? 'block' : 'none';
+		document.getElementById('uczel2').style.display = style;
+		if(style=='none') {
+			document.getElementById('nazwa2').value = "";
+			document.getElementById('rocznik21').value = "";
+			document.getElementById('rocznik22').value = "";
+			document.getElementById('mies2').value = 0;
+			document.getElementById('uczel3').style.display = 'none';
+			document.getElementById('czy_uczelnia3').checked = false;
+			document.getElementById('nazwa3').value = "";
+			document.getElementById('rocznik31').value = "";
+			document.getElementById('rocznik32').value = "";
+			document.getElementById('mies3').value = 0;
+		}
+	});
+	document.getElementById('czy_uczelnia3').addEventListener('change', function () {
+		var style = this.checked == true ? 'block' : 'none';
+		document.getElementById('uczel3').style.display = style;
+		if(style=='none') {
+			document.getElementById('nazwa3').value = "";
+			document.getElementById('rocznik31').value = "";
+			document.getElementById('rocznik32').value = "";
+			document.getElementById('mies3').value = 0;
+		}
+	});
+	</script>
+	</section><br>
+	<section>
+	<label for="writing_char">Charakter pisma: </label>
+	<select id="writing_char" style="font-size: 0.4cm">
+		<option name="hand_font" value="0" style="font-family: Mistral" checked>Numer 1</option>
+		<option name="hand_font" value="1" style="font-family: Segoe Print">Numer 2</option>
+		<option name="hand_font" value="2" style="font-family: Segoe Script">Numer 3</option>
+	</select><br>
+	<label for="writing_col">Kolor długopisu: </label>
+	<select id="writing_col" style="font-size: 0.4cm">
+		<option name="hand_color" value="blue" style="color: blue" checked>Niebieski</option>
+		<option name="hand_color" value="black" style="color: black">Czarny</option>
+		<option name="hand_color" value="green" style="color: green">Zielony</option>
+		<option name="hand_color" value="red" style="color: red">Czerwony</option>
+	</select><br><br>
+	<div class="troubleshoot" id="troubleshoot"></div>
+	<button onClick=ask_for_confirm()>Generuj</button>
+	<button onClick=ask_for_clear()>Wyczyść</button>
+	<button onClick=example()>Przykładowe dane</button>
+	<button onClick=author_info()>Informacje o autorze</button><br>
+	</section>
+	</div>
+	</div>
+	<script>
+	function ask_for_confirm() {
+		if(confirm("Czy na pewno chcesz teraz zacząć generować?"))
+			generate();
+	}
+	
+	function ask_for_clear() {
+		if(confirm("Czy na pewno chcesz usunąć wszystkie ustawienia? Wszystkie wprowadzone dane zostaną usunięte."))
+			clear();
+	}
+	
+	function ask_for_return() {
+		if(confirm("Czy na pewno chcesz wrócić do trybu edycji?"))
+			return_to_edition();
+	}
+	
+	document.getElementById('writing_char').style.fontFamily = "Mistral";
+	
+	document.getElementById('writing_char').addEventListener('change', function () {
+		var style = this.value;
+		switch(style) {
+		case '0': 	document.getElementById('writing_char').style.fontFamily = "Mistral";
+					break;
+		case '1': 	document.getElementById('writing_char').style.fontFamily = "Segoe Print";
+					break;
+		case '2': 	document.getElementById('writing_char').style.fontFamily = "Segoe Script";
+					break;
+		}		
+	});
+	
+	document.getElementById('writing_col').style.color = "blue";
+	
+	document.getElementById('writing_col').addEventListener('change', function () {
+		var style = this.value;
+		document.getElementById('writing_col').style.color = style;
+	});
+	
+	function example() {
+		document.getElementById("imie").value = "Jan";
+		document.getElementById("nazwisko").value = "Kowalski";
+		document.getElementById("pesel").value = "00000000000";
+		document.getElementById("adres_zam1").value="Polna";
+		document.getElementById("adres_zam2a").value="1";
+		document.getElementById("adres_zam3a").value="00";
+		document.getElementById("adres_zam3b").value="000";
+		document.getElementById("adres_zam4").value="Warszawa";
+		document.getElementById("adres_kor1").value="Polna";
+		document.getElementById("adres_kor2a").value="1";
+		document.getElementById("adres_kor3a").value="00";
+		document.getElementById("adres_kor3b").value="000";
+		document.getElementById("adres_kor4").value="Warszawa";
+		document.getElementById("email_nick").value = "jan.kowalski";
+		document.getElementById("poczta").value = "gmail.com";
+		document.getElementById("telefon").value = "000000000";
+		document.getElementById("wydzial").value = "Inżynierii Środowiska, Geomatyki i Energetyki";
+		document.getElementsByName("stopien")[0].checked = true;
+		document.getElementsByName("forma")[0].checked = true;
+		document.getElementById("kierunek").value = "Energetyka";
+		document.getElementById("kierunek_div").style.display = "block";
+		document.getElementById("specjalnosc").checked = false;
+		document.getElementById("specjalizacja_div").style.display = "none";
+		document.getElementById("specjalizacja").value = "";
+		document.getElementById("num_album").value = "000000";
+		document.getElementById("rok_rozp").value = "2020";
+		document.getElementById("czy_uczelnia1").checked = true;
+		document.getElementById("uczel1").style.display = "block";
+		document.getElementById("nazwa1").value = "Uniwersytet Jana Kochanowskiego";
+		document.getElementById("rocznik11").value = "2017";
+		document.getElementById("rocznik12").value = "2020";
+		document.getElementById("mies1").value = 27;
+		document.getElementById("writing_char").value = "0";
+		document.getElementById('writing_char').style.fontFamily = "Mistral";
+		document.getElementById("writing_col").value = "green";
+		document.getElementById("writing_col").style.color = "green";
+	}
+	
+	function author_info() {
+		clear();
+		document.getElementById("imie").value = "Jakub";
+		document.getElementById("nazwisko").value = "Bednarski";
+		document.getElementById("email_nick").value = "jbednar2012";
+		document.getElementById("poczta").value = "gmail.com";
+		document.getElementById("wydzial").value = "Elektrotechniki, Automatyki i Informatyki";
+		document.getElementsByName("stopien")[0].checked = true;
+		document.getElementsByName("forma")[0].checked = true;
+		document.getElementById("kierunek").value = "Informatyka";
+		document.getElementById("specjalnosc").checked = true;
+		document.getElementById("specjalizacja_div").style.display = "block";
+		document.getElementById("specjalizacja").value = "Grafika komputerowa";
+		document.getElementById("rok_rozp").value = "2018";
+		document.getElementById("writing_char").value = "1";
+		document.getElementById('writing_char').style.fontFamily = "Segoe Print";
+	}
+	
+	var name, surname, pesel, nick, poczta, telefon, forma, stopien, wydzial, kierunek, album, rok, spec_chb, spec, ucz1, ucz2, ucz3, ucz11, ucz12, ucz13, ucz14, ucz21, ucz22, ucz23, ucz24, ucz31, ucz32, ucz33, ucz34, street, hn, hs, an, pc1, pc2, city, ch_p, k_dl;
+	
+	function getValues() {
+		name = document.getElementById("imie").value;
+		surname = document.getElementById("nazwisko").value;
+		pesel = document.getElementById("pesel").value;
+		nick = document.getElementById("email_nick").value;
+		poczta = document.getElementById("poczta").value;
+		telefon = document.getElementById("telefon").value;
+		stopien = document.getElementsByName("stopien");
+		forma = document.getElementsByName("forma");
+		wydzial = document.getElementById("wydzial").value;
+		kierunek = document.getElementById("kierunek").value;
+		album = document.getElementById("num_album").value;
+		rok = document.getElementById("rok_rozp").value;
+		spec_chb = document.getElementById("specjalnosc");
+		spec = document.getElementById("specjalizacja").value;
+		ucz1 = document.getElementById("czy_uczelnia1").checked;
+		ucz2 = document.getElementById("czy_uczelnia2").checked;
+		ucz3 = document.getElementById("czy_uczelnia3").checked;
+		ucz11 = document.getElementById("nazwa1").value;
+		ucz12 = document.getElementById("rocznik11").value;
+		ucz13 = document.getElementById("rocznik12").value;
+		ucz14 = document.getElementById("mies1").value;
+		ucz21 = document.getElementById("nazwa2").value;
+		ucz22 = document.getElementById("rocznik21").value;
+		ucz23 = document.getElementById("rocznik22").value;
+		ucz24 = document.getElementById("mies2").value;
+		ucz31 = document.getElementById("nazwa3").value;
+		ucz32 = document.getElementById("rocznik31").value;
+		ucz33 = document.getElementById("rocznik32").value;
+		ucz34 = document.getElementById("mies3").value;
+		ch_p = parseInt(document.getElementById("writing_char").value);
+		k_dl = document.getElementById("writing_col").value;
+	}
+	
+	function get_address() {
+		street = document.getElementById("adres_zam1").value;
+		hn = document.getElementById("adres_zam2a").value;
+		hs = document.getElementById("adres_zam2b").value;
+		an = document.getElementById("adres_zam2c").value;
+		pc1 = document.getElementById("adres_zam3a").value;
+		pc2 = document.getElementById("adres_zam3b").value;
+		city = document.getElementById("adres_zam4").value;
+	}
+	
+	function get_cor_address() {
+		street = document.getElementById("adres_kor1").value;
+		hn = document.getElementById("adres_kor2a").value;
+		hs = document.getElementById("adres_kor2b").value;
+		an = document.getElementById("adres_kor2c").value;
+		pc1 = document.getElementById("adres_kor3a").value;
+		pc2 = document.getElementById("adres_kor3b").value;
+		city = document.getElementById("adres_kor4").value;
+	}
+	
+	function clear() {
+		document.getElementById("imie").value = "";
+		document.getElementById("nazwisko").value = "";
+		document.getElementById("pesel").value = "";
+		document.getElementById("adres_zam1").value="";
+		document.getElementById("adres_zam2a").value="";
+		document.getElementById("adres_zam2b").value="";
+		document.getElementById("adres_zam2c").value="";
+		document.getElementById("adres_zam3a").value="";
+		document.getElementById("adres_zam3b").value="";
+		document.getElementById("adres_zam4").value="";
+		document.getElementById("adres_kor1").value="";
+		document.getElementById("adres_kor2a").value="";
+		document.getElementById("adres_kor2b").value="";
+		document.getElementById("adres_kor2c").value="";
+		document.getElementById("adres_kor3a").value="";
+		document.getElementById("adres_kor3b").value="";
+		document.getElementById("adres_kor4").value="";
+		document.getElementById("email_nick").value = "";
+		document.getElementById("poczta").value = "";
+		document.getElementById("telefon").value = "";
+		document.getElementById("wydzial").value = "";
+		document.getElementsByName("stopien")[0].checked = true;
+		document.getElementsByName("forma")[0].checked = true;
+		document.getElementById("kierunek").value = "";
+		document.getElementById("kierunek_div").style.display = "none";
+		document.getElementById("specjalnosc").checked = false;
+		document.getElementById("specjalizacja_div").style.display = "none";
+		document.getElementById("specjalizacja").value = "";
+		document.getElementById("num_album").value = "";
+		document.getElementById("rok_rozp").value = "";
+		document.getElementById("uczel1").style.display = "none";
+		document.getElementById("uczel2").style.display = "none";
+		document.getElementById("uczel3").style.display = "none";
+		document.getElementById("czy_uczelnia1").checked = false;
+		document.getElementById("czy_uczelnia2").checked = false;
+		document.getElementById("czy_uczelnia3").checked = false;
+		document.getElementById("nazwa1").value = "";
+		document.getElementById("rocznik11").value = "";
+		document.getElementById("rocznik12").value = "";
+		document.getElementById("mies1").value = "";
+		document.getElementById("nazwa2").value = "";
+		document.getElementById("rocznik21").value = "";
+		document.getElementById("rocznik22").value = "";
+		document.getElementById("mies2").value = "";
+		document.getElementById("nazwa3").value = "";
+		document.getElementById("rocznik31").value = "";
+		document.getElementById("rocznik32").value = "";
+		document.getElementById("mies3").value = "";
+		document.getElementById("writing_char").value = "0";
+		document.getElementById('writing_char').style.fontFamily = "Mistral";
+		document.getElementById("writing_col").value = "blue";
+		document.getElementById("writing_col").style.color = "blue";
+	}
+	
+	function is_value_numeric(value) {
+		var i=0, faults=0;
+		for(i;i<value.length;i++){
+			if(value[i]<'0' || value[i]>'9')
+				faults++;
+		}
+		if(faults>0)
+			return false;
+		else return true;
+	}
+	
+	function numbers_are_in(value) {
+		var i=0, faults=0;
+		for(i;i<value.length;i++){
+			if(!isNaN(parseInt(value[i])))
+				faults++;
+		}
+		if(faults>0)
+			return true;
+		else return false;
+	}
+	
+	function bad_address() {
+		get_address();
+		if(street=="" || hn=="" || !is_value_numeric(hn) || (hs!="" && is_value_numeric(hs)) || an!="" && !is_value_numeric(an) || pc1=="" || !is_value_numeric(pc1) || pc1.length != 2 || pc2=="" || !is_value_numeric(pc2) || pc2.length != 3 || city=="" || numbers_are_in(city))
+			return true;
+		else return false;
+	}
+	
+	function bad_cor_address() {
+		get_cor_address();
+		if(street=="" || hn=="" || !is_value_numeric(hn) || (hs!="" && is_value_numeric(hs)) || an!="" && !is_value_numeric(an) || pc1=="" || !is_value_numeric(pc1) || pc1.length != 2 || pc2=="" || !is_value_numeric(pc2) || pc2.length != 3 || city=="" || numbers_are_in(city))
+			return true;
+		else return false;
+	}
+	
+	function address_troubleshoot() {
+		get_address();
+		var overall = "<ul>";
+		if(street=="")
+			overall += "<li>Nie wpisano nazwy ulicy</li>";
+		if(hn=="")
+			overall += "<li>Nie wpisano numeru domu</li>";
+		else if(!is_value_numeric(hn))
+			overall += "<li>Wpisany numer domu nie jest liczbą</li>";
+		if(hs!="" && is_value_numeric(hs))
+			overall += "<li>Znak po numerze domu nie może być cyfrą</li>";
+		if(an!="" && !is_value_numeric(an))
+			overall += "<li>Wpisany numer mieszkania nie jest liczbą</li>";
+		if(pc1=="" || !is_value_numeric(pc1) || pc1.length != 2 || pc2=="" || !is_value_numeric(pc2) || pc2.length != 3)
+			overall += "<li>Nie wpisano poprawnie kodu pocztowego</li>";
+		if(city=="")
+			overall += "<li>Nie wpisano nazwy miejscowości</li>";
+		else if(numbers_are_in(city))
+			overall += "<li>Nazwa miejscowości nie może mieć cyfer</li>";
+		overall += "</ul>";
+		return overall;
+	}
+	
+	function cor_address_troubleshoot() {
+		get_cor_address();
+		var overall = "<ul>";
+		if(street=="")
+			overall += "<li>Nie wpisano nazwy ulicy</li>";
+		if(hn=="")
+			overall += "<li>Nie wpisano numeru domu</li>";
+		else if(!is_value_numeric(hn))
+			overall += "<li>Wpisany numer domu nie jest liczbą</li>";
+		if(hs!="" && is_value_numeric(hs))
+			overall += "<li>Znak po numerze domu nie może być cyfrą</li>";
+		if(an!="" && !is_value_numeric(an))
+			overall += "<li>Wpisany numer mieszkania nie jest liczbą</li>";
+		if(pc1=="" || !is_value_numeric(pc1) || pc1.length != 2 || pc2=="" || !is_value_numeric(pc2) || pc2.length != 3)
+			overall += "<li>Nie wpisano poprawnie kodu pocztowego</li>";
+		if(city=="")
+			overall += "<li>Nie wpisano nazwy miejscowości</li>";
+		else if(numbers_are_in(city))
+			overall += "<li>Nazwa miejscowości nie może mieć cyfer</li>";
+		overall += "</ul>";
+		return overall;
+	}
+	
+	function other_factors() {
+		return (ucz1==true && (ucz11=="" || ucz12=="" || !is_value_numeric(ucz12) || ucz12.length != 4 || ucz13=="" || !is_value_numeric(ucz13) || ucz13.length != 4 || parseInt(ucz12)>parseInt(ucz13) || parseInt(ucz12)>parseInt(rok) || parseInt(ucz13)>parseInt(rok) || ucz14=="" || ucz14==0)) || (ucz2==true && (ucz21=="" || ucz22=="" || !is_value_numeric(ucz22) || ucz22.length != 4 || ucz23=="" || !is_value_numeric(ucz23) || ucz23.length != 4 || parseInt(ucz22)>parseInt(ucz23) || parseInt(ucz22)>parseInt(rok) || parseInt(ucz23)>parseInt(rok) || ucz24=="" || ucz24==0)) || (ucz3==true && (ucz31=="" || ucz32=="" || !is_value_numeric(ucz32) || ucz32.length != 4 || ucz33=="" || !is_value_numeric(ucz33) || ucz33.length != 4 || parseInt(ucz32)>parseInt(ucz33) || parseInt(ucz32)>parseInt(rok) || parseInt(ucz33)>parseInt(rok) || ucz34=="" || ucz34==0));
+	}
+	
+	function legit() {
+		if(name=="" || numbers_are_in(name) || surname=="" || numbers_are_in(surname) || pesel=="" || !is_value_numeric(pesel) || pesel.length != 11 || bad_address() || bad_cor_address() || nick=="" || poczta=="" || telefon=="" || !is_value_numeric(telefon) || telefon.length != 9 || wydzial=="" || kierunek=="" || numbers_are_in(kierunek) || album=="" || !is_value_numeric(album) || album.length != 6 || rok=="" || !is_value_numeric(rok) || rok.length != 4 || (spec_chb.checked == true && (spec=="" || numbers_are_in(spec))) || other_factors())
+			return false;
+		else return true;
+	}
+	
+	function generate() {
+		var obecny = new Date();
+		getValues();
+		if(legit()) {
+			document.getElementById('troubleshoot').style.display = 'none';
+			get_address();
+			var adres_zam = "ul. "+street+" "+hn;
+			if(an!="")
+				adres_zam += "/"+an;
+			if(hs!="")
+				adres_zam += hs;
+			adres_zam += " "+pc1+"-"+pc2+" "+city;
+			get_cor_address();
+			var adres_kor = "ul. "+street+" "+hn;
+			if(an!="")
+				adres_kor += "/"+an;
+			if(hs!="")
+				adres_kor += hs;
+			adres_kor += " "+pc1+"-"+pc2+" "+city;
+			var sem_let, sem_zim;
+			var y = obecny.getFullYear();
+			if(obecny.getMonth()<=9) {
+				sem_let = y;
+				sem_zim = y-1;
+			}
+			else {
+				sem_let = y+1;
+				sem_zim = y;
+			}
+			document.getElementById('ready').style.display = 'block';
+			document.getElementById('not_ready').style.display = 'none';
+			var art_title = "Załącznik nr 1 do Regulaminu świadczeń dla studentów PŚk wprowadzonego zarządzeniem nr 58/19";
+			var innards = "<div class='buttons'><button onClick=ask_for_return()>Wróc do trybu edycji</button><button onClick=print_page()>Drukuj</button></div></div><div class='fill_text' style='text-align:right; font-size: 13px; width: 100%'><i>"+art_title+"</i></div><br><br><br>";
+			innards += "<font class='fill_text'>Data wpływu ....................</font><br><br>";
+			innards += "<div class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+name+" "+surname+"</div><div class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+adres_zam+"</div><br>";
+			innards += "<div class='label'>Nazwisko i imię wnioskodawcy</div><div class='label'>Adres zameldowania</div><br>";
+			innards += "<div class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+pesel+"</div><div class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+adres_zam+"</div><br>";
+			innards += "<div class='label'>PESEL</div><div class='label'>Adres do korespondencji</div><div class='sp'></div>";
+			innards += "<div class='fill_text'>Wydział <font class='handwriting"+ch_p+"' style='color: "+k_dl+";";
+			if(ch_p!=0)
+				innards+="font-size: 0.3cm";
+			else innards+="font-size: 0.45cm";
+			innards += "'>"+wydzial+"</font></div>";
+			innards += "<div class='fill_text'>Tel. kontaktowy <font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+telefon+"</font></div><br>";
+			innards += "<div class='fill_text'>Forma studiów <font class='handwriting"+ch_p+"' style='color: "+k_dl+";'> st. ";
+			if(stopien[0].checked && !stopien[1].checked)
+				innards += "I ";
+			else innards += "II ";
+			if(forma[0].checked && !forma[1].checked)
+				innards += "stacjonarne";
+			else innards += "niestacjonarne";
+			innards += "</font></div>";
+			innards += "<div class='fill_text'>e-mail:<font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+nick+"@"+poczta+"</font></div><br>";
+			innards += "<div class='fill_text' style='width: 100%;'>Kierunek:<font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+kierunek+"</font> Specjalność/zakres ";
+			if(spec=="")
+				innards += "<font class='empty_handwriting'>Pusto nad kreska</font>";
+			else innards += "<font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+spec+"</font>";
+			innards += "</div>"
+			innards += "<div class='fill_text' style='width: 100%;'>Nr albumu:<font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+album+"</font></div><div class='sp'></div>";
+			innards += "<div class='fill_text' style='width: 100%; text-align: center; padding-bottom: 0.2mm'><p><b><p>OŚWIADCZENIE O STUDIOWANIU</p><p>I NIEPOBIERANIU ŚWIADCZEŃ POMOCY MATERIALNEJ NA WIĘCEJ NIŻ JEDNYM KIERUNKU</p><p>w roku akademickim <font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+sem_zim+"</font>/<font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+sem_let+"</font> - semestr ";
+			if(y==sem_let)
+				innards += "zimowy/<u>letni</u>";
+			else innards += "<u>zimowy</u>/letni";
+			innards +="</p></b></div>";
+			innards += "<div class='fill_text' style='width: 100%; margin-bottom: 0.3mm'><ol>";
+			innards += "<li>Zgodnie z art. 93 ust. 1 ustawy z dnia 20 lipca 2018 r. - Prawo o szkolnictwie wyższym i nauce (Dz. U. poz. 1668, z późn. zm.) świadomy/a odpowiedzialności dyscyplinarnej za złożenie fałszywego oświadczenia, oświadczam, że nie pobieram świadczeń o których mowa w § 5 ust. 1 i 2 Regulaminu świadczeń dla studentów Politechniki Świętokrzyskiej, tj. stypendium socjalnego (w tym stypendium socjalnego w zwiększonej wysokości), stypendium dla osób niepełnosprawnych, stypendium rektora i zapomogi oraz oświadczam, iż nie będę występował/a o ich przyznanie na innym kierunku studiów niż przeze mnie zadeklarowany w pkt 2 niniejszego oświadczenia.</li><li>Oświadczam, że kierunkiem studiów, na którym deklaruję się występować z wnioskami o przyznanie świadczeń pomocy materialnej, o których mowa w pkt 1 jest: "
+			innards += "<div class='handwriting"+ch_p+"' style='width: 100%; text-align: center; color: "+k_dl+"'>"+kierunek+", Wydział "+wydzial+", Politechnika Świętokrzyska</div>";
+			innards += "<div class='label' style='width: 100%; text-align: center;'>podać dokładną nazwę kierunku(ów) studiów, wydział oraz nazwę uczelni</div>";
+			innards += "</li><li>Zapoznałem/am się z art. 93 ust. 2 i 3 Ustawy z dnia 20 lipca 2018 r Prawo o szkolnictwie wyższym i nauce (Dz.U. z 2018 r. poz. 1668 z późn. Zm.),zgodnie  z którymi świadczenia, o których mowa w art. 86.ust.1 pkt 1-4 i art. 359 ust.1 ustawy z dnia 20 lipca 2018 r Prawo o szkolnictwie wyższym i nauce, przysługują na studiach pierwszego stopnia, studiach drugiego stopnia i jednolitych magisterskich, jednak nie dłużej niż przez okres 6 lat; świadczenia nie przysługują studentowi posiadającemu tytuł zawodowy magistra, magistra inżyniera, albo równorzędny, licencjata, inżyniera albo równorzędny jeżli ponownie podejmuje studia pierwszego stopnia, przy czym przepisy art. 93 ust. 3 Ustawy stosuje się również do osób posiadających tytuły zawodowe uzyskane za granicą.<br>Oświadczam, że studia na Politechnice Świętokrzyskiej podjąłem/ jęłam w roku <font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+rok+"</font>. a wcześniej studiowałam/łem na uczelniach**:<ol>"
+			if(!ucz1)
+				innards += "<li><font class='empty_handwriting'>Nie ma nic na temat uniwerku nr 1</font>w latach<font class='empty_handwriting'>0000/0000</font> łącznie <font class='empty_handwriting'>000</font>miesięcy</li>";
+			else innards += "<li><font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+ucz11+"</font>w latach<font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+ucz12+"/"+ucz13+"</font> łącznie <font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+ucz14+"</font>miesięcy</li>";
+			if(!ucz2)
+				innards += "<li><font class='empty_handwriting'>Nie ma nic na temat uniwerku nr 2</font>w latach<font class='empty_handwriting'>0000/0000</font> łącznie <font class='empty_handwriting'>000</font>miesięcy</li>";
+			else innards += "<li><font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+ucz21+"</font>w latach<font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+ucz22+"/"+ucz23+"</font> łącznie <font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+ucz24+"</font>miesięcy</li>";
+			if(!ucz3)
+				innards += "<li><font class='empty_handwriting'>Nie ma nic na temat uniwerku nr 3</font>w latach<font class='empty_handwriting'>0000/0000</font> łącznie <font class='empty_handwriting'>000</font>miesięcy</li>";
+			else innards += "<li><font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+ucz31+"</font>w latach<font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+ucz32+"/"+ucz33+"</font> łącznie <font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+ucz34+"</font>miesięcy</li>";
+			innards += "</ol></li></ol><br><br><br><br><br><b>Oświadczam, że</b><ol>";
+			innards += "<li>Świadomy odpowiedzialności dyscyplinarnej za podanie nieprawdziwych danych i obowiązku zwrotu całości pobranych na takiej podstawie świadczeń pomocy materialnej, oświadczam że podane informacje są zgodne ze stanem faktycznym.</li>";
+			innards += "<li>Zobowiązuję się do niezwłocznego powiadomienia uczelni (do 7 dni) o ukończeniu studiów I lub II stopnia na innym kierunku.</li>";
+			innards += "<li>Zobowiązuję się do niezwłocznego poinformowania uczelni (w terminie 7 dni) w przypadku uzyskania prawa do pobierania w/w świadczeń pomocy materialnej na innym kierunku lub innej uczelni.</li></ol>";
+			var dzisiejsza_data = "";
+			if(obecny.getDate()<10)
+				dzisiejsza_data += "0"+obecny.getDate()+".";
+			else dzisiejsza_data += obecny.getDate()+".";
+			if(obecny.getMonth()<9)
+				dzisiejsza_data += "0"+(obecny.getMonth()+1)+".";
+			else dzisiejsza_data += (obecny.getMonth()+1)+".";
+			dzisiejsza_data += (obecny.getFullYear());
+			innards += "<div class = 'fill_text' style='text-align: center;'>Kielce dnia <font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+dzisiejsza_data+"</font></div><div class='handwriting"+ch_p+"' style='text-align: center; color: "+k_dl+"'>"+name+" "+surname+"</div><div class='fill_text' style='color: #00000000;'>x</div><div class='fill_text' style='text-align: right'>Podpis studenta składającego oświadczenie</div><div class='label' style='width: 100%'>*właściwe podkreślić<br>** należy podać wszystkie uczelnie, na których student rozpoczynał studia (bez względu na okres studiowania)</div>";
+			document.getElementById("ready").innerHTML = innards+"<br>";
+		}
+		else {
+			var problems = "";
+			document.getElementById("troubleshoot").style.display = "block";
+			if(name=="")
+				problems += "Nie wpisano imienia<br>";
+			else if(numbers_are_in(name))
+				problems += "Imię nie może mieć cyfer<br>";
+			if(surname=="")
+				problems += "Nie wpisano naziwska<br>";
+			else if(numbers_are_in(surname))
+				problems += "Nazwisko nie może mieć cyfer<br>";
+			if(pesel=="")
+				problems += "Nie wpisano numeru PESEL<br>";
+			else if(!is_value_numeric(pesel))
+				problems += "Wpisany numer PESEL nie jest liczbą<br>";
+			else if(pesel.length != 11)
+				problems += "Wpisany numer PESEL nie jest wystarczająco długi<br>";
+			if(bad_address())
+				problems += "Problemy z adresem zamieszkania:" + address_troubleshoot();
+			if(bad_cor_address())
+				problems += "Problemy z adresem do korespondencji:" + cor_address_troubleshoot();
+			if(nick=="" && poczta=="")
+				problems += "Nie wpisano adresu e-mail<br>";
+			else if(nick=="")
+				problems += "Nie wpisano nicku<br>";
+			else if(poczta=="")
+				problems += "Nie wybrano poczty elektronicznej<br>";
+			if(telefon=="")
+				problems += "Nie wpisano numeru telefonu<br>";
+			else if(!is_value_numeric(telefon))
+				problems += "Wpisany numer telefonu nie jest liczbą<br>";
+			else if(telefon.length != 9)
+				problems += "Wpisany numer telefonu nie jest wystarczająco długi<br>";
+			if(wydzial == "")
+				problems += "Nie wybrano wydziału<br>";
+			else {
+				if(kierunek == "")
+					problems += "Nie wpisano nazwy kierunku studiów<br>";
+				else if(numbers_are_in(kierunek))
+					problems += "Nazwa kierunku nie może mieć cyfer<br>";
+			}
+			if(album=="")
+				problems += "Nie wpisano numeru albumu<br>";
+			else if(!is_value_numeric(album))
+				problems += "Wpisany numer albumu nie jest liczbą<br>";
+			else if(album.length != 6)
+				problems += "Wpisany numer albumu nie jest wystarczająco długi<br>";
+			if(spec_chb.checked == true) {
+				if(spec=="")
+					problems += "Zaznaczono, że jest się na specjalności, ale nie zapisano, na jakiej<br>";
+				else if(numbers_are_in(spec))
+					problems += "Nazwa specjalności nie może mieć cyfer<br>";
+			}
+			if(rok=="")
+				problems += "Nie wpisano roku rozpoczęcia obecnych studiów<br>";
+			else if(!is_value_numeric(rok))
+				problems += "Wpisany rok rozpoczęcia obecnych studiów nie jest liczbą<br>";
+			else if(parseInt(rok)>obecny.getFullYear())
+				problems += "Wpisany rok rozpoczęcia studiów jeszcze się nie rozpoczął<br>";
+			if(ucz1==true || ucz2==true || ucz3==true) {
+			var univ_issues = 0;
+			if(ucz1==true) {
+				problems += "Problemy z wypełnianiem danych o innych uczelniach<ul>";
+				if(ucz11=="") {
+					problems += "<li>Uczelnia 1 - brak nazwy</li>";
+					univ_issues++;
+				}
+				if(ucz12==""){
+					problems += "<li>Uczelnia 1 - brak roku rozpoczęcia</li>";
+					univ_issues++;
+				}
+				else if(!is_value_numeric(ucz12)){
+					problems += "<li>Uczelnia 1 - podany rok rozpoczęcia nie jest liczbą</li>";
+					univ_issues++;
+				}
+				else if(ucz12.length != 4){
+					problems += "<li>Uczelnia 1 - podany rok rozpoczęcia jest za krótki</li>";
+					univ_issues++;
+				}
+				if(ucz13==""){
+					problems += "<li>Uczelnia 1 - brak roku zakończenia</li>";
+					univ_issues++;
+				}
+				else if(!is_value_numeric(ucz13)){
+					problems += "<li>Uczelnia 1 - podany rok zakończenia nie jest liczbą</li>";
+					univ_issues++;
+				}
+				else if(ucz13.length != 4){
+					problems += "<li>Uczelnia 1 - podany rok zakończenia jest za krótki</li>";
+					univ_issues++;
+				}
+				if(parseInt(ucz12)>parseInt(ucz13)){
+					problems += "<li>Uczelnia 1 - rok rozpoczęcia nie może być po roku zakończenia</li>";
+					univ_issues++;
+				}
+				if(parseInt(ucz12)>obecny.getFullYear()){
+					problems += "<li>Uczelnia 1 - rok rozpoczęcia jeszcze nie nadszedł</li>";
+					univ_issues++;
+				}
+				if(parseInt(ucz13)>obecny.getFullYear()){
+					problems += "<li>Uczelnia 1 - rok zakończenia jeszcze nie nadszedł</li>";
+					univ_issues++;
+				}
+				if(ucz14==""){
+					problems += "<li>Uczelnia 1 - brak liczby miesięcy</li>";
+					univ_issues++;
+				}
+				else if(ucz14==0){
+					problems += "<li>Uczelnia 1 - liczba miesięcy nie może być zerowa</li>";
+					univ_issues++;
+				}
+				if(univ_issues==0) {
+					problems += "<li>Uczelnia 1 - brak błędów</li>";
+				}
+				problems += "<br>";
+				univ_issues = 0;
+			}
+			if(ucz2==true) {
+				if(ucz21==""){
+					problems += "<li>Uczelnia 2 - brak nazwy</li>";
+					univ_issues++;
+				}
+				if(ucz22==""){
+					problems += "<li>Uczelnia 2 - brak roku rozpoczęcia</li>";
+					univ_issues++;
+				}
+				else if(!is_value_numeric(ucz22)){
+					problems += "<li>Uczelnia 2 - podany rok rozpoczęcia nie jest liczbą</li>";
+					univ_issues++;
+				}
+				else if(ucz22.length != 4){
+					problems += "<li>Uczelnia 2 - podany rok rozpoczęcia jest za krótki</li>";
+					univ_issues++;
+				}
+				if(ucz23==""){
+					problems += "<li>Uczelnia 2 - brak roku zakończenia</li>";
+					univ_issues++;
+				}
+				else if(!is_value_numeric(ucz23)){
+					problems += "<li>Uczelnia 2 - podany rok zakończenia nie jest liczbą</li>";
+					univ_issues++;
+				}
+				else if(ucz23.length != 4){
+					problems += "<li>Uczelnia 2 - podany rok zakończenia jest za krótki</li>";
+					univ_issues++;
+				}
+				if(parseInt(ucz22)>parseInt(ucz23)){
+					problems += "<li>Uczelnia 2 - rok rozpoczęcia nie może być po roku zakończenia</li>";
+					univ_issues++;
+				}
+				if(parseInt(ucz22)>obecny.getFullYear()){
+					problems += "<li>Uczelnia 2 - rok rozpoczęcia jeszcze nie nadszedł</li>";
+					univ_issues++;
+				}
+				if(parseInt(ucz23)>obecny.getFullYear()){
+					problems += "<li>Uczelnia 2 - rok zakończenia jeszcze nie nadszedł</li>";
+					univ_issues++;
+				}
+				if(ucz24==""){
+					problems += "<li>Uczelnia 2 - brak liczby miesięcy</li>";
+					univ_issues++;
+				}
+				else if(ucz24==0){
+					problems += "<li>Uczelnia 2 - liczba miesięcy nie może być zerowa</li>";
+					univ_issues++;
+				}
+				if(univ_issues==0) {
+					problems += "<li>Uczelnia 2 - brak błędów</li>";
+				}
+				problems += "<br>";
+				univ_issues = 0;
+			}
+			if(ucz3==true) {
+				if(ucz31==""){
+					problems += "<li>Uczelnia 3 - brak nazwy</li>";
+					univ_issues++;
+				}
+				if(ucz32==""){
+					problems += "<li>Uczelnia 3 - brak roku rozpoczęcia</li>";
+					univ_issues++;
+				}
+				else if(!is_value_numeric(ucz32)){
+					problems += "<li>Uczelnia 3 - podany rok rozpoczęcia nie jest liczbą</li>";
+					univ_issues++;
+				}
+				else if(ucz32.length != 4){
+					problems += "<li>Uczelnia 3 - podany rok rozpoczęcia jest za krótki</li>";
+					univ_issues++;
+				}
+				if(ucz33==""){
+					problems += "<li>Uczelnia 3 - brak roku zakończenia</li>";
+					univ_issues++;
+				}
+				else if(!is_value_numeric(ucz33)){
+					problems += "<li>Uczelnia 3 - podany rok zakończenia nie jest liczbą</li>";
+					univ_issues++;
+				}
+				else if(ucz33.length != 4){
+					problems += "<li>Uczelnia 3 - podany rok zakończenia jest za krótki</li>";
+					univ_issues++;
+				}
+				if(parseInt(ucz32)>parseInt(ucz33)){
+					problems += "<li>Uczelnia 3 - rok rozpoczęcia nie może być po roku zakończenia</li>";
+					univ_issues++;
+				}
+				if(parseInt(ucz32)>obecny.getFullYear()){
+					problems += "<li>Uczelnia 3 - rok rozpoczęcia jeszcze nie nadszedł</li>";
+					univ_issues++;
+				}
+				if(parseInt(ucz33)>obecny.getFullYear()){
+					problems += "<li>Uczelnia 3 - rok zakończenia jeszcze nie nadszedł</li>";
+					univ_issues++;
+				}
+				if(ucz34==""){
+					problems += "<li>Uczelnia 3 - brak liczby miesięcy</li>";
+					univ_issues++;
+				}
+				else if(ucz34==0){
+					problems += "<li>Uczelnia 3 - liczba miesięcy nie może być zerowa</li>";
+					univ_issues++;
+				}
+				if(univ_issues==0) {
+					problems += "<li>Uczelnia 3 - brak błędów</li>";
+				}
+			}
+			}
+			document.getElementById("troubleshoot").innerHTML = problems;
+		}
+	}
+	</script>
+</body>
+</html>

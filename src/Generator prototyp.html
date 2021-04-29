@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<head>
+	<title>Generator załączników - prototyp</title>
+	<meta name="author" content="Jakub Bednarski">
+	<link rel="Stylesheet" style="text/css" href="generator_style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo%20Narrow">
+	<style>
+		body {
+			background-color: white;
+			font-family: Archivo Narrow;
+			font-size: 4mm;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="ready" style='display: none;'></div>
+	<div id="not_ready" style='background-attachment: fixed; background-repeat: no-repeat; background-size: contain; background-position: center; background-image: url("bg.jpg");'>
+	<div class="title" id="title"><font style="font-size:0.5in">Politechnika Świętokrzyska</font><br><font style="font-size:0.3in">Generator załączników</font></div>
+	<div class="other_att" id="other_att">
+		<b>ten załącznik</b>
+		<a href="Generator prototyp.html">inny załącznik<span class='att_info'>info o innym załączniku</span></a>
+	</div>
+	<div id="preparing" class="preparing">
+	<div id="help_button" class="help_button" onmouseover=show_help() onmouseout=hide_help()>
+	<div id="help" class="help">
+	<b>UWAGA!!!</b> To tylko prototyp mający cele wyłącznie demonstrujące.
+	</font></div>
+	<script>
+		function show_help() {
+			document.getElementById('help').style.display = 'block';
+		}
+		
+		function hide_help() {
+			document.getElementById('help').style.display = 'none';
+		}
+		
+		function return_to_edition() {
+			document.getElementById('ready').style.display = 'none';
+			document.getElementById('not_ready').style.display = 'block';
+		}
+	</script>
+	</div>
+	<h1>Generator załącznika nr 0</h1>
+	<h2>Prototyp</h2>
+	<section>
+		<h3>Dane osobowe</h3>
+		<label for="imie">Imię:</label>
+		<input id="imie" maxlength="50"><br>
+		<label for="nazwisko">Nazwisko:</label>
+		<input id="nazwisko" maxlength="100"><br><br>
+		<label for="pesel">PESEL:</label>
+		<input id="pesel" maxlength="11" size="11"><br><br>
+		<input type="checkbox" id="same_addresses" checked="checked">Adres zamieszkania to też adres do korespondencji</br>
+		<label for="adres_zam">Adres zameldowania:</label>
+		<input type="text" id="adres_zam1" maxlength="30" placeholder="Ulica"> 
+		<input type="text" id="adres_zam2a" maxlength="4" size="4" placeholder="0000">/<input type="text" id="adres_zam2c" maxlength="3" size="3" placeholder="000"> <input type="text" id="adres_zam2b" maxlength="1" size="1" placeholder="A"> 
+		<input type="text" id="adres_zam3a" maxlength="2" size="2" placeholder="00">-<input type="text" id="adres_zam3b" maxlength="3" size="3" placeholder="000"> 
+		<input type="text" id="adres_zam4" maxlength="75" placeholder="Miejscowość"><br>
+		<label for="adres_kor">Adres do korespondencji:</label>
+		<input type="text" id="adres_kor1" maxlength="30" disabled="disabled" placeholder="Ulica"> 
+		<input type="text" id="adres_kor2a" maxlength="4" size="4" placeholder="0000" disabled="disabled">/<input type="text" id="adres_kor2c" maxlength="3" size="3" placeholder="000" disabled="disabled"> <input type="text" id="adres_kor2b" maxlength="1" size="1" disabled="disabled" placeholder="A"> 
+		<input type="text" id="adres_kor3a" maxlength="2" size="2" disabled="disabled" placeholder="00">-<input type="text" id="adres_kor3b" maxlength="3" size="3" disabled="disabled" placeholder="000"> 
+		<input type="text" id="adres_kor4" maxlength="75" disabled="disabled" placeholder="Miejscowość"><br><br>
+		<label for="email">Adres e-mail:</label>
+		<input type="text" id="email_nick" maxlength="30" placeholder="Nick">
+		<select id="poczta">
+			<option value="">--poczta--</option>
+			<option name="pocz" value="gmail.com">Gmail (Google)</option>
+			<option name="pocz" value="wp.pl">WP</option>
+			<option name="pocz" value="onet.pl">Onet</option>
+			<option name="pocz" value="o2.pl">O2</option>
+			<option name="pocz" value="interia.pl">Interia</option>
+			<option name="pocz" value="gazeta.pl">Gazeta.pl</option>
+			<option name="pocz" value="yahoo.com">Yahoo</option>
+		</select><br>
+		<label for="telefon">Numer telefonu:</label>
+		<input id="telefon" maxlength="9" size="9"><br><br>
+		<script>
+			var same_address = true;
+			
+			document.getElementById('same_addresses').addEventListener('change', function () {	
+				document.getElementById("adres_kor1").disabled = this.checked;
+				document.getElementById("adres_kor2a").disabled = this.checked;
+				document.getElementById("adres_kor2b").disabled = this.checked;
+				document.getElementById("adres_kor2c").disabled = this.checked;
+				document.getElementById("adres_kor3a").disabled = this.checked;
+				document.getElementById("adres_kor3b").disabled = this.checked;
+				document.getElementById("adres_kor4").disabled = this.checked;
+				same_address = document.getElementById("same_addresses").checked;
+			});
+			
+			document.getElementById('adres_zam1').addEventListener('keyup', function () {
+				if(same_address == true) {
+					document.getElementById("adres_kor1").value = this.value;
+				}
+			});
+			
+			document.getElementById('adres_zam2a').addEventListener('keyup', function () {
+				if(same_address == true) {
+					document.getElementById("adres_kor2a").value = this.value;
+				}
+			});
+			
+			document.getElementById('adres_zam2b').addEventListener('keyup', function () {
+				if(same_address == true) {
+					document.getElementById("adres_kor2b").value = this.value;
+				}
+			});
+			
+			document.getElementById('adres_zam2c').addEventListener('keyup', function () {
+				if(same_address == true) {
+					document.getElementById("adres_kor2c").value = this.value;
+				}
+			});
+			
+			document.getElementById('adres_zam3a').addEventListener('keyup', function () {
+				if(same_address == true) {
+					document.getElementById("adres_kor3a").value = this.value;
+				}
+			});
+			
+			document.getElementById('adres_zam3b').addEventListener('keyup', function () {
+				if(same_address == true) {
+					document.getElementById("adres_kor3b").value = this.value;
+				}
+			});
+			
+			document.getElementById('adres_zam4').addEventListener('keyup', function () {
+				if(same_address == true) {
+					document.getElementById("adres_kor4").value = this.value;
+				}
+			});
+		</script>
+	</section>
+	<section>
+		<h3>Studia</h3>
+		<label for="adres_zam">Numer albumu:</label>
+		<input id="num_album" maxlength="6" size="6"><br>
+		<input type="radio" name="forma" value="stacjonarne" checked="checked">stacjonarne      
+		<input type="radio" name="forma" value="niestacjonarne">niestacjonarne<br>
+		<label for="stopien">Stopień:</label>
+		<input type="radio" name="stopien" value="I" checked="checked">I     
+		<input type="radio" name="stopien" value="II">II<br>
+		<label for="wydzial">Wydział:</label> 
+		<select id="wydzial">
+			<option value="">--wybierz--</option>
+			<option name="wyd" value="Budownictwa i Architektury" checked>Wydział Budownictwa i Architektury</option>
+			<option name="wyd" value="Elektroniki, Automatyki i Informatyki">Wydział Elektroniki, Automatyki i Informatyki</option>
+			<option name="wyd" value="Inżynierii Środowiska, Geomatyki i Energetyki">Wydział Inżynierii Środowiska, Geomatyki i Energetyki</option>
+			<option name="wyd" value="Mechatroniki i Budowy Maszyn">Wydział Mechatroniki i Budowy Maszyn</option>
+			<option name="wyd" value="Zarządzania i Modelowania Komputerowego">Wydział Zarządzania i Modelowania Komputerowego</option>
+		</select><br>
+		<div id='kierunek_div' style="display: none;">
+		<label for='kierunek'>Kierunek:</label>
+		<input type='text' id='kierunek' maxlength='50'>
+		</div>
+		<input type="checkbox" id="specjalnosc">Jestem na specjalności<br><br>
+		<div id='specjalizacja_div' style="display: none;">
+		<label for='specjalizacja'>Specjalność:</label>
+		<input type='text' id='specjalizacja' maxlength='50'>
+		</div>
+		<script>
+			document.getElementById('wydzial').addEventListener('change', function () {
+				var style = this.value != "" ? 'block' : 'none';
+				document.getElementById('kierunek_div').style.display = style;
+			});
+			
+			document.getElementById('specjalnosc').addEventListener('change', function () {
+				var style = this.checked == true ? 'block' : 'none';
+				document.getElementById('specjalizacja_div').style.display = style;
+			});
+		</script>
+	</section>
+	<section>
+	<label for="writing_char">Charakter pisma: </label>
+	<select id="writing_char" style="font-size: 0.4cm">
+		<option name="hand_font" value="0" style="font-family: Mistral" checked>Numer 1</option>
+		<option name="hand_font" value="1" style="font-family: Segoe Print">Numer 2</option>
+		<option name="hand_font" value="2" style="font-family: Segoe Script">Numer 3</option>
+	</select><br>
+	<div class="troubleshoot" id="troubleshoot"></div>
+	<button onClick=ask_for_confirm()>Generuj</button>
+	<button onClick=ask_for_clear()>Wyczyść</button><br>
+	</section>
+	</div>
+	</div>
+	<script>
+	function ask_for_confirm() {
+		prompt("Normalnie tu jest okno dialogowe TAK/NIE.");
+		generate();
+	}
+	
+	function ask_for_clear() {
+		prompt("Normalnie tu jest okno dialogowe TAK/NIE.");
+		clear();
+	}
+	
+	function ask_for_return() {
+		prompt("Normalnie tu jest okno dialogowe TAK/NIE.");
+		return_to_edition();
+	}
+	
+	var name, surname, pesel, nick, poczta, telefon, forma, stopien, wydzial, kierunek, album, spec_chb, spec, street, hn, hs, an, pc1, pc2, city, ch_p;
+	
+	function getValues() {
+		name = document.getElementById("imie").value;
+		surname = document.getElementById("nazwisko").value;
+		pesel = document.getElementById("pesel").value;
+		nick = document.getElementById("email_nick").value;
+		poczta = document.getElementById("poczta").value;
+		telefon = document.getElementById("telefon").value;
+		stopien = document.getElementsByName("stopien");
+		forma = document.getElementsByName("forma");
+		wydzial = document.getElementById("wydzial").value;
+		kierunek = document.getElementById("kierunek").value;
+		album = document.getElementById("num_album").value;
+		spec_chb = document.getElementById("specjalnosc");
+		spec = document.getElementById("specjalizacja").value;
+		ch_p = parseInt(document.getElementById("writing_char").value);
+	}
+	
+	function get_address() {
+		street = document.getElementById("adres_zam1").value;
+		hn = document.getElementById("adres_zam2a").value;
+		hs = document.getElementById("adres_zam2b").value;
+		an = document.getElementById("adres_zam2c").value;
+		pc1 = document.getElementById("adres_zam3a").value;
+		pc2 = document.getElementById("adres_zam3b").value;
+		city = document.getElementById("adres_zam4").value;
+	}
+	
+	function get_cor_address() {
+		street = document.getElementById("adres_kor1").value;
+		hn = document.getElementById("adres_kor2a").value;
+		hs = document.getElementById("adres_kor2b").value;
+		an = document.getElementById("adres_kor2c").value;
+		pc1 = document.getElementById("adres_kor3a").value;
+		pc2 = document.getElementById("adres_kor3b").value;
+		city = document.getElementById("adres_kor4").value;
+	}
+	
+	function clear() {
+		document.getElementById("imie").value = "";
+		document.getElementById("nazwisko").value = "";
+		document.getElementById("pesel").value = "";
+		document.getElementById("adres_zam1").value="";
+		document.getElementById("adres_zam2a").value="";
+		document.getElementById("adres_zam2b").value="";
+		document.getElementById("adres_zam2c").value="";
+		document.getElementById("adres_zam3a").value="";
+		document.getElementById("adres_zam3b").value="";
+		document.getElementById("adres_zam4").value="";
+		document.getElementById("adres_kor1").value="";
+		document.getElementById("adres_kor2a").value="";
+		document.getElementById("adres_kor2b").value="";
+		document.getElementById("adres_kor2c").value="";
+		document.getElementById("adres_kor3a").value="";
+		document.getElementById("adres_kor3b").value="";
+		document.getElementById("adres_kor4").value="";
+		document.getElementById("email_nick").value = "";
+		document.getElementById("poczta").value = "";
+		document.getElementById("telefon").value = "";
+		document.getElementById("wydzial").value = "";
+		document.getElementsByName("stopien")[0].checked = true;
+		document.getElementsByName("forma")[0].checked = true;
+		document.getElementById("kierunek").value = "";
+		document.getElementById("kierunek_div").style.display = "none";
+		document.getElementById("specjalnosc").checked = false;
+		document.getElementById("specjalizacja_div").style.display = "none";
+		document.getElementById("specjalizacja").value = "";
+		document.getElementById("num_album").value = "";
+		document.getElementById("writing_char").value = "0";
+	}
+	
+	function is_value_numeric(value) {
+		var i=0, faults=0;
+		for(i;i<value.length;i++){
+			if(value[i]<'0' || value[i]>'9')
+				faults++;
+		}
+		if(faults>0)
+			return false;
+		else return true;
+	}
+	
+	function numbers_are_in(value) {
+		var i=0, faults=0;
+		for(i;i<value.length;i++){
+			if(!isNaN(parseInt(value[i])))
+				faults++;
+		}
+		if(faults>0)
+			return true;
+		else return false;
+	}
+	
+	function bad_address() {
+		get_address();
+		if(street=="" || hn=="" || !is_value_numeric(hn) || (hs!="" && is_value_numeric(hs)) || an!="" && !is_value_numeric(an) || pc1=="" || !is_value_numeric(pc1) || pc1.length != 2 || pc2=="" || !is_value_numeric(pc2) || pc2.length != 3 || city=="" || numbers_are_in(city))
+			return true;
+		else return false;
+	}
+	
+	function bad_cor_address() {
+		get_cor_address();
+		if(street=="" || hn=="" || !is_value_numeric(hn) || (hs!="" && is_value_numeric(hs)) || an!="" && !is_value_numeric(an) || pc1=="" || !is_value_numeric(pc1) || pc1.length != 2 || pc2=="" || !is_value_numeric(pc2) || pc2.length != 3 || city=="" || numbers_are_in(city))
+			return true;
+		else return false;
+	}
+	
+	function other_factors() {
+		return false;
+	}
+	
+	function legit() {
+		if(name=="" || numbers_are_in(name) || surname=="" || numbers_are_in(surname) || pesel=="" || !is_value_numeric(pesel) || pesel.length != 11 || bad_address() || bad_cor_address() || nick=="" || poczta=="" || telefon=="" || !is_value_numeric(telefon) || telefon.length != 9 || wydzial=="" || kierunek=="" || numbers_are_in(kierunek) || album=="" || !is_value_numeric(album) || album.length != 6 || (spec_chb.checked == true && (spec=="" || numbers_are_in(spec))) || other_factors())
+			return false;
+		else return true;
+	}
+	
+	function generate() {
+		var obecny = new Date();
+		getValues();
+		if(legit()) {
+			var decoy = "<div class='buttons'><button onClick=ask_for_return()>Wróc do trybu edycji</button></div><div class='fill_text'>"+name+" "+surname+"<br>"+pesel+"<br>"+nick+"@"+poczta+"<br>"+telefon+"<br>"+wydzial+"<br>"+kierunek+"<br>S"+album+"</div>";
+			document.getElementById('ready').style.display = 'block';
+			document.getElementById('not_ready').style.display = 'none';
+			document.getElementById("ready").innerHTML = decoy;
+		}
+		else {
+			var problems = "Obsługa błędów<br>Jeśli widać ten komunikat, to znaczy że gdzieś popełniono błąd.";
+			document.getElementById("troubleshoot").style.display = "block";
+			document.getElementById("troubleshoot").innerHTML = problems;
+		}
+	}
+	</script>
+</body>
+</html>
