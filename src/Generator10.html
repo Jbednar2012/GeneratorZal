@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Generator załączników - 10</title>
+	<meta name="author" content="Jakub Bednarski">
+	<link rel="Stylesheet" style="text/css" href="generator_style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo%20Narrow">
+	<style>
+		body {
+			background-color: white;
+			font-family: Archivo Narrow;
+			font-size: 4mm;
+		}
+		
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		li {
+			padding-left: 16px;
+		}
+
+		li.unmarked::before {
+			content: url("unmarked.png");
+			padding-right: 8px;
+		}
+
+		li.marked::before {
+			content: url("marked.png");
+			padding-right: 8px;
+		}
+		
+		table:not(table.numer_konta0, table.numer_konta1, table.numer_konta2) {
+			width:100%;
+			border-collapse:collapse;
+		}
+		
+		table tr td {
+			text-align: center;
+			border: 1px solid black;
+			padding-left:8px;
+			padding-right:8px;
+		}
+		
+		table tr td.title {
+			font-weight: bold;
+		}
+		
+		table tr td.t {
+			border-bottom-color: white;
+			padding-top: 12px;
+		}
+		
+		table tr td.c {
+			border-top-color: white;
+			border-bottom-color: white;
+			padding-top: 12px;
+		}
+		
+		table tr td.b {
+			border-top-color: white;
+			padding-top: 12px;
+			padding-bottom: 12px;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="ready" style='display: none;'></div>
+	<div id="not_ready" style='background-attachment: fixed; background-repeat: no-repeat; background-size: contain; background-position: center; background-image: url("bg.jpg");'>
+	<a href="../main.html" class="menu_hyperlink"><div class="title" id="title"><font style="font-size:0.5in">Politechnika Świętokrzyska</font><br><font style="font-size:0.3in">Generator załączników</font></div></a>
+	<div class="other_att" id="other_att">
+		<a href="Generator1.html" onMouseOver='show_title("Oświadczenie o studiowaniu i niepobieraniu świadczeń pomocy materialnej na więcej niż jednym kierunku")' onMouseOut=hide_title()>1</a>
+		<a href="Generator3.html" onMouseOver='show_title("Oświadczenie o nieprowadzeniu wspólnego gospodarstwa domowego")' onMouseOut=hide_title()>3</a>
+		<a href="Generator4.html" onMouseOver='show_title("Wniosek o ustalenie prawa do świadczeń pomocy materialnej")' onMouseOut=hide_title()>4</a>
+		<a href="Generator5.html" onMouseOver='show_title("Oświadczenie o wysokości składek na ubezpieczenie zdrowotne w roku kalendarzowym poprzedzającym rok akademicki")' onMouseOut=hide_title()>5</a>
+		<a href="Generator9.html" onMouseOver='show_title("Oświadczenie o zmianie sytuacji materialnej dla stypendium socjalnego")' onMouseOut=hide_title()>9</a>
+		<b>10</b>
+		<a href="Generator10a.html" onMouseOver='show_title("Wniosek o przyznanie stypendium Rektora dla studentów pierwszego roku I stopnia")' onMouseOut=hide_title()>10a</a>
+		<a href="Generator10b.html" onMouseOver='show_title("Wniosek o przyznanie stypendium Rektora na kolejny semestr tego samego roku studiów")' onMouseOut=hide_title()>10b</a>
+		<a href="Generator13.html" onMouseOver='show_title("Klauzula w sprawie przetwarzania danych osobowych")' onMouseOut=hide_title()>13</a>
+		<a href="Generator16.html" onMouseOver='show_title("Zgoda na otrzymywanie korespondencji drogą elektroniczną")' onMouseOut=hide_title()>16</a>
+	</div>
+	<div class="att_info" id="att_info"></div>
+	<div id="preparing" class="preparing">
+	<div id="help_button" class="help_button" onmouseover=show_help() onmouseout=hide_help()>
+	<div id="help" class="help">
+	Ten dokument składają studenci studiów I stopnia na początku semestru.<br><br>
+	Obliczenia punktacji są po prostu sumą wpisanych punktów, co jest nie do końca zgodne z rzeczywistymi obliczeniami. W celu wykonania odpowiednich obliczeń i wpisania punktów prawidłowo, zajrzyj <a href="Zarz_R_58_19_za_11.pdf" target="_blank" style="color: white">tutaj</a>.<br><br>
+	Każde osiągnięcie musi być udowodnione, np. plakatem z koncertu lub stroną w gazecie z publikacją naukową.<br><br>
+	Numer konta należy wpisać jednym ciągiem liczb.
+	</div>
+	<script>
+		function show_help() {
+			document.getElementById('help').style.display = 'block';
+		}
+		
+		function hide_help() {
+			document.getElementById('help').style.display = 'none';
+		}
+		
+		function show_title(title) {
+			document.getElementById('att_info').innerHTML = title;
+		}
+		
+		function hide_title() {
+			document.getElementById('att_info').innerHTML = "";
+		}
+		
+		function return_to_edition() {
+			document.getElementById('ready').style.display = 'none';
+			document.getElementById('not_ready').style.display = 'block';
+		}
+		
+		function print_page(){
+			if (!window.print){
+				return_to_edition();
+				document.getElementById("troubleshoot").innerHTML = "Niestety, przeglądarka nie ma opcji drukowania<br>";
+				document.getElementById("troubleshoot").style.display = "block";
+			}
+			window.print();
+		}
+	</script>
+	</div>
+	<h1>Generator załącznika nr 10</h1>
+	<h2>Wniosek o przyznanie stypendium Rektora</h2>
+	<section>
+		<h3>Dane osobowe</h3>
+		<label for="imie">Imię:</label>
+		<input id="imie" maxlength="50"><br>
+		<label for="nazwisko">Nazwisko:</label>
+		<input id="nazwisko" maxlength="100"><br><br>
+		<label for="pesel">PESEL:</label>
+		<input id="pesel" maxlength="11" size="11"><br><br>
+		<input type="checkbox" id="same_addresses" checked="checked">Adres zamieszkania to też adres do korespondencji</br>
+		<label for="adres_zam">Adres zameldowania:</label>
+		<input type="text" id="adres_zam1" maxlength="30" placeholder="Ulica"> 
+		<input type="text" id="adres_zam2a" maxlength="4" size="4" placeholder="0000">/<input type="text" id="adres_zam2c" maxlength="3" size="3" placeholder="000"> <input type="text" id="adres_zam2b" maxlength="1" size="1" placeholder="A"> 
+		<input type="text" id="adres_zam3a" maxlength="2" size="2" placeholder="00">-<input type="text" id="adres_zam3b" maxlength="3" size="3" placeholder="000"> 
+		<input type="text" id="adres_zam4" maxlength="75" placeholder="Miejscowość"><br>
+		<label for="adres_kor">Adres do korespondencji:</label>
+		<input type="text" id="adres_kor1" maxlength="30" disabled="disabled" placeholder="Ulica"> 
+		<input type="text" id="adres_kor2a" maxlength="4" size="4" placeholder="0000" disabled="disabled">/<input type="text" id="adres_kor2c" maxlength="3" size="3" placeholder="000" disabled="disabled"> <input type="text" id="adres_kor2b" maxlength="1" size="1" disabled="disabled" placeholder="A"> 
+		<input type="text" id="adres_kor3a" maxlength="2" size="2" disabled="disabled" placeholder="00">-<input type="text" id="adres_kor3b" maxlength="3" size="3" disabled="disabled" placeholder="000"> 
+		<input type="text" id="adres_kor4" maxlength="75" disabled="disabled" placeholder="Miejscowość"><br><br>
+		<label for="email">Adres e-mail:</label>
+		<input type="text" id="email_nick" maxlength="30" placeholder="Nick">
+		<select id="poczta">
+			<option value="">--poczta--</option>
+			<option name="pocz" value="gmail.com">Gmail (Google)</option>
+			<option name="pocz" value="wp.pl">WP</option>
+			<option name="pocz" value="onet.pl">Onet</option>
+			<option name="pocz" value="o2.pl">O2</option>
+			<option name="pocz" value="interia.pl">Interia</option>
+			<option name="pocz" value="gazeta.pl">Gazeta.pl</option>
+			<option name="pocz" value="yahoo.com">Yahoo</option>
+		</select><br>
+		<label for="telefon">Numer telefonu:</label>
+		<input id="telefon" maxlength="9" size="9"><br><br>
+		<script>
+			var same_address = true;
+			
+			document.getElementById('same_addresses').addEventListener('change', function () {	
+				document.getElementById("adres_kor1").disabled = this.checked;
+				document.getElementById("adres_kor2a").disabled = this.checked;
+				document.getElementById("adres_kor2b").disabled = this.checked;
+				document.getElementById("adres_kor2c").disabled = this.checked;
+				document.getElementById("adres_kor3a").disabled = this.checked;
+				document.getElementById("adres_kor3b").disabled = this.checked;
+				document.getElementById("adres_kor4").disabled = this.checked;
+				same_address = document.getElementById("same_addresses").checked;
+			});
+			
+			document.getElementById('adres_zam1').addEventListener('keyup', function () {
+				if(same_address == true) {
+					document.getElementById("adres_kor1").value = this.value;
+				}
+			});
+			
+			document.getElementById('adres_zam2a').addEventListener('keyup', function () {
+				if(same_address == true) {
+					document.getElementById("adres_kor2a").value = this.value;
+				}
+			});
+			
+			document.getElementById('adres_zam2b').addEventListener('keyup', function () {
+				if(same_address == true) {
+					document.getElementById("adres_kor2b").value = this.value;
+				}
+			});
+			
+			document.getElementById('adres_zam2c').addEventListener('keyup', function () {
+				if(same_address == true) {
+					document.getElementById("adres_kor2c").value = this.value;
+				}
+			});
+			
+			document.getElementById('adres_zam3a').addEventListener('keyup', function () {
+				if(same_address == true) {
+					document.getElementById("adres_kor3a").value = this.value;
+				}
+			});
+			
+			document.getElementById('adres_zam3b').addEventListener('keyup', function () {
+				if(same_address == true) {
+					document.getElementById("adres_kor3b").value = this.value;
+				}
+			});
+			
+			document.getElementById('adres_zam4').addEventListener('keyup', function () {
+				if(same_address == true) {
+					document.getElementById("adres_kor4").value = this.value;
+				}
+			});
+		</script>
+	</section>
+	<section>
+		<h3>Studia</h3>
+		<label for="adres_zam">Numer albumu:</label>
+		<input id="num_album" maxlength="6" size="6"><br>
+		<input type="radio" name="forma" value="stacjonarne" checked="checked">stacjonarne      
+		<input type="radio" name="forma" value="niestacjonarne">niestacjonarne<br>
+		<label for="wydzial">Wydział:</label> 
+		<select id="wydzial">
+			<option value="">--wybierz--</option>
+			<option name="wyd" value="Budownictwa i Architektury" checked>Wydział Budownictwa i Architektury</option>
+			<option name="wyd" value="Elektrotechniki, Automatyki i Informatyki">Wydział Elektrotechniki, Automatyki i Informatyki</option>
+			<option name="wyd" value="Inżynierii Środowiska, Geomatyki i Energetyki">Wydział Inżynierii Środowiska, Geomatyki i Energetyki</option>
+			<option name="wyd" value="Mechatroniki i Budowy Maszyn">Wydział Mechatroniki i Budowy Maszyn</option>
+			<option name="wyd" value="Zarządzania i Modelowania Komputerowego">Wydział Zarządzania i Modelowania Komputerowego</option>
+		</select><br>
+		<div id='kierunek_div' style="display: none;">
+		<label for='kierunek'>Kierunek:</label>
+		<input type='text' id='kierunek' maxlength='50'>
+		</div>
+		<input type="checkbox" id="specjalnosc">Jestem na specjalności<br>
+		<div id='specjalizacja_div' style="display: none;">
+		<label for='specjalizacja'>Specjalność:</label>
+		<input type='text' id='specjalizacja' maxlength='50'>
+		</div>
+		<script>
+			document.getElementById('wydzial').addEventListener('change', function () {
+				var style = this.value != "" ? 'block' : 'none';
+				document.getElementById('kierunek_div').style.display = style;
+			});
+			
+			document.getElementById('specjalnosc').addEventListener('change', function () {
+				var style = this.checked == true ? 'block' : 'none';
+				document.getElementById('specjalizacja_div').style.display = style;
+			});
+		</script>
+	</section>
+	<section>
+	<h3>Inne</h3>
+	<label for="num_konta">Numer konta bankowego:</label>
+	<input type="text" id="num_konta" maxlength="26" size="26"><br>
+	<label for="num_konta">Z tytułu:</label>
+	<select id="motyw" style="font-size: 0.4cm">
+		<option name="styp_motyw" value="" checked>--motyw--</option>
+		<option name="styp_motyw" value="wyr_wyniki" checked>Wyróżniające wyniki w nauce</option>
+		<option name="styp_motyw" value="os_nauk">Osiągnięcia naukowe</option>
+		<option name="styp_motyw" value="os_art">Osiągnięcia artystyczne</option>
+		<option name="styp_motyw" value="os_sport">Wysokie wyniki sportowe (poziom krajowy lub wyżej)</option>
+	</select><br><br>
+	<div id="wyniki_div" style="display: none">
+	<label for="wynik">Wynik:</label>
+	<input type="text" id="wynik_h" maxlength="1" size="1" placeholder="0">.<input type="text" id="wynik_l" maxlength="2" size="2" placeholder="00"><br>
+	</div>
+	<div id="nauk_div" style="display: none">
+	Opis: <input type="text" id="opis_n1" maxlength="50" size="50" placeholder="Osiagniecie nr 1">
+	Liczba punktów: <input type="number" id="punkty_n1" max="11" min="1"><br>
+	Opis: <input type="text" id="opis_n2" maxlength="50" size="50" placeholder="Osiagniecie nr 2">
+	Liczba punktów: <input type="number" id="punkty_n2" max="11" min="1"><br>
+	Opis: <input type="text" id="opis_n3" maxlength="50" size="50" placeholder="Osiagniecie nr 3">
+	Liczba punktów: <input type="number" id="punkty_n3" max="11" min="1"><br>
+	Opis: <input type="text" id="opis_n4" maxlength="50" size="50" placeholder="Osiagniecie nr 4">
+	Liczba punktów: <input type="number" id="punkty_n4" max="11" min="1"><br>
+	Opis: <input type="text" id="opis_n5" maxlength="50" size="50" placeholder="Osiagniecie nr 5">
+	Liczba punktów: <input type="number" id="punkty_n5" max="11" min="1"><br>
+	Opis: <input type="text" id="opis_n6" maxlength="50" size="50" placeholder="Osiagniecie nr 6">
+	Liczba punktów: <input type="number" id="punkty_n6" max="11" min="1"><br>
+	Opis: <input type="text" id="opis_n7" maxlength="50" size="50" placeholder="Osiagniecie nr 7">
+	Liczba punktów: <input type="number" id="punkty_n7" max="11" min="1"><br>
+	Opis: <input type="text" id="opis_n8" maxlength="50" size="50" placeholder="Osiagniecie nr 8">
+	Liczba punktów: <input type="number" id="punkty_n8" max="11" min="1"><br>
+	Opis: <input type="text" id="opis_n9" maxlength="50" size="50" placeholder="Osiagniecie nr 9">
+	Liczba punktów: <input type="number" id="punkty_n9" max="11" min="1"><br>
+	Opis: <input type="text" id="opis_n10" maxlength="50" size="50" placeholder="Osiagniecie nr 10">
+	Liczba punktów: <input type="number" id="punkty_n10" max="11" min="1"><br>
+	</div>
+	<div id="art_div" style="display: none">
+	Opis: <input type="text" id="opis_a1" maxlength="50" size="50" placeholder="Osiagniecie nr 1">
+	Liczba punktów: <input type="number" id="punkty_a1" max="7" min="1"><br>
+	Opis: <input type="text" id="opis_a2" maxlength="50" size="50" placeholder="Osiagniecie nr 2">
+	Liczba punktów: <input type="number" id="punkty_a2" max="7" min="1"><br>
+	Opis: <input type="text" id="opis_a3" maxlength="50" size="50" placeholder="Osiagniecie nr 3">
+	Liczba punktów: <input type="number" id="punkty_a3" max="7" min="1"><br>
+	Opis: <input type="text" id="opis_a4" maxlength="50" size="50" placeholder="Osiagniecie nr 4">
+	Liczba punktów: <input type="number" id="punkty_a4" max="7" min="1"><br>
+	Opis: <input type="text" id="opis_a5" maxlength="50" size="50" placeholder="Osiagniecie nr 5">
+	Liczba punktów: <input type="number" id="punkty_a5" max="7" min="1"><br>
+	Opis: <input type="text" id="opis_a6" maxlength="50" size="50" placeholder="Osiagniecie nr 6">
+	Liczba punktów: <input type="number" id="punkty_a6" max="7" min="1"><br>
+	Opis: <input type="text" id="opis_a7" maxlength="50" size="50" placeholder="Osiagniecie nr 7">
+	Liczba punktów: <input type="number" id="punkty_a7" max="7" min="1"><br>
+	Opis: <input type="text" id="opis_a8" maxlength="50" size="50" placeholder="Osiagniecie nr 8">
+	Liczba punktów: <input type="number" id="punkty_a8" max="7" min="1"><br>
+	Opis: <input type="text" id="opis_a9" maxlength="50" size="50" placeholder="Osiagniecie nr 9">
+	Liczba punktów: <input type="number" id="punkty_a9" max="7" min="1"><br>
+	Opis: <input type="text" id="opis_a10" maxlength="50" size="50" placeholder="Osiagniecie nr 10">
+	Liczba punktów: <input type="number" id="punkty_a10" max="7" min="1"><br>
+	</div>
+	<div id="sport_div" style="display: none">
+	Opis: <input type="text" id="opis_s1" maxlength="50" size="50" placeholder="Osiagniecie nr 1">
+	Liczba punktów: <input type="number" id="punkty_s1" max="15" min="2"><br>
+	Opis: <input type="text" id="opis_s2" maxlength="50" size="50" placeholder="Osiagniecie nr 2">
+	Liczba punktów: <input type="number" id="punkty_s2" max="15" min="2"><br>
+	Opis: <input type="text" id="opis_s3" maxlength="50" size="50" placeholder="Osiagniecie nr 3">
+	Liczba punktów: <input type="number" id="punkty_s3" max="15" min="2"><br>
+	Opis: <input type="text" id="opis_s4" maxlength="50" size="50" placeholder="Osiagniecie nr 4">
+	Liczba punktów: <input type="number" id="punkty_s4" max="15" min="2"><br>
+	Opis: <input type="text" id="opis_s5" maxlength="50" size="50" placeholder="Osiagniecie nr 5">
+	Liczba punktów: <input type="number" id="punkty_s5" max="15" min="2"><br>
+	Opis: <input type="text" id="opis_s6" maxlength="50" size="50" placeholder="Osiagniecie nr 6">
+	Liczba punktów: <input type="number" id="punkty_s6" max="15" min="2"><br>
+	Opis: <input type="text" id="opis_s7" maxlength="50" size="50" placeholder="Osiagniecie nr 7">
+	Liczba punktów: <input type="number" id="punkty_s7" max="15" min="2"><br>
+	Opis: <input type="text" id="opis_s8" maxlength="50" size="50" placeholder="Osiagniecie nr 8">
+	Liczba punktów: <input type="number" id="punkty_s8" max="15" min="2"><br>
+	Opis: <input type="text" id="opis_s9" maxlength="50" size="50" placeholder="Osiagniecie nr 9">
+	Liczba punktów: <input type="number" id="punkty_s9" max="15" min="2"><br>
+	Opis: <input type="text" id="opis_s10" maxlength="50" size="50" placeholder="Osiagniecie nr 10">
+	Liczba punktów: <input type="number" id="punkty_s10" max="15" min="2"><br>
+	</div>
+	<script>
+			function emptyGrade() {
+				document.getElementById("wynik_h").value = "";
+				document.getElementById("wynik_l").value = "";
+			}
+			
+			function emptyScience() {
+				document.getElementById("opis_n1").value = "";
+				document.getElementById("punkty_n1").value = "";
+				document.getElementById("opis_n2").value = "";
+				document.getElementById("punkty_n2").value = "";
+				document.getElementById("opis_n3").value = "";
+				document.getElementById("punkty_n3").value = "";
+				document.getElementById("opis_n4").value = "";
+				document.getElementById("punkty_n4").value = "";
+				document.getElementById("opis_n5").value = "";
+				document.getElementById("punkty_n5").value = "";
+				document.getElementById("opis_n6").value = "";
+				document.getElementById("punkty_n6").value = "";
+				document.getElementById("opis_n7").value = "";
+				document.getElementById("punkty_n7").value = "";
+				document.getElementById("opis_n8").value = "";
+				document.getElementById("punkty_n8").value = "";
+				document.getElementById("opis_n9").value = "";
+				document.getElementById("punkty_n9").value = "";
+				document.getElementById("opis_n10").value = "";
+				document.getElementById("punkty_n10").value = "";
+			}
+			
+			function emptyArt() {
+				document.getElementById("opis_a1").value = "";
+				document.getElementById("punkty_a1").value = "";
+				document.getElementById("opis_a2").value = "";
+				document.getElementById("punkty_a2").value = "";
+				document.getElementById("opis_a3").value = "";
+				document.getElementById("punkty_a3").value = "";
+				document.getElementById("opis_a4").value = "";
+				document.getElementById("punkty_a4").value = "";
+				document.getElementById("opis_a5").value = "";
+				document.getElementById("punkty_a5").value = "";
+				document.getElementById("opis_a6").value = "";
+				document.getElementById("punkty_a6").value = "";
+				document.getElementById("opis_a7").value = "";
+				document.getElementById("punkty_a7").value = "";
+				document.getElementById("opis_a8").value = "";
+				document.getElementById("punkty_a8").value = "";
+				document.getElementById("opis_a9").value = "";
+				document.getElementById("punkty_a9").value = "";
+				document.getElementById("opis_a10").value = "";
+				document.getElementById("punkty_a10").value = "";
+			}
+			
+			function emptySport() {
+				document.getElementById("opis_s1").value = "";
+				document.getElementById("punkty_s1").value = "";
+				document.getElementById("opis_s2").value = "";
+				document.getElementById("punkty_s2").value = "";
+				document.getElementById("opis_s3").value = "";
+				document.getElementById("punkty_s3").value = "";
+				document.getElementById("opis_s4").value = "";
+				document.getElementById("punkty_s4").value = "";
+				document.getElementById("opis_s5").value = "";
+				document.getElementById("punkty_s5").value = "";
+				document.getElementById("opis_s6").value = "";
+				document.getElementById("punkty_s6").value = "";
+				document.getElementById("opis_s7").value = "";
+				document.getElementById("punkty_s7").value = "";
+				document.getElementById("opis_s8").value = "";
+				document.getElementById("punkty_s8").value = "";
+				document.getElementById("opis_s9").value = "";
+				document.getElementById("punkty_s9").value = "";
+				document.getElementById("opis_s10").value = "";
+				document.getElementById("punkty_s10").value = "";
+			}
+			
+			document.getElementById('motyw').addEventListener('change', function () {
+				switch(this.value) {
+					case "":			document.getElementById("wyniki_div").style.display = "none";
+										emptyGrade();
+										document.getElementById("nauk_div").style.display = "none";
+										emptyScience();
+										document.getElementById("art_div").style.display = "none";
+										emptyArt();
+										document.getElementById("sport_div").style.display = "none";
+										emptySport();
+										break;
+					case "wyr_wyniki":	document.getElementById("wyniki_div").style.display = "block";
+										document.getElementById("nauk_div").style.display = "none";
+										emptyScience();
+										document.getElementById("art_div").style.display = "none";
+										emptyArt();
+										document.getElementById("sport_div").style.display = "none";
+										emptySport();
+										break;
+					case "os_nauk":		document.getElementById("wyniki_div").style.display = "none";
+										emptyGrade();
+										document.getElementById("nauk_div").style.display = "block";
+										document.getElementById("art_div").style.display = "none";
+										emptyArt();
+										document.getElementById("sport_div").style.display = "none";
+										emptySport();
+										break;
+					case "os_art":		document.getElementById("wyniki_div").style.display = "none";
+										emptyGrade();
+										document.getElementById("nauk_div").style.display = "none";
+										emptyScience();
+										document.getElementById("art_div").style.display = "block";
+										document.getElementById("sport_div").style.display = "none";
+										emptySport();
+										break;
+					case "os_sport":	document.getElementById("wyniki_div").style.display = "none";
+										emptyGrade();
+										document.getElementById("nauk_div").style.display = "none";
+										emptyScience();
+										document.getElementById("art_div").style.display = "none";
+										emptyArt();
+										document.getElementById("sport_div").style.display = "block";
+										break;
+				}
+			});
+		</script>
+	</section><br>
+	<section>
+	<label for="writing_char">Charakter pisma: </label>
+	<select id="writing_char" style="font-size: 0.4cm">
+		<option name="hand_font" value="0" style="font-family: Mistral" checked>Numer 1</option>
+		<option name="hand_font" value="1" style="font-family: Segoe Print">Numer 2</option>
+		<option name="hand_font" value="2" style="font-family: Segoe Script">Numer 3</option>
+	</select><br>
+	<label for="writing_col">Kolor długopisu: </label>
+	<select id="writing_col" style="font-size: 0.4cm">
+		<option name="hand_color" value="blue" style="color: blue" checked>Niebieski</option>
+		<option name="hand_color" value="black" style="color: black">Czarny</option>
+		<option name="hand_color" value="green" style="color: green">Zielony</option>
+		<option name="hand_color" value="red" style="color: red">Czerwony</option>
+	</select><br><br>
+	<div class="troubleshoot" id="troubleshoot"></div>
+	<button onClick=ask_for_confirm()>Generuj</button>
+	<button onClick=ask_for_clear()>Wyczyść</button>
+	<button onClick=example()>Przykładowe dane</button>
+	<button onClick=author_info()>Informacje o autorze</button><br>
+	</section>
+	</div>
+	</div>
+	<script>
+	function ask_for_confirm() {
+		if(confirm("Czy na pewno chcesz teraz zacząć generować?"))
+			generate();
+	}
+	
+	function ask_for_clear() {
+		if(confirm("Czy na pewno chcesz usunąć wszystkie ustawienia? Wszystkie wprowadzone dane zostaną usunięte."))
+			clear();
+	}
+	
+	function ask_for_return() {
+		if(confirm("Czy na pewno chcesz wrócić do trybu edycji?"))
+			return_to_edition();
+	}
+	
+	document.getElementById('writing_char').style.fontFamily = "Mistral";
+	
+	document.getElementById('writing_char').addEventListener('change', function () {
+		var style = this.value;
+		switch(style) {
+		case '0': 	document.getElementById('writing_char').style.fontFamily = "Mistral";
+					break;
+		case '1': 	document.getElementById('writing_char').style.fontFamily = "Segoe Print";
+					break;
+		case '2': 	document.getElementById('writing_char').style.fontFamily = "Segoe Script";
+					break;
+		}		
+	});
+	
+	document.getElementById('writing_col').style.color = "blue";
+	
+	document.getElementById('writing_col').addEventListener('change', function () {
+		var style = this.value;
+		document.getElementById('writing_col').style.color = style;
+	});
+	
+	function example() {
+		document.getElementById("imie").value = "Jan";
+		document.getElementById("nazwisko").value = "Kowalski";
+		document.getElementById("pesel").value = "00000000000";
+		document.getElementById("adres_zam1").value="Polna";
+		document.getElementById("adres_zam2a").value="1";
+		document.getElementById("adres_zam3a").value="00";
+		document.getElementById("adres_zam3b").value="000";
+		document.getElementById("adres_zam4").value="Warszawa";
+		document.getElementById("adres_kor1").value="Polna";
+		document.getElementById("adres_kor2a").value="1";
+		document.getElementById("adres_kor3a").value="00";
+		document.getElementById("adres_kor3b").value="000";
+		document.getElementById("adres_kor4").value="Warszawa";
+		document.getElementById("email_nick").value = "jan.kowalski";
+		document.getElementById("poczta").value = "gmail.com";
+		document.getElementById("telefon").value = "000000000";
+		document.getElementById("wydzial").value = "Inżynierii Środowiska, Geomatyki i Energetyki";
+		document.getElementsByName("forma")[0].checked = true;
+		document.getElementById("kierunek").value = "Energetyka";
+		document.getElementById("kierunek_div").style.display = "block";
+		document.getElementById("specjalnosc").checked = false;
+		document.getElementById("specjalizacja_div").style.display = "none";
+		document.getElementById("specjalizacja").value = "";
+		document.getElementById("num_album").value = "000000";
+		document.getElementById("num_konta").value = "00000000000000000000000000";
+		document.getElementById("motyw").value = "wyr_wyniki";
+		document.getElementById("wyniki_div").style.display = "block";
+		document.getElementById("nauk_div").style.display = "none";
+		emptyScience();
+		document.getElementById("art_div").style.display = "none";
+		emptyArt();
+		document.getElementById("sport_div").style.display = "none";
+		emptySport();
+		document.getElementById("wynik_h").value = "4";
+		document.getElementById("wynik_l").value = "71";
+		document.getElementById("writing_char").value = "0";
+		document.getElementById("writing_col").value = "green";
+		document.getElementById("writing_col").style.color = "green";
+		document.getElementById('writing_char').style.fontFamily = "Mistral";
+	}
+	
+	function author_info() {
+		clear();
+		document.getElementById("imie").value = "Jakub";
+		document.getElementById("nazwisko").value = "Bednarski";
+		document.getElementById("email_nick").value = "jbednar2012";
+		document.getElementById("poczta").value = "gmail.com";
+		document.getElementById("wydzial").value = "Elektrotechniki, Automatyki i Informatyki";
+		document.getElementsByName("forma")[0].checked = true;
+		document.getElementById("kierunek").value = "Informatyka";
+		document.getElementById("specjalnosc").checked = true;
+		document.getElementById("specjalizacja_div").style.display = "block";
+		document.getElementById("specjalizacja").value = "Grafika komputerowa";
+		document.getElementById("writing_char").value = "1";
+		document.getElementById('writing_char').style.fontFamily = "Segoe Print";
+		document.getElementById("art_div").style.display = "block";
+		document.getElementById("motyw").value = "os_art";
+		document.getElementById("wyniki_div").style.display = "none";
+		emptyGrade();
+		document.getElementById("nauk_div").style.display = "none";
+		emptyScience();
+		document.getElementById("art_div").style.display = "block";
+		document.getElementById("sport_div").style.display = "none";
+		emptySport();
+	}
+	
+	var name, surname, pesel, nick, poczta, telefon, forma, wydzial, kierunek, album, spec_chb, spec, street, hn, hs, an, pc1, pc2, city, konto, motyw, ch_p, k_dl;
+	var osiagniecia = new Array(10), punkty = new Array(10), suma, wynik1, wynik2;
+	
+	function getAlbum() {
+		album = document.getElementById("num_album").value;
+		if(album.length < 6) {
+			var zeroes = "", empty=6-album.length;
+			for(var i=0; i<empty; i++) {
+				zeroes = zeroes.concat("0");
+			}
+			var newAlbum = zeroes.concat(album);
+			album = newAlbum;
+		}
+	}
+	
+	function getAchievements() {
+		var i;
+		suma = 0;
+		switch(motyw) {
+			case "os_nauk":		for(i=0; i<10; i++) {
+									osiagniecia[i] = document.getElementById("opis_n"+(i+1)).value != "" ? document.getElementById("opis_n"+(i+1)).value : "";
+									punkty[i] = document.getElementById("punkty_n"+(i+1)).value != "" ? document.getElementById("punkty_n"+(i+1)).value : 0;
+								}
+								break;
+			case "os_art":		for(i=0; i<10; i++) {
+									osiagniecia[i] = document.getElementById("opis_a"+(i+1)).value != "" ? document.getElementById("opis_a"+(i+1)).value : "";
+									punkty[i] = document.getElementById("punkty_a"+(i+1)).value != "" ? document.getElementById("punkty_a"+(i+1)).value : 0;
+								}
+								break;
+			case "os_sport":	for(i=0; i<10; i++) {
+									osiagniecia[i] = document.getElementById("opis_s"+(i+1)).value != "" ? document.getElementById("opis_s"+(i+1)).value : "";
+									punkty[i] = document.getElementById("punkty_s"+(i+1)).value != "" ? document.getElementById("punkty_s"+(i+1)).value : 0;
+								}
+								break;
+			default:			break;
+		}
+		for(i=0; i<10; i++) {
+			suma += parseInt(punkty[i]);
+		}
+	}
+	
+	function getValues() {
+		name = document.getElementById("imie").value;
+		surname = document.getElementById("nazwisko").value;
+		pesel = document.getElementById("pesel").value;
+		nick = document.getElementById("email_nick").value;
+		poczta = document.getElementById("poczta").value;
+		telefon = document.getElementById("telefon").value;
+		forma = document.getElementsByName("forma");
+		wydzial = document.getElementById("wydzial").value;
+		kierunek = document.getElementById("kierunek").value;
+		getAlbum();
+		spec_chb = document.getElementById("specjalnosc");
+		spec = document.getElementById("specjalizacja").value;
+		konto = document.getElementById("num_konta").value;
+		motyw = document.getElementById("motyw").value;
+		getAchievements();
+		wynik1 = document.getElementById("wynik_h").value;
+		wynik2 = document.getElementById("wynik_l").value;
+		ch_p = parseInt(document.getElementById("writing_char").value);
+		k_dl = document.getElementById("writing_col").value;
+	}
+	
+	function get_address() {
+		street = document.getElementById("adres_zam1").value;
+		hn = document.getElementById("adres_zam2a").value;
+		hs = document.getElementById("adres_zam2b").value;
+		an = document.getElementById("adres_zam2c").value;
+		pc1 = document.getElementById("adres_zam3a").value;
+		pc2 = document.getElementById("adres_zam3b").value;
+		city = document.getElementById("adres_zam4").value;
+	}
+	
+	function get_cor_address() {
+		street = document.getElementById("adres_kor1").value;
+		hn = document.getElementById("adres_kor2a").value;
+		hs = document.getElementById("adres_kor2b").value;
+		an = document.getElementById("adres_kor2c").value;
+		pc1 = document.getElementById("adres_kor3a").value;
+		pc2 = document.getElementById("adres_kor3b").value;
+		city = document.getElementById("adres_kor4").value;
+	}
+	
+	function clear() {
+		document.getElementById("imie").value = "";
+		document.getElementById("nazwisko").value = "";
+		document.getElementById("pesel").value = "";
+		document.getElementById("adres_zam1").value="";
+		document.getElementById("adres_zam2a").value="";
+		document.getElementById("adres_zam2b").value="";
+		document.getElementById("adres_zam2c").value="";
+		document.getElementById("adres_zam3a").value="";
+		document.getElementById("adres_zam3b").value="";
+		document.getElementById("adres_zam4").value="";
+		document.getElementById("adres_kor1").value="";
+		document.getElementById("adres_kor2a").value="";
+		document.getElementById("adres_kor2b").value="";
+		document.getElementById("adres_kor2c").value="";
+		document.getElementById("adres_kor3a").value="";
+		document.getElementById("adres_kor3b").value="";
+		document.getElementById("adres_kor4").value="";
+		document.getElementById("email_nick").value = "";
+		document.getElementById("poczta").value = "";
+		document.getElementById("telefon").value = "";
+		document.getElementById("wydzial").value = "";
+		document.getElementsByName("forma")[0].checked = true;
+		document.getElementById("kierunek").value = "";
+		document.getElementById("kierunek_div").style.display = "none";
+		document.getElementById("specjalnosc").checked = false;
+		document.getElementById("specjalizacja_div").style.display = "none";
+		document.getElementById("specjalizacja").value = "";
+		document.getElementById("num_album").value = "";
+		document.getElementById("num_konta").value = "";
+		document.getElementById("motyw").value = "";
+		document.getElementById("writing_char").value = "0";
+		document.getElementById('writing_char').style.fontFamily = "Mistral";
+		document.getElementById("writing_col").value = "blue";
+		document.getElementById("writing_col").style.color = "blue";
+		document.getElementById("wyniki_div").style.display = "none";
+		emptyGrade();
+		document.getElementById("nauk_div").style.display = "none";
+		emptyScience();
+		document.getElementById("art_div").style.display = "none";
+		emptyArt();
+		document.getElementById("sport_div").style.display = "none";
+		emptySport();
+	}
+	
+	function is_value_numeric(value) {
+		var i=0, faults=0;
+		for(i;i<value.length;i++){
+			if(value[i]<'0' || value[i]>'9')
+				faults++;
+		}
+		if(faults>0)
+			return false;
+		else return true;
+	}
+	
+	function numbers_are_in(value) {
+		var i=0, faults=0;
+		for(i;i<value.length;i++){
+			if(!isNaN(parseInt(value[i])))
+				faults++;
+		}
+		if(faults>0)
+			return true;
+		else return false;
+	}
+	
+	function bad_address() {
+		get_address();
+		if(street=="" || hn=="" || !is_value_numeric(hn) || (hs!="" && is_value_numeric(hs)) || an!="" && !is_value_numeric(an) || pc1=="" || !is_value_numeric(pc1) || pc1.length != 2 || pc2=="" || !is_value_numeric(pc2) || pc2.length != 3 || city=="" || numbers_are_in(city))
+			return true;
+		else return false;
+	}
+	
+	function bad_cor_address() {
+		get_cor_address();
+		if(street=="" || hn=="" || !is_value_numeric(hn) || (hs!="" && is_value_numeric(hs)) || an!="" && !is_value_numeric(an) || pc1=="" || !is_value_numeric(pc1) || pc1.length != 2 || pc2=="" || !is_value_numeric(pc2) || pc2.length != 3 || city=="" || numbers_are_in(city))
+			return true;
+		else return false;
+	}
+	
+	function address_troubleshoot() {
+		get_address();
+		var overall = "<ul>";
+		if(street=="")
+			overall += "<li>Nie wpisano nazwy ulicy</li>";
+		if(hn=="")
+			overall += "<li>Nie wpisano numeru domu</li>";
+		else if(!is_value_numeric(hn))
+			overall += "<li>Wpisany numer domu nie jest liczbą</li>";
+		if(hs!="" && is_value_numeric(hs))
+			overall += "<li>Znak po numerze domu nie może być cyfrą</li>";
+		if(an!="" && !is_value_numeric(an))
+			overall += "<li>Wpisany numer mieszkania nie jest liczbą</li>";
+		if(pc1=="" || !is_value_numeric(pc1) || pc1.length != 2 || pc2=="" || !is_value_numeric(pc2) || pc2.length != 3)
+			overall += "<li>Nie wpisano poprawnie kodu pocztowego</li>";
+		if(city=="")
+			overall += "<li>Nie wpisano nazwy miejscowości</li>";
+		else if(numbers_are_in(city))
+			overall += "<li>Nazwa miejscowości nie może mieć cyfr</li>"
+		overall += "</ul>";
+		return overall;
+	}
+	
+	function cor_address_troubleshoot() {
+		get_cor_address();
+		var overall = "<ul>";
+		if(street=="")
+			overall += "<li>Nie wpisano nazwy ulicy</li>";
+		if(hn=="")
+			overall += "<li>Nie wpisano numeru domu</li>";
+		else if(!is_value_numeric(hn))
+			overall += "<li>Wpisany numer domu nie jest liczbą</li>";
+		if(hs!="" && is_value_numeric(hs))
+			overall += "<li>Znak po numerze domu nie może być cyfrą</li>";
+		if(an!="" && !is_value_numeric(an))
+			overall += "<li>Wpisany numer mieszkania nie jest liczbą</li>";
+		if(pc1=="" || !is_value_numeric(pc1) || pc1.length != 2 || pc2=="" || !is_value_numeric(pc2) || pc2.length != 3)
+			overall += "<li>Nie wpisano poprawnie kodu pocztowego</li>";
+		if(city=="")
+			overall += "<li>Nie wpisano nazwy miejscowości</li>";
+		else if(numbers_are_in(city))
+			overall += "<li>Nazwa miejscowości nie może mieć cyfr</li>"
+		overall += "</ul>";
+		return overall;
+	}
+	
+	function noAchievements() {
+		var nothing = true;
+		for(var i=0; i<10; i++)
+			if(osiagniecia[i] != "" || punkty[i] != null)
+				nothing = false;
+		return nothing;
+	}
+	
+	function areAchievementsLegit() {
+		var good = true;
+		for(var i=0; i<10; i++) {
+			if((osiagniecia[i] != "" && punkty[i] == 0) || (osiagniecia[i] == "" && punkty[i] != 0))
+				good = false;
+		}
+		return good;
+	}
+	
+	function other_factors() {
+		return (konto=="" || !is_value_numeric(konto) || konto.length != 26 || motyw=="" || motyw=="wyr_wyniki" && (wynik1 == "" || !is_value_numeric(wynik1) || wynik2 == "" || !is_value_numeric(wynik2) || wynik2.length != 2) || (motyw=="os_nauk" || motyw=="os_art" || motyw=="os_sport") && (noAchievements() || !areAchievementsLegit()));
+	}
+	
+	function legit() {
+		if(name=="" || numbers_are_in(name) || surname=="" || numbers_are_in(surname) || pesel=="" || !is_value_numeric(pesel) || pesel.length != 11 || bad_address() || bad_cor_address() || nick=="" || poczta=="" || telefon=="" || !is_value_numeric(telefon) || telefon.length != 9 || wydzial=="" || kierunek=="" || numbers_are_in(kierunek) || album=="" || !is_value_numeric(album) || album.length != 6 || (spec_chb.checked == true && (spec=="" || numbers_are_in(spec))) || other_factors())
+			return false;
+		else return true;
+	}
+	
+	function generate() {
+		var obecny = new Date();
+		getValues();
+		if(legit()) {
+			document.getElementById('troubleshoot').style.display = 'none';
+			get_address();
+			var adres_zam = "ul. "+street+" "+hn;
+			if(an!="")
+				adres_zam += "/"+an;
+			if(hs!="")
+				adres_zam += hs;
+			adres_zam += " "+pc1+"-"+pc2+" "+city;
+			get_cor_address();
+			var adres_kor = "ul. "+street+" "+hn;
+			if(an!="")
+				adres_kor += "/"+an;
+			if(hs!="")
+				adres_kor += hs;
+			adres_kor += " "+pc1+"-"+pc2+" "+city;
+			var sem_let, sem_zim;
+			var y = obecny.getFullYear();
+			if(obecny.getMonth()<=9) {
+				sem_let = y;
+				sem_zim = y-1;
+			}
+			else {
+				sem_let = y+1;
+				sem_zim = y;
+			}
+			var dzisiejsza_data = "";
+			if(obecny.getDate()<10)
+				dzisiejsza_data += "0"+obecny.getDate()+".";
+			else dzisiejsza_data += obecny.getDate()+".";
+			if(obecny.getMonth()<9)
+				dzisiejsza_data += "0"+(obecny.getMonth()+1);
+			else dzisiejsza_data += (obecny.getMonth()+1);
+			document.getElementById('ready').style.display = 'block';
+			document.getElementById('not_ready').style.display = 'none';
+			var art_title = "Załącznik nr 10 do Regulaminu świadczeń dla studentów PŚk wprowadzonego zarządzeniem nr 58/19";
+			var innards = "<div class='buttons'><button onClick=print_page()>Drukuj</button><button onClick=ask_for_return()>Wróć do trybu edycji</button></div></div><div class='fill_text' style='text-align:right; font-size: 13px; width: 100%'><i>"+art_title+"</i></div><br><br><br>";
+			innards += "<font class='fill_text'>Data wpływu ....................</font><br><br>";
+			innards += "<div class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+name+" "+surname+"</div><div class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+adres_zam+"</div><br>";
+			innards += "<div class='label'>Nazwisko i imię wnioskodawcy</div><div class='label'>Adres zameldowania</div><br>";
+			innards += "<div class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+pesel+"</div><div class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+adres_zam+"</div><br>";
+			innards += "<div class='label'>PESEL</div><div class='label'>Adres do korespondencji</div><div class='sp'></div>";
+			innards += "<div class='fill_text'>Wydział <font class='handwriting"+ch_p+"' style='color: "+k_dl+";";
+			if(ch_p!=0)
+				innards+="font-size: 0.3cm";
+			else innards+="font-size: 0.45cm";
+			innards += "'>"+wydzial+"</font></div>";
+			innards += "<div class='fill_text'>Tel. kontaktowy <font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+telefon+"</font></div><br>";
+			innards += "<div class='fill_text'>Forma studiów <font class='handwriting"+ch_p+"' style='color: "+k_dl+";'> st. I ";
+			if(forma[0].checked && !forma[1].checked)
+				innards += "stacjonarne";
+			else innards += "niestacjonarne";
+			innards += "</font></div>";
+			innards += "<div class='fill_text'>e-mail:<font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+nick+"@"+poczta+"</font></div><br>";
+			innards += "<div class='fill_text' style='width: 100%;'>Kierunek:<font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+kierunek+"</font> Specjalność/zakres ";
+			if(spec=="")
+				innards += "<font class='empty_handwriting'>BRAKSPECJALIZACJI</font>";
+			else innards += "<font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+spec+"</font>";
+			innards += "</div>"
+			innards += "<div class='fill_text' style='width: 100%;'>Nr albumu:<font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+album+"</font></div><div class='empty_handwriting' style='text-decoration-color: white;font-size: 3mm;'>x</div>";
+			
+			innards += "<div class='fill_text' style='width: 100%; text-align: center; padding-bottom: 0.2mm;font-size:4mm;'><b><p>WNIOSEK<br>o przyznanie stypendium Rektora</p></b></div>";
+			innards += "<div style='text-align: center'><table class='numer_konta"+ch_p+"' cellspacing='0' style='color: "+k_dl+"; margin: auto;'><tr><td>"+konto[0]+"</td><td>"+konto[1]+"</td><td class='empty'> </td><td>"+konto[2]+"</td><td>"+konto[3]+"</td><td>"+konto[4]+"</td><td>"+konto[5]+"</td><td class='empty'> </td><td>"+konto[6]+"</td><td>"+konto[7]+"</td><td>"+konto[8]+"</td><td>"+konto[9]+"</td><td class='empty'> </td><td>"+konto[10]+"</td><td>"+konto[11]+"</td><td>"+konto[12]+"</td><td>"+konto[13]+"</td><td class='empty'> </td><td>"+konto[14]+"</td><td>"+konto[15]+"</td><td>"+konto[16]+"</td><td>"+konto[17]+"</td><td class='empty'> </td><td>"+konto[18]+"</td><td>"+konto[19]+"</td><td>"+konto[20]+"</td><td>"+konto[21]+"</td><td class='empty'> </td><td>"+konto[22]+"</td><td>"+konto[23]+"</td><td>"+konto[24]+"</td><td>"+konto[25]+"</td></tr></table></font><font class='fill_text'>(numer rachunku bankowego do wypłaty stypendium)</font></div><div class='empty_handwriting' style='text-decoration-color: white;font-size: 3mm;width: 100%'>x</div>";
+			innards += "<div class='fill_text' style='width: 100%; margin-bottom: 0.3mm'><b>Oświadczam, że nie ukończyłem-(am) dotychczas żadnego kierunku studiów</b> (oświadczenie to nie dotyczy studentów, którzy po ukończeniu studiów pierwszego stopnia kontynuują naukę w celu uzyskania tytułu zawodowego magistra). Jednocześnie <b>oświadczam, że nie pobieram i nie ubiegam się</b> o przyznanie stypendium rektora na innym kierunku studiów (dotyczy to również innej uczelni).</div><div class='empty_handwriting' style='text-decoration-color: white;font-size: 3mm;width: 100%'>x</div>";
+			innards += "<div class='fill_text'>data <font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+dzisiejsza_data+"</font> 20<font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+(y-2000)+"</font></div><div class='handwriting"+ch_p+"' style='color: "+k_dl+"; text-align: center;'>"+name+" "+surname+"</div><div class='empty_handwriting' style='text-decoration-color: white;font-size: 3mm;'>x</div><div class='fill_text' style='text-align: center;'>(własnoręczny podpis studenta)</div><div class='sp'></div>";
+			innards += "<div class='fill_text' style='width:100%;'>Proszę o przyznanie stypendium Rektora w semestrze "+(y==sem_zim?"<u>zimowym</u>":"zimowym")+"/"+(y==sem_let?"<u>letnim</u>":"letnim")+" roku akademickiego 20<font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+(sem_zim-2000)+"</font>/20<font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+(sem_let-2000)+"</font> z tytułu:<ul>";
+			innards += "<li class='"+(motyw=="wyr_wyniki"?"marked":"unmarked")+"'>uzyskania wyróżniających wyników w nauce</li><li class='"+(motyw=="os_nauk"?"marked":"unmarked")+"'>posiadania osiągnięć naukowych</li><li class='"+(motyw=="os_art"?"marked":"unmarked")+"'>posiadania osiągnięć artystycznych</li><li class='"+(motyw=="os_sport"?"marked":"unmarked")+"'>uzyskania wysokich wyników sportowych we współzawodnictwie co najmniej na poziomie krajowym.</li></div><div class='empty_handwriting' style='text-decoration-color: white;font-size: 3mm;width:100%;'>x</div>";
+			innards += "<div class='fill_text'>data <font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+dzisiejsza_data+"</font> 20<font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+(y-2000)+"</font></div><div class='handwriting"+ch_p+"' style='color: "+k_dl+"; text-align: center;'>"+name+" "+surname+"</div><div class='empty_handwriting' style='text-decoration-color: white;font-size: 3mm;'>x</div><div class='fill_text' style='text-align: center;'>(własnoręczny podpis studenta)</div><div class='sp'></div><div class='sp'></div>";
+			innards += "<div class='fill_text' style='width:100%;font-weight: bold;'><div style='text-align:center;'>UWAGA!</div>Należy wykazać wyłącznie osiągnięcia, które student uzyskał w okresie wskazanym w regulaminie świadczeń dla studentów § 43 pkt 4, zgodnie z Zasadami oceny osiągnięć naukowych artystycznych lub sportowych, sposobem ich dokumentowania w procesie przyznawania stypendium Rektora dla najlepszych studentów w Politechnice Świętokrzyskiej (załącznik nr 11 Regulaminu).<br>Wszystkie wykazane osiągnięcia muszą być odpowiednio udokumentowane!</div><div class='sp'></div><div class='sp'></div><div class='sp'></div>";
+			innards += "<div class='fill_text' style='text-decoration: underline black;font-weight:bold;letter-spacing:1mm;width:100%;text-align:center;'>UZASADNIENIE WNIOSKU<br></div><div class='sp'></div>";
+			innards += "<div class='fill_text' style='width:100%;'><table><tr><td class='title'>WYRÓŻNIAJĄCE WYNIKI W NAUCE</td></tr><tr><td style='text-align:left;'><div>Oświadczam, że uzyskana przeze mnie, średnia ocen liczona na potrzeby przyznawania stypendium rektora wynosi <font class="+(motyw=="wyr_wyniki"?("'handwriting"+ch_p+"' style='color: "+k_dl+";'>"+wynik1+"."+wynik2):("'empty_handwriting'>0.00"))+"</font></div><div class='sp'></div>";
+			innards += "<div><div class='fill_text' style='text-align:right;'>data <font class='"+(motyw=="wyr_wyniki"?("handwriting"+ch_p+"' style='color: "+k_dl+";'>"+dzisiejsza_data+"</font> 20<font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+(y-2000)):("empty_handwriting'>00.00</font> 20<font class='empty_handwriting'>00"))+"</font></div><div class="+(motyw=="wyr_wyniki"?("'handwriting"+ch_p+"' style='color: "+k_dl+"; text-align: center;'>"+name+" "+surname):("'empty_handwriting' style='text-align: center;'>IMIEINAZWISKO"))+"</div><div class='empty_handwriting' style='text-decoration-color: white;font-size: 3mm;'>x</div><div class='fill_text' style='text-align: center;'>(własnoręczny podpis studenta)</div></div></td></tr>";
+			innards += "<tr><td><div class='label' style='width:100%; text-align:left;'>Informacja dziekanatu</div><div class='fill_text' style='width:100%'>Student uzyskał średnią ocen <font class='empty_handwriting'>0.00</font></div><div class = 'fill_text'>Kielce dnia <font class='empty_handwriting'>00.00.0000</font></div><div class='empty_handwriting'>IMIEINAZWISKO</div><div class='fill_text' style='color: #00000000;'>x</div><div class='label'>(podpis pracownika dziekanatu)</div></td></tr></table><div class='sp'></div>";
+			innards += "<table><tr><td class='title' colspan=12>OSIĄGNIĘCIA NAUKOWE WRAZ ZE SKALĄ PUNKTOWĄ</td></tr><tr><td colspan=11 style='text-align:center;'><b>Rodzaj osiągnięcia</b> (wypełnia student)</td><td colspan=1 style='text-align:center;font-weight:bold;'>Liczba punktów</td></tr>";
+			if(motyw=="os_nauk") {
+				innards += "<tr><td class='t' colspan = 11><font class='"+(osiagniecia[0]!=""?("handwriting"+ch_p+"' style='color: "+k_dl+";width:100%;'>"+osiagniecia[0]):("empty_handwriting' style='width:100%'>NIEWPISANOTUTAJZADNYCHOSIAGNIEC"))+"</font></td><td class='t' colspan = 1><font class='"+(osiagniecia[0]!=""?("handwriting"+ch_p+"' style='color: "+k_dl+";width:100%;'>"+punkty[0]):("empty_handwriting' style='width:100%'>0"))+"</font></td></tr>";
+				for(var i=1; i<10; i++) {
+					innards += "<tr><td class='c' colspan = 11><font class='"+(osiagniecia[i]!=""?("handwriting"+ch_p+"' style='color: "+k_dl+";width:100%;'>"+osiagniecia[i]):("empty_handwriting' style='width:100%'>NIEWPISANOTUTAJZADNYCHOSIAGNIEC"))+"</font></td><td class='c' colspan = 1><font class='"+(osiagniecia[i]!=""?("handwriting"+ch_p+"' style='color: "+k_dl+";width:100%;'>"+punkty[i]):("empty_handwriting' style='width:100%'>0"))+"</font></td></tr>";
+				}
+			}
+			else {
+				innards += "<tr><td class='t' colspan = 11><font class='empty_handwriting' style='width:100%'>NIEWPISANOTUTAJZADNYCHOSIAGNIEC</font></td><td class='t' colspan = 1><font class='empty_handwriting' style='width:100%'>0</font></td></tr>";
+				for(var i=1; i<10; i++) {
+					innards += "<tr><td class='c' colspan = 11><font class='empty_handwriting' style='width:100%'>NIEWPISANOTUTAJZADNYCHOSIAGNIEC</font></td><td class='c' colspan = 1><font class='empty_handwriting' style='width:100%'>0</font></td></tr>";
+				}
+			}
+			innards += "<tr><td class='b' colspan = 11 style='text-align:right;'><font class='fill_text' style='width:100%;font-weight:bold;'>Łączna liczba punktów</font></td><td class='b' colspan = 1><font class='"+(motyw=="os_nauk"?("handwriting"+ch_p+"' style='color: "+k_dl+";width:100%;'>"+suma):("empty_handwriting' style='width:100%'>0"))+"</font></td></tr>";
+			innards += "<tr><td class='title' colspan=12>OSIĄGNIĘCIA ARTYSTYCZNE WRAZ ZE SKALĄ PUNKTOWĄ</td></tr><tr><td colspan=11 style='text-align:center;'><b>Rodzaj osiągnięcia</b> (wypełnia student)</td><td colspan=1 style='text-align:center;font-weight:bold;'>Liczba punktów</td></tr>";
+			if(motyw=="os_art") {
+				innards += "<tr><td class='t' colspan = 11><font class='"+(osiagniecia[0]!=""?("handwriting"+ch_p+"' style='color: "+k_dl+";width:100%;'>"+osiagniecia[0]):("empty_handwriting' style='width:100%'>NIEWPISANOTUTAJZADNYCHOSIAGNIEC"))+"</font></td><td class='t' colspan = 1><font class='"+(osiagniecia[0]!=""?("handwriting"+ch_p+"' style='color: "+k_dl+";width:100%;'>"+punkty[0]):("empty_handwriting' style='width:100%'>0"))+"</font></td></tr>";
+				for(var i=1; i<10; i++) {
+					innards += "<tr><td class='c' colspan = 11><font class='"+(osiagniecia[i]!=""?("handwriting"+ch_p+"' style='color: "+k_dl+";width:100%;'>"+osiagniecia[i]):("empty_handwriting' style='width:100%'>NIEWPISANOTUTAJZADNYCHOSIAGNIEC"))+"</font></td><td class='c' colspan = 1><font class='"+(osiagniecia[i]!=""?("handwriting"+ch_p+"' style='color: "+k_dl+";width:100%;'>"+punkty[i]):("empty_handwriting' style='width:100%'>0"))+"</font></td></tr>";
+				}
+			}
+			else {
+				innards += "<tr><td class='t' colspan = 11><font class='empty_handwriting' style='width:100%'>NIEWPISANOTUTAJZADNYCHOSIAGNIEC</font></td><td class='t' colspan = 1><font class='empty_handwriting' style='width:100%'>0</font></td></tr>";
+				for(var i=1; i<10; i++) {
+					innards += "<tr><td class='c' colspan = 11><font class='empty_handwriting' style='width:100%'>NIEWPISANOTUTAJZADNYCHOSIAGNIEC</font></td><td class='c' colspan = 1><font class='empty_handwriting' style='width:100%'>0</font></td></tr>";
+				}
+			}
+			innards += "<tr><td class='b' colspan = 11 style='text-align:right;'><font class='fill_text' style='width:100%;font-weight:bold;'>Łączna liczba punktów</font></td><td class='b' colspan = 1><font class='"+(motyw=="os_art"?("handwriting"+ch_p+"' style='color: "+k_dl+";width:100%;'>"+suma):("empty_handwriting' style='width:100%'>0"))+"</font></td></tr></table><div class='sp'></div>";
+			innards += "<table><tr><td class='title' colspan=12>OSIĄGNIĘCIA SPORTOWE WRAZ ZE SKALĄ PUNKTOWĄ</td></tr><tr><td colspan=11 style='text-align:center;'><b>Rodzaj osiągnięcia</b> (wypełnia student)</td><td colspan=1 style='text-align:center;font-weight:bold;'>Liczba punktów</td></tr>";
+			if(motyw=="os_sport") {
+				innards += "<tr><td class='t' colspan = 11><font class='"+(osiagniecia[0]!=""?("handwriting"+ch_p+"' style='color: "+k_dl+";width:100%;'>"+osiagniecia[0]):("empty_handwriting' style='width:100%'>NIEWPISANOTUTAJZADNYCHOSIAGNIEC"))+"</font></td><td class='t' colspan = 1><font class='"+(osiagniecia[0]!=""?("handwriting"+ch_p+"' style='color: "+k_dl+";width:100%;'>"+punkty[0]):("empty_handwriting' style='width:100%'>0"))+"</font></td></tr>";
+				for(var i=1; i<10; i++) {
+					innards += "<tr><td class='c' colspan = 11><font class='"+(osiagniecia[i]!=""?("handwriting"+ch_p+"' style='color: "+k_dl+";width:100%;'>"+osiagniecia[i]):("empty_handwriting' style='width:100%'>NIEWPISANOTUTAJZADNYCHOSIAGNIEC"))+"</font></td><td class='c' colspan = 1><font class='"+(osiagniecia[i]!=""?("handwriting"+ch_p+"' style='color: "+k_dl+";width:100%;'>"+punkty[i]):("empty_handwriting' style='width:100%'>0"))+"</font></td></tr>";
+				}
+			}
+			else {
+				innards += "<tr><td class='t' colspan = 11><font class='empty_handwriting' style='width:100%'>NIEWPISANOTUTAJZADNYCHOSIAGNIEC</font></td><td class='t' colspan = 1><font class='empty_handwriting' style='width:100%'>0</font></td></tr>";
+				for(var i=1; i<10; i++) {
+					innards += "<tr><td class='c' colspan = 11><font class='empty_handwriting' style='width:100%'>NIEWPISANOTUTAJZADNYCHOSIAGNIEC</font></td><td class='c' colspan = 1><font class='empty_handwriting' style='width:100%'>0</font></td></tr>";
+				}
+			}
+			innards += "<tr><td class='b' colspan = 11 style='text-align:right;'><font class='fill_text' style='width:100%;font-weight:bold;'>Łączna liczba punktów</font></td><td class='b' colspan = 1><font class='"+(motyw=="os_sport"?("handwriting"+ch_p+"' style='color: "+k_dl+";width:100%;'>"+suma):("empty_handwriting' style='width:100%'>0"))+"</font></td></tr>";
+			innards += "</table></div><div class='sp'></div><div class='fill_text' style='width:100%;font-weight:bold;'>Oświadczam, że zapoznałem(am) się z „<i>Zasadami oceny osiągnięć naukowych, artystycznych lub sportowych, sposobem ich dokumentowania w procesie przyznawania stypendium rektora w Politechnice Świętokrzyskiej</i>”</div>";
+			innards += "<div class='empty_handwriting' style='text-decoration-color: white; font-size:1cm;'>x</div><div class='handwriting"+ch_p+"' style='color: "+k_dl+"; text-align:center;'>"+dzisiejsza_data+"."+y+" "+name+" "+surname+"</div><div class='label' style='text-align:center;'>Data, podpis</div>";
+			document.getElementById("ready").innerHTML = innards+"<br>";
+		}
+		else {
+			var problems = "";
+			document.getElementById("troubleshoot").style.display = "block";
+			if(name=="")
+				problems += "Nie wpisano imienia<br>";
+			else if(numbers_are_in(name))
+				problems += "Imię nie może mieć cyfr<br>";
+			if(surname=="")
+				problems += "Nie wpisano naziwska<br>";
+			else if(numbers_are_in(surname))
+				problems += "Nazwisko nie może mieć cyfr<br>";
+			if(pesel=="")
+				problems += "Nie wpisano numeru PESEL<br>";
+			else if(!is_value_numeric(pesel))
+				problems += "Wpisany numer PESEL nie jest liczbą<br>";
+			else if(pesel.length != 11)
+				problems += "Wpisany numer PESEL nie jest wystarczająco długi<br>";
+			if(bad_address())
+				problems += "Problemy z adresem zamieszkania:" + address_troubleshoot();
+			if(bad_cor_address())
+				problems += "Problemy z adresem do korespondencji:" + cor_address_troubleshoot();
+			if(nick=="" && poczta=="")
+				problems += "Nie wpisano adresu e-mail<br>";
+			else if(nick=="")
+				problems += "Nie wpisano nicku<br>";
+			else if(poczta=="")
+				problems += "Nie wybrano poczty elektronicznej<br>";
+			if(telefon=="")
+				problems += "Nie wpisano numeru telefonu<br>";
+			else if(!is_value_numeric(telefon))
+				problems += "Wpisany numer telefonu nie jest liczbą<br>";
+			else if(telefon.length != 9)
+				problems += "Wpisany numer telefonu nie jest wystarczająco długi<br>";
+			if(wydzial == "")
+				problems += "Nie wybrano wydziału<br>";
+			else {
+				if(kierunek == "")
+					problems += "Nie wpisano nazwy kierunku studiów<br>";
+				else if(numbers_are_in(kierunek))
+					problems += "Nazwa kierunku nie może mieć cyfr<br>";
+			}
+			if(album=="")
+				problems += "Nie wpisano numeru albumu<br>";
+			else if(!is_value_numeric(album))
+				problems += "Wpisany numer albumu nie jest liczbą<br>";
+			else if(album.length != 6)
+				problems += "Wpisany numer albumu nie jest wystarczająco długi<br>";
+			if(spec_chb.checked == true) {
+				if(spec=="")
+					problems += "Zaznaczono, że jest się na specjalności, ale nie zapisano, na jakiej<br>";
+				else if(numbers_are_in(spec))
+					problems += "Nazwa specjalności nie może mieć cyfr<br>";
+			
+			}
+			if(konto=="")
+				problems += "Nie wpisano numeru konta bankowego<br>";
+			else if(!is_value_numeric(konto))
+				problems += "Wpisany numer konta bankowego nie jest liczbą<br>";
+			else if(konto.length != 26)
+				problems += "Wpisany numer konta bankowego jest za krótki<br>";
+			if(motyw=="")
+				problems += "Nie wybrano uzasadnienia przyznania stypendium w zeszłym roku<br>";
+			else if(motyw=="wyr_wyniki") {
+				if(wynik1 == "" || wynik2 == "")
+					problems += "Ocena upoważniająca do stypendium jest niekompletna<br>";
+				else if(!is_value_numeric(wynik1) || !is_value_numeric(wynik2))
+					problems += "Do oceny upoważniającej do stypendium wpisano litery<br>";
+				else if(wynik2.length != 2)
+					problems += "Ocena upoważniająca do stypendium ma za mało cyfr po przecinku<br>";
+			}
+			else if(motyw=="os_nauk" || motyw=="os_art" || motyw == "os_sport") {
+				if(noAchievements())
+					problems += "Nie wpisano żadnych osiągnięć<br>";
+				else if(!areAchievementsLegit())
+					problems += "Nie wszystkie osiągnięcia wpisano poprawnie<br>";
+			}
+			document.getElementById("troubleshoot").innerHTML = problems;
+		}
+	}
+	</script>
+</body>
+</html>

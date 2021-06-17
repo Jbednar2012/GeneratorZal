@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Generator załączników - 1</title>
+	<title>Generator załączników - 10a</title>
 	<meta name="author" content="Jakub Bednarski">
 	<link rel="Stylesheet" style="text/css" href="generator_style.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo%20Narrow">
@@ -10,6 +10,27 @@
 			background-color: white;
 			font-family: Archivo Narrow;
 			font-size: 4mm;
+			counter-reset: list;
+		}
+		
+		.boldmarker li::before {
+			content: counter(list) ". ";
+			counter-increment: list;
+			font-weight: bold;
+		}
+		
+		.boldmarker li::marker, li.unmarked::marker, li.marked::marker {
+			content: "";
+		}
+		
+		li.unmarked::before {
+			content: url("unmarked.png");
+			padding-right: 8px;
+		}
+
+		li.marked::before {
+			content: url("marked.png");
+			padding-right: 8px;
 		}
 
 	</style>
@@ -19,13 +40,13 @@
 	<div id="not_ready" style='background-attachment: fixed; background-repeat: no-repeat; background-size: contain; background-position: center; background-image: url("bg.jpg");'>
 	<a href="../main.html" class="menu_hyperlink"><div class="title" id="title"><font style="font-size:0.5in">Politechnika Świętokrzyska</font><br><font style="font-size:0.3in">Generator załączników</font></div></a>
 	<div class="other_att" id="other_att">
-		<b>1</b>
+		<a href="Generator1.html" onMouseOver='show_title("Oświadczenie o studiowaniu i niepobieraniu świadczeń pomocy materialnej na więcej niż jednym kierunku")' onMouseOut=hide_title()>1</a>
 		<a href="Generator3.html" onMouseOver='show_title("Oświadczenie o nieprowadzeniu wspólnego gospodarstwa domowego")' onMouseOut=hide_title()>3</a>
 		<a href="Generator4.html" onMouseOver='show_title("Wniosek o ustalenie prawa do świadczeń pomocy materialnej")' onMouseOut=hide_title()>4</a>
 		<a href="Generator5.html" onMouseOver='show_title("Oświadczenie o wysokości składek na ubezpieczenie zdrowotne w roku kalendarzowym poprzedzającym rok akademicki")' onMouseOut=hide_title()>5</a>
 		<a href="Generator9.html" onMouseOver='show_title("Oświadczenie o zmianie sytuacji materialnej dla stypendium socjalnego")' onMouseOut=hide_title()>9</a>
 		<a href="Generator10.html" onMouseOver='show_title("Wniosek o przyznanie stypendium Rektora")' onMouseOut=hide_title()>10</a>
-		<a href="Generator10a.html" onMouseOver='show_title("Wniosek o przyznanie stypendium Rektora dla studentów pierwszego roku I stopnia")' onMouseOut=hide_title()>10a</a>
+		<b>10a</b>
 		<a href="Generator10b.html" onMouseOver='show_title("Wniosek o przyznanie stypendium Rektora na kolejny semestr tego samego roku studiów")' onMouseOut=hide_title()>10b</a>
 		<a href="Generator13.html" onMouseOver='show_title("Klauzula w sprawie przetwarzania danych osobowych")' onMouseOut=hide_title()>13</a>
 		<a href="Generator16.html" onMouseOver='show_title("Zgoda na otrzymywanie korespondencji drogą elektroniczną")' onMouseOut=hide_title()>16</a>
@@ -34,7 +55,9 @@
 	<div id="preparing" class="preparing">
 	<div id="help_button" class="help_button" onmouseover=show_help() onmouseout=hide_help()>
 	<div id="help" class="help">
-	Należy podać wszystkie ukończone uczelnie.
+	Ten dokument składają studenci studiów I stopnia, którzy zdali egzamin maturalny w roku rozpoczęcia studiów i posiadają osiągnięcia w konkursach krajowych lub światowych.<br><br>
+	Osiągnięcie należy udowodnić odpowiednim zaświadczeniem, na przykład dyplomem. Osiągnięcia uprawniające do stypendium znajdziesz na stronie Ministerstwa Edukacji Narodowej.<br><br>
+	Numer konta należy wpisać jednym ciągiem liczb.
 	</div>
 	<script>
 		function show_help() {
@@ -68,8 +91,8 @@
 		}
 	</script>
 	</div>
-	<h1>Generator załącznika nr 1</h1>
-	<h2>Oświadczenie o studiowaniu i niepobieraniu świadczeń pomocy materialnej na więcej niż jednym kierunku</h2>
+	<h1>Generator załącznika nr 10a</h1>
+	<h2>Wniosek o przyznanie stypendium Rektora dla studentów pierwszego roku I stopnia</h2>
 	<section>
 		<h3>Dane osobowe</h3>
 		<label for="imie">Imię:</label>
@@ -166,9 +189,6 @@
 		<input id="num_album" maxlength="6" size="6"><br>
 		<input type="radio" name="forma" value="stacjonarne" checked="checked">stacjonarne      
 		<input type="radio" name="forma" value="niestacjonarne">niestacjonarne<br>
-		<label for="stopien">Stopień:</label>
-		<input type="radio" name="stopien" value="I" checked="checked">I     
-		<input type="radio" name="stopien" value="II">II<br>
 		<label for="wydzial">Wydział:</label> 
 		<select id="wydzial">
 			<option value="">--wybierz--</option>
@@ -201,85 +221,21 @@
 	</section>
 	<section>
 	<h3>Inne</h3>
-	<label for="nazwa1">Rok rozpoczęcia studiowania:</label>
-	<input type="text" id="rok_rozp" size="4" maxlength="4"><br>
-	<input type="checkbox" id="czy_uczelnia1">Uczęszczałem do innej uczelni<br>
-	<div id="uczel1" style="display: none;">
-	<label for="nazwa1">Nazwa uczelni:</label>
-	<input type="text" id="nazwa1"><br>
-	<label for="rocznik1">Okres:</label> od <input type="text" id="rocznik11" maxlength="4" size="4"> do  <input type="text" id="rocznik12" maxlength="4" size="4"><br>
-	<label for="mies1">Ile miesięcy:</label>
-	<input type="number" id="mies1" size="2" value="0"><br><br>
-	<input type="checkbox" id="czy_uczelnia2">Uczęszczałem do jeszcze jednej uczelni<br>
+	<label for="num_konta">Numer konta bankowego:</label>
+	<input type="text" id="num_konta" maxlength="26" size="26"><br>
+	<label for="motyw">Jakie osiągnięcie upoważnia cię do stypendium?</label>
+	<select id="motyw">
+		<option value="" checked>--wybierz--</option>
+		<option name="achievement" value="con_in_laur">Laureat w olimpiadzie międzynarodowej</option>
+		<option name="achievement" value="con_pl_laur">Laureat w olimpiadzie ogólnopolskiej</option>
+		<option name="achievement" value="con_pl_fin">Finalista w olimpiadzie ogólnopolskiej</option>
+		<option name="achievement" value="sport_champ">Mistrz Polski (sport)</option>
+		<option name="achievement" value="sport_medal">Medalista w walce o tytuł Mistrza Polski (sport)</option>
+	</select><br>
+	<div id="dziedzina_div" style="display:none;">
+	<label for="dziedzina">Przedmiot/dyscyplina:</label>
+	<input type="text" id="dziedzina" maxlength="40" size="40"><br>
 	</div>
-	<div id="uczel2" style="display: none;">
-	<label for="nazwa2">Nazwa uczelni:</label>
-	<input type="text" id="nazwa2"><br>
-	<label for="rocznik2">Okres:</label> od <input type="text" id="rocznik21" maxlength="4" size="4"> do  <input type="text" id="rocznik22" maxlength="4" size="4"><br>
-	<label for="mies2">Ile miesięcy:</label>
-	<input type="number" id="mies2" size="2" value="0"><br><br>
-	<input type="checkbox" id="czy_uczelnia3">Uczęszczałem do jeszcze jednej uczelni<br>
-	</div>
-	<div id="uczel3" style="display: none;">
-	<label for="nazwa3">Nazwa uczelni:</label>
-	<input type="text" id="nazwa3"><br>
-	<label for="rocznik3">Okres:</label> od <input type="text" id="rocznik31" maxlength="4" size="4"> do  <input type="text" id="rocznik32" maxlength="4" size="4"><br>
-	<label for="mies3">Ile miesięcy:</label>
-	<input type="number" id="mies3" size="2" value="0"><br><br>
-	</div>
-	<script>
-	var obecny = new Date();
-	document.getElementById('rok_rozp').value = obecny.getFullYear() - 1;
-	
-	document.getElementById('czy_uczelnia1').addEventListener('change', function () {
-		var style = this.checked == true ? 'block' : 'none';
-		document.getElementById('uczel1').style.display = style;
-		if(style=='none') {
-			document.getElementById('nazwa1').value = "";
-			document.getElementById('rocznik11').value = "";
-			document.getElementById('rocznik12').value = "";
-			document.getElementById('mies1').value = 0;
-			document.getElementById('uczel2').style.display = 'none';
-			document.getElementById('czy_uczelnia2').checked = false;
-			document.getElementById('nazwa2').value = "";
-			document.getElementById('rocznik21').value = "";
-			document.getElementById('rocznik22').value = "";
-			document.getElementById('mies2').value = 0;
-			document.getElementById('uczel3').style.display = 'none';
-			document.getElementById('czy_uczelnia3').checked = false;
-			document.getElementById('nazwa3').value = "";
-			document.getElementById('rocznik31').value = "";
-			document.getElementById('rocznik32').value = "";
-			document.getElementById('mies3').value = 0;
-		}
-	});
-	document.getElementById('czy_uczelnia2').addEventListener('change', function () {
-		var style = this.checked == true ? 'block' : 'none';
-		document.getElementById('uczel2').style.display = style;
-		if(style=='none') {
-			document.getElementById('nazwa2').value = "";
-			document.getElementById('rocznik21').value = "";
-			document.getElementById('rocznik22').value = "";
-			document.getElementById('mies2').value = 0;
-			document.getElementById('uczel3').style.display = 'none';
-			document.getElementById('czy_uczelnia3').checked = false;
-			document.getElementById('nazwa3').value = "";
-			document.getElementById('rocznik31').value = "";
-			document.getElementById('rocznik32').value = "";
-			document.getElementById('mies3').value = 0;
-		}
-	});
-	document.getElementById('czy_uczelnia3').addEventListener('change', function () {
-		var style = this.checked == true ? 'block' : 'none';
-		document.getElementById('uczel3').style.display = style;
-		if(style=='none') {
-			document.getElementById('nazwa3').value = "";
-			document.getElementById('rocznik31').value = "";
-			document.getElementById('rocznik32').value = "";
-			document.getElementById('mies3').value = 0;
-		}
-	});
-	</script>
 	</section><br>
 	<section>
 	<label for="writing_char">Charakter pisma: </label>
@@ -340,6 +296,25 @@
 		document.getElementById('writing_col').style.color = style;
 	});
 	
+	document.getElementById('motyw').addEventListener('change', function () {
+		var style = this.value;
+		switch(style) {
+		case '': 			document.getElementById('dziedzina_div').style.display = "none";
+							document.getElementById("dziedzina").value = "";
+							document.getElementById('dziedzina').placeholder = "";
+							break;
+		case 'con_in_laur': 	
+		case 'con_pl_laur': 	
+		case 'con_pl_fin': 	document.getElementById('dziedzina_div').style.display = "block";
+							document.getElementById('dziedzina').placeholder = "Przedmiot";
+							break;
+		case 'sport_champ':
+		case 'sport_medal':	document.getElementById('dziedzina_div').style.display = "block";
+							document.getElementById('dziedzina').placeholder = "Dyscyplina sportu";
+							break;
+		}		
+	});
+	
 	function example() {
 		document.getElementById("imie").value = "Jan";
 		document.getElementById("nazwisko").value = "Kowalski";
@@ -358,7 +333,6 @@
 		document.getElementById("poczta").value = "gmail.com";
 		document.getElementById("telefon").value = "000000000";
 		document.getElementById("wydzial").value = "Inżynierii Środowiska, Geomatyki i Energetyki";
-		document.getElementsByName("stopien")[0].checked = true;
 		document.getElementsByName("forma")[0].checked = true;
 		document.getElementById("kierunek").value = "Energetyka";
 		document.getElementById("kierunek_div").style.display = "block";
@@ -366,17 +340,14 @@
 		document.getElementById("specjalizacja_div").style.display = "none";
 		document.getElementById("specjalizacja").value = "";
 		document.getElementById("num_album").value = "000000";
-		document.getElementById("rok_rozp").value = "2020";
-		document.getElementById("czy_uczelnia1").checked = true;
-		document.getElementById("uczel1").style.display = "block";
-		document.getElementById("nazwa1").value = "Uniwersytet Jana Kochanowskiego";
-		document.getElementById("rocznik11").value = "2017";
-		document.getElementById("rocznik12").value = "2020";
-		document.getElementById("mies1").value = 27;
+		document.getElementById("num_konta").value = "00000000000000000000000000";
+		document.getElementById("motyw").value = "con_in_laur";
+		document.getElementById('dziedzina_div').style.display = "block";
+		document.getElementById("dziedzina").value = "Matematyka";
 		document.getElementById("writing_char").value = "0";
-		document.getElementById('writing_char').style.fontFamily = "Mistral";
 		document.getElementById("writing_col").value = "green";
 		document.getElementById("writing_col").style.color = "green";
+		document.getElementById('writing_char').style.fontFamily = "Mistral";
 	}
 	
 	function author_info() {
@@ -386,18 +357,19 @@
 		document.getElementById("email_nick").value = "jbednar2012";
 		document.getElementById("poczta").value = "gmail.com";
 		document.getElementById("wydzial").value = "Elektrotechniki, Automatyki i Informatyki";
-		document.getElementsByName("stopien")[0].checked = true;
 		document.getElementsByName("forma")[0].checked = true;
 		document.getElementById("kierunek").value = "Informatyka";
 		document.getElementById("specjalnosc").checked = true;
 		document.getElementById("specjalizacja_div").style.display = "block";
 		document.getElementById("specjalizacja").value = "Grafika komputerowa";
-		document.getElementById("rok_rozp").value = "2018";
+		document.getElementById("motyw").value = "con_pl_laur";
+		document.getElementById('dziedzina_div').style.display = "block";
+		document.getElementById("dziedzina").value = "Język angielski";
 		document.getElementById("writing_char").value = "1";
 		document.getElementById('writing_char').style.fontFamily = "Segoe Print";
 	}
 	
-	var name, surname, pesel, nick, poczta, telefon, forma, stopien, wydzial, kierunek, album, rok, spec_chb, spec, ucz1, ucz2, ucz3, ucz11, ucz12, ucz13, ucz14, ucz21, ucz22, ucz23, ucz24, ucz31, ucz32, ucz33, ucz34, street, hn, hs, an, pc1, pc2, city, ch_p, k_dl;
+	var name, surname, pesel, nick, poczta, telefon, forma, wydzial, kierunek, album, spec_chb, spec, street, hn, hs, an, pc1, pc2, city, konto, motyw, dziedzina, ch_p, k_dl;
 	
 	function getAlbum() {
 		album = document.getElementById("num_album").value;
@@ -418,29 +390,15 @@
 		nick = document.getElementById("email_nick").value;
 		poczta = document.getElementById("poczta").value;
 		telefon = document.getElementById("telefon").value;
-		stopien = document.getElementsByName("stopien");
 		forma = document.getElementsByName("forma");
 		wydzial = document.getElementById("wydzial").value;
 		kierunek = document.getElementById("kierunek").value;
 		getAlbum();
-		rok = document.getElementById("rok_rozp").value;
 		spec_chb = document.getElementById("specjalnosc");
 		spec = document.getElementById("specjalizacja").value;
-		ucz1 = document.getElementById("czy_uczelnia1").checked;
-		ucz2 = document.getElementById("czy_uczelnia2").checked;
-		ucz3 = document.getElementById("czy_uczelnia3").checked;
-		ucz11 = document.getElementById("nazwa1").value;
-		ucz12 = document.getElementById("rocznik11").value;
-		ucz13 = document.getElementById("rocznik12").value;
-		ucz14 = document.getElementById("mies1").value;
-		ucz21 = document.getElementById("nazwa2").value;
-		ucz22 = document.getElementById("rocznik21").value;
-		ucz23 = document.getElementById("rocznik22").value;
-		ucz24 = document.getElementById("mies2").value;
-		ucz31 = document.getElementById("nazwa3").value;
-		ucz32 = document.getElementById("rocznik31").value;
-		ucz33 = document.getElementById("rocznik32").value;
-		ucz34 = document.getElementById("mies3").value;
+		konto = document.getElementById("num_konta").value;
+		motyw = document.getElementById("motyw").value;
+		dziedzina = document.getElementById("dziedzina").value;
 		ch_p = parseInt(document.getElementById("writing_char").value);
 		k_dl = document.getElementById("writing_col").value;
 	}
@@ -487,7 +445,6 @@
 		document.getElementById("poczta").value = "";
 		document.getElementById("telefon").value = "";
 		document.getElementById("wydzial").value = "";
-		document.getElementsByName("stopien")[0].checked = true;
 		document.getElementsByName("forma")[0].checked = true;
 		document.getElementById("kierunek").value = "";
 		document.getElementById("kierunek_div").style.display = "none";
@@ -495,25 +452,10 @@
 		document.getElementById("specjalizacja_div").style.display = "none";
 		document.getElementById("specjalizacja").value = "";
 		document.getElementById("num_album").value = "";
-		document.getElementById("rok_rozp").value = "";
-		document.getElementById("uczel1").style.display = "none";
-		document.getElementById("uczel2").style.display = "none";
-		document.getElementById("uczel3").style.display = "none";
-		document.getElementById("czy_uczelnia1").checked = false;
-		document.getElementById("czy_uczelnia2").checked = false;
-		document.getElementById("czy_uczelnia3").checked = false;
-		document.getElementById("nazwa1").value = "";
-		document.getElementById("rocznik11").value = "";
-		document.getElementById("rocznik12").value = "";
-		document.getElementById("mies1").value = "";
-		document.getElementById("nazwa2").value = "";
-		document.getElementById("rocznik21").value = "";
-		document.getElementById("rocznik22").value = "";
-		document.getElementById("mies2").value = "";
-		document.getElementById("nazwa3").value = "";
-		document.getElementById("rocznik31").value = "";
-		document.getElementById("rocznik32").value = "";
-		document.getElementById("mies3").value = "";
+		document.getElementById("num_konta").value = "";
+		document.getElementById("motyw").value = "";
+		document.getElementById("dziedzina_div").style.display = "none";
+		document.getElementById("dziedzina").value = "";
 		document.getElementById("writing_char").value = "0";
 		document.getElementById('writing_char').style.fontFamily = "Mistral";
 		document.getElementById("writing_col").value = "blue";
@@ -574,7 +516,7 @@
 		if(city=="")
 			overall += "<li>Nie wpisano nazwy miejscowości</li>";
 		else if(numbers_are_in(city))
-			overall += "<li>Nazwa miejscowości nie może mieć cyfr</li>";
+			overall += "<li>Nazwa miejscowości nie może mieć cyfr</li>"
 		overall += "</ul>";
 		return overall;
 	}
@@ -597,17 +539,17 @@
 		if(city=="")
 			overall += "<li>Nie wpisano nazwy miejscowości</li>";
 		else if(numbers_are_in(city))
-			overall += "<li>Nazwa miejscowości nie może mieć cyfr</li>";
+			overall += "<li>Nazwa miejscowości nie może mieć cyfr</li>"
 		overall += "</ul>";
 		return overall;
 	}
 	
 	function other_factors() {
-		return (ucz1==true && (ucz11=="" || ucz12=="" || !is_value_numeric(ucz12) || ucz12.length != 4 || ucz13=="" || !is_value_numeric(ucz13) || ucz13.length != 4 || parseInt(ucz12)>parseInt(ucz13) || parseInt(ucz12)>parseInt(rok) || parseInt(ucz13)>parseInt(rok) || ucz14=="" || ucz14==0)) || (ucz2==true && (ucz21=="" || ucz22=="" || !is_value_numeric(ucz22) || ucz22.length != 4 || ucz23=="" || !is_value_numeric(ucz23) || ucz23.length != 4 || parseInt(ucz22)>parseInt(ucz23) || parseInt(ucz22)>parseInt(rok) || parseInt(ucz23)>parseInt(rok) || ucz24=="" || ucz24==0)) || (ucz3==true && (ucz31=="" || ucz32=="" || !is_value_numeric(ucz32) || ucz32.length != 4 || ucz33=="" || !is_value_numeric(ucz33) || ucz33.length != 4 || parseInt(ucz32)>parseInt(ucz33) || parseInt(ucz32)>parseInt(rok) || parseInt(ucz33)>parseInt(rok) || ucz34=="" || ucz34==0));
+		return (konto=="" || !is_value_numeric(konto) || konto.length != 26 || motyw=="" || dziedzina=="" || numbers_are_in(dziedzina));
 	}
 	
 	function legit() {
-		if(name=="" || numbers_are_in(name) || surname=="" || numbers_are_in(surname) || pesel=="" || !is_value_numeric(pesel) || pesel.length != 11 || bad_address() || bad_cor_address() || nick=="" || poczta=="" || telefon=="" || !is_value_numeric(telefon) || telefon.length != 9 || wydzial=="" || kierunek=="" || numbers_are_in(kierunek) || album=="" || !is_value_numeric(album) || rok=="" || !is_value_numeric(rok) || rok.length != 4 || (spec_chb.checked == true && (spec=="" || numbers_are_in(spec))) || other_factors())
+		if(name=="" || numbers_are_in(name) || surname=="" || numbers_are_in(surname) || pesel=="" || !is_value_numeric(pesel) || pesel.length != 11 || bad_address() || bad_cor_address() || nick=="" || poczta=="" || telefon=="" || !is_value_numeric(telefon) || telefon.length != 9 || wydzial=="" || kierunek=="" || numbers_are_in(kierunek) || album=="" || !is_value_numeric(album) || album.length != 6 || (spec_chb.checked == true && (spec=="" || numbers_are_in(spec))) || other_factors())
 			return false;
 		else return true;
 	}
@@ -641,9 +583,16 @@
 				sem_let = y+1;
 				sem_zim = y;
 			}
+			var dzisiejsza_data = "";
+			if(obecny.getDate()<10)
+				dzisiejsza_data += "0"+obecny.getDate()+".";
+			else dzisiejsza_data += obecny.getDate()+".";
+			if(obecny.getMonth()<9)
+				dzisiejsza_data += "0"+(obecny.getMonth()+1)+".";
+			else dzisiejsza_data += (obecny.getMonth()+1)+".";
 			document.getElementById('ready').style.display = 'block';
 			document.getElementById('not_ready').style.display = 'none';
-			var art_title = "Załącznik nr 1 do Regulaminu świadczeń dla studentów PŚk wprowadzonego zarządzeniem nr 58/19";
+			var art_title = "Załącznik nr 10a do Regulaminu świadczeń dla studentów PŚk wprowadzonego zarządzeniem nr 58/19";
 			var innards = "<div class='buttons'><button onClick=print_page()>Drukuj</button><button onClick=ask_for_return()>Wróć do trybu edycji</button></div></div><div class='fill_text' style='text-align:right; font-size: 13px; width: 100%'><i>"+art_title+"</i></div><br><br><br>";
 			innards += "<font class='fill_text'>Data wpływu ....................</font><br><br>";
 			innards += "<div class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+name+" "+surname+"</div><div class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+adres_zam+"</div><br>";
@@ -656,10 +605,7 @@
 			else innards+="font-size: 0.45cm";
 			innards += "'>"+wydzial+"</font></div>";
 			innards += "<div class='fill_text'>Tel. kontaktowy <font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+telefon+"</font></div><br>";
-			innards += "<div class='fill_text'>Forma studiów <font class='handwriting"+ch_p+"' style='color: "+k_dl+";'> st. ";
-			if(stopien[0].checked && !stopien[1].checked)
-				innards += "I ";
-			else innards += "II ";
+			innards += "<div class='fill_text'>Forma studiów <font class='handwriting"+ch_p+"' style='color: "+k_dl+";'> st. I ";
 			if(forma[0].checked && !forma[1].checked)
 				innards += "stacjonarne";
 			else innards += "niestacjonarne";
@@ -671,44 +617,26 @@
 			else innards += "<font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+spec+"</font>";
 			innards += "</div>"
 			innards += "<div class='fill_text' style='width: 100%;'>Nr albumu:<font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+album+"</font></div><div class='sp'></div>";
-			innards += "<div class='fill_text' style='width: 100%; text-align: center; padding-bottom: 0.2mm'><p><b><p>OŚWIADCZENIE O STUDIOWANIU</p><p>I NIEPOBIERANIU ŚWIADCZEŃ POMOCY MATERIALNEJ NA WIĘCEJ NIŻ JEDNYM KIERUNKU</p><p>w roku akademickim <font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+sem_zim+"</font>/<font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+sem_let+"</font> - semestr ";
-			if(y==sem_let)
-				innards += "zimowy/<u>letni</u>";
-			else innards += "<u>zimowy</u>/letni";
-			innards +="</p></b></div>";
-			innards += "<div class='fill_text' style='width: 100%; margin-bottom: 0.3mm'><ol>";
-			innards += "<li>Zgodnie z art. 93 ust. 1 ustawy z dnia 20 lipca 2018 r. - Prawo o szkolnictwie wyższym i nauce (Dz. U. poz. 1668, z późn. zm.) świadomy/a odpowiedzialności dyscyplinarnej za złożenie fałszywego oświadczenia, oświadczam, że nie pobieram świadczeń o których mowa w § 5 ust. 1 i 2 Regulaminu świadczeń dla studentów Politechniki Świętokrzyskiej, tj. stypendium socjalnego (w tym stypendium socjalnego w zwiększonej wysokości), stypendium dla osób niepełnosprawnych, stypendium rektora i zapomogi oraz oświadczam, iż nie będę występował/a o ich przyznanie na innym kierunku studiów niż przeze mnie zadeklarowany w pkt 2 niniejszego oświadczenia.</li><li>Oświadczam, że kierunkiem studiów, na którym deklaruję się występować z wnioskami o przyznanie świadczeń pomocy materialnej, o których mowa w pkt 1 jest: "
-			innards += "<div class='handwriting"+ch_p+"' style='width: 100%; text-align: center; color: "+k_dl+"'>"+kierunek+", Wydział "+wydzial+", Politechnika Świętokrzyska</div>";
-			innards += "<div class='label' style='width: 100%; text-align: center;'>podać dokładną nazwę kierunku(ów) studiów, wydział oraz nazwę uczelni</div>";
-			innards += "</li><li>Zapoznałem/am się z art. 93 ust. 2 i 3 Ustawy z dnia 20 lipca 2018 r Prawo o szkolnictwie wyższym i nauce (Dz.U. z 2018 r. poz. 1668 z późn. Zm.),zgodnie  z którymi świadczenia, o których mowa w art. 86.ust.1 pkt 1-4 i art. 359 ust.1 ustawy z dnia 20 lipca 2018 r Prawo o szkolnictwie wyższym i nauce, przysługują na studiach pierwszego stopnia, studiach drugiego stopnia i jednolitych magisterskich, jednak nie dłużej niż przez okres 6 lat; świadczenia nie przysługują studentowi posiadającemu tytuł zawodowy magistra, magistra inżyniera, albo równorzędny, licencjata, inżyniera albo równorzędny jeżli ponownie podejmuje studia pierwszego stopnia, przy czym przepisy art. 93 ust. 3 Ustawy stosuje się również do osób posiadających tytuły zawodowe uzyskane za granicą.<br>Oświadczam, że studia na Politechnice Świętokrzyskiej podjąłem/ jęłam w roku <font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+rok+"</font>. a wcześniej studiowałam/łem na uczelniach**:<ol>"
-			if(!ucz1)
-				innards += "<li><font class='empty_handwriting'>Nie ma nic na temat uniwerku nr 1</font>w latach<font class='empty_handwriting'>0000/0000</font> łącznie <font class='empty_handwriting'>000</font>miesięcy</li>";
-			else innards += "<li><font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+ucz11+"</font>w latach<font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+ucz12+"/"+ucz13+"</font> łącznie <font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+ucz14+"</font>miesięcy</li>";
-			if(!ucz2)
-				innards += "<li><font class='empty_handwriting'>Nie ma nic na temat uniwerku nr 2</font>w latach<font class='empty_handwriting'>0000/0000</font> łącznie <font class='empty_handwriting'>000</font>miesięcy</li>";
-			else innards += "<li><font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+ucz21+"</font>w latach<font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+ucz22+"/"+ucz23+"</font> łącznie <font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+ucz24+"</font>miesięcy</li>";
-			if(!ucz3)
-				innards += "<li><font class='empty_handwriting'>Nie ma nic na temat uniwerku nr 3</font>w latach<font class='empty_handwriting'>0000/0000</font> łącznie <font class='empty_handwriting'>000</font>miesięcy</li>";
-			else innards += "<li><font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+ucz31+"</font>w latach<font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+ucz32+"/"+ucz33+"</font> łącznie <font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+ucz34+"</font>miesięcy</li>";
-			innards += "</ol></li></ol><br><br><br><br><br><b>Oświadczam, że</b><ol>";
-			innards += "<li>Świadomy odpowiedzialności dyscyplinarnej za podanie nieprawdziwych danych i obowiązku zwrotu całości pobranych na takiej podstawie świadczeń pomocy materialnej, oświadczam że podane informacje są zgodne ze stanem faktycznym.</li>";
-			innards += "<li>Zobowiązuję się do niezwłocznego powiadomienia uczelni (do 7 dni) o ukończeniu studiów I lub II stopnia na innym kierunku.</li>";
-			innards += "<li>Zobowiązuję się do niezwłocznego poinformowania uczelni (w terminie 7 dni) w przypadku uzyskania prawa do pobierania w/w świadczeń pomocy materialnej na innym kierunku lub innej uczelni.</li></ol>";
-			var dzisiejsza_data = "";
-			if(obecny.getDate()<10)
-				dzisiejsza_data += "0"+obecny.getDate()+".";
-			else dzisiejsza_data += obecny.getDate()+".";
-			if(obecny.getMonth()<9)
-				dzisiejsza_data += "0"+(obecny.getMonth()+1)+".";
-			else dzisiejsza_data += (obecny.getMonth()+1)+".";
-			dzisiejsza_data += (obecny.getFullYear());
-			innards += "<div class = 'fill_text' style='text-align: center;'>Kielce dnia <font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+dzisiejsza_data+"</font></div><div class='handwriting"+ch_p+"' style='text-align: center; color: "+k_dl+"'>"+name+" "+surname+"</div><div class='fill_text' style='color: #00000000;'>x</div><div class='fill_text' style='text-align: right'>Podpis studenta składającego oświadczenie</div><div class='label' style='width: 100%'>*właściwe podkreślić<br>** należy podać wszystkie uczelnie, na których student rozpoczynał studia (bez względu na okres studiowania)</div>";
+			innards += "<div style='text-align: center'><table class='numer_konta"+ch_p+"' cellspacing='0' style='color: "+k_dl+"; margin: auto;'><tr><td>"+konto[0]+"</td><td>"+konto[1]+"</td><td class='empty'> </td><td>"+konto[2]+"</td><td>"+konto[3]+"</td><td>"+konto[4]+"</td><td>"+konto[5]+"</td><td class='empty'> </td><td>"+konto[6]+"</td><td>"+konto[7]+"</td><td>"+konto[8]+"</td><td>"+konto[9]+"</td><td class='empty'> </td><td>"+konto[10]+"</td><td>"+konto[11]+"</td><td>"+konto[12]+"</td><td>"+konto[13]+"</td><td class='empty'> </td><td>"+konto[14]+"</td><td>"+konto[15]+"</td><td>"+konto[16]+"</td><td>"+konto[17]+"</td><td class='empty'> </td><td>"+konto[18]+"</td><td>"+konto[19]+"</td><td>"+konto[20]+"</td><td>"+konto[21]+"</td><td class='empty'> </td><td>"+konto[22]+"</td><td>"+konto[23]+"</td><td>"+konto[24]+"</td><td>"+konto[25]+"</td></tr></table></font><font class='fill_text'>(numer rachunku bankowego do wypłaty stypendium)</font></div><div class='sp'></div>";
+			innards += "<div class='fill_text' style='width: 100%; text-align: center; padding-bottom: 0.2mm'><b><p style='letter-spacing: 1mm;'>WNIOSEK</p><p>o przyznanie stypendium rektora dla studentów pierwszego roku I stopnia</p></b></div><div class='sp'></div>";
+			innards += "<div class='fill_text' style='width: 100%; margin-bottom: 0.3mm'><b>Oświadczam, że:</b><ul class='boldmarker'><li>Zostałem przyjęty na I rok studiów w roku złożenia egzaminu maturalnego;</li><li>Nie pobieram i nie ubiegam się o przyznanie stypendium rektora na innym kierunku studiów (dotyczy to również innej uczelni).</li><li>Jestem świadomy/a odpowiedzialności dyscyplinarnej za podanie nieprawdziwych danych i obowiązku zwrotu całości pobranych na takiej podstawie świadczeń pomocy materialnej, oświadczam że podane informacje są zgodne ze stanem faktycznym.</li></ol></div>";
+			innards += "<div class='fill_text'>data <font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+dzisiejsza_data+"</font> 20<font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+(y-2000)+"</font></div><div class='handwriting"+ch_p+"' style='color: "+k_dl+"; text-align: center;'>"+name+" "+surname+"</div><div class='empty_handwriting' style='text-decoration-color: white;font-size: 3mm;'>x</div><div class='fill_text' style='text-align: center;'>(własnoręczny podpis studenta)</div><div class='sp'></div>";
+			for(var i=0;i<11;i++)
+				innards += "<div class='sp'></div>";
+			innards += "<div class='fill_text' style='width: 100%;'><b>Wnoszę o przyznanie stypendium rektora w semestrze "+((y==sem_zim)?("<u>zimowym</u> / letnim"):("zimowym / <u>letnim</u>"))+" roku akademickiego 20<font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+(sem_zim-2000)+"</font>/20<font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+(sem_let-2000)+"</font> w związku z tym, że jestem:</b><ul>";
+			innards += "<li class='"+(motyw=="con_in_laur"?("marked"):("unmarked"))+"'>laureatem olimpiady międzynarodowej z przedmiotu <font class='"+(motyw=="con_in_laur"?("handwriting"+ch_p+"' style='color: "+k_dl+";width:100%;'>"+dziedzina):("empty_handwriting' style='width:100%'>NIETAKATEGORIA"))+"</font></li>";
+			innards += "<li class='"+(motyw=="con_pl_laur"?("marked"):("unmarked"))+"'>laureatem olimpiady ogólnopolskiej z przedmiotu <font class='"+(motyw=="con_pl_laur"?("handwriting"+ch_p+"' style='color: "+k_dl+";width:100%;'>"+dziedzina):("empty_handwriting' style='width:100%'>NIETAKATEGORIA"))+"</font></li>";
+			innards += "<li class='"+(motyw=="con_pl_fin"?("marked"):("unmarked"))+"'>finalistą olimpiady ogólnopolskiej z przedmiotu <font class='"+(motyw=="con_pl_fin"?("handwriting"+ch_p+"' style='color: "+k_dl+";width:100%;'>"+dziedzina):("empty_handwriting' style='width:100%'>NIETAKATEGORIA"))+"</font></li>";
+			innards += "<li class='"+(motyw=="sport_champ"?("marked"):("unmarked"))+"'>Mistrzem Polski w dyscyplinie sportowej <font class='"+(motyw=="sport_champ"?("handwriting"+ch_p+"' style='color: "+k_dl+";width:100%;'>"+dziedzina):("empty_handwriting' style='width:100%'>NIETAKATEGORIA"))+"</font></li>";
+			innards += "<li class='"+(motyw=="sport_medal"?("marked"):("unmarked"))+"'>medalistą współzawodnictwa sportowego o tytuł Mistrza Polski w dyscyplinie sportowej <font class='"+(motyw=="sport_medal"?("handwriting"+ch_p+"' style='color: "+k_dl+";width:100%;'>"+dziedzina):("empty_handwriting' style='width:100%'>NIETAKATEGORIA"))+"</font></li>";
+			innards += "</ul></div>";
+			innards += "<div class='fill_text'>data <font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+dzisiejsza_data+"</font> 20<font class='handwriting"+ch_p+"' style='color: "+k_dl+";'>"+(y-2000)+"</font></div><div class='handwriting"+ch_p+"' style='color: "+k_dl+"; text-align: center;'>"+name+" "+surname+"</div><div class='empty_handwriting' style='text-decoration-color: white;font-size: 3mm;'>x</div><div class='fill_text' style='text-align: center;'>(własnoręczny podpis studenta)</div><div class='sp'></div>";
+			innards += "<div class='fill_text' style='width: 100%; margin-bottom: 0.3mm'><p>Do wniosku student dołącza zaświadczenie potwierdzające uzyskanie tytułu laureata lub finalisty olimpiady przedmiotowej zgodne z rozporządzeniem Ministra Edukacji Narodowej i Sportu z dn. 29 stycznia 2002 r. (Dz. U. z 2002 r. nr 13, poz. 125 z późn. zm.) lub inne dokumenty poświadczające osiągnięcia we współzawodnictwie sportowym, o których mowa w § 42 ust. 2 Regulaminu świadczeń dla studentów Politechniki Świętokrzyskiej.</p><p><b>Wykaz olimpiad przedmiotowych zwalniających z egzaminu maturalnego znajduje się na stronie Ministerstwa Edukacji Narodowej</b></p></div>";
 			document.getElementById("ready").innerHTML = innards+"<br>";
 		}
 		else {
 			var problems = "";
 			document.getElementById("troubleshoot").style.display = "block";
-			problems += album;
 			if(name=="")
 				problems += "Nie wpisano imienia<br>";
 			else if(numbers_are_in(name))
@@ -751,185 +679,27 @@
 				problems += "Nie wpisano numeru albumu<br>";
 			else if(!is_value_numeric(album))
 				problems += "Wpisany numer albumu nie jest liczbą<br>";
+			else if(album.length != 6)
+				problems += "Wpisany numer albumu nie jest wystarczająco długi<br>";
 			if(spec_chb.checked == true) {
 				if(spec=="")
 					problems += "Zaznaczono, że jest się na specjalności, ale nie zapisano, na jakiej<br>";
 				else if(numbers_are_in(spec))
 					problems += "Nazwa specjalności nie może mieć cyfr<br>";
+			
 			}
-			if(rok=="")
-				problems += "Nie wpisano roku rozpoczęcia obecnych studiów<br>";
-			else if(!is_value_numeric(rok))
-				problems += "Wpisany rok rozpoczęcia obecnych studiów nie jest liczbą<br>";
-			else if(parseInt(rok)>obecny.getFullYear())
-				problems += "Wpisany rok rozpoczęcia studiów jeszcze się nie rozpoczął<br>";
-			if(ucz1==true || ucz2==true || ucz3==true) {
-			var univ_issues = 0;
-			if(ucz1==true) {
-				problems += "Problemy z wypełnianiem danych o innych uczelniach<ul>";
-				if(ucz11=="") {
-					problems += "<li>Uczelnia 1 - brak nazwy</li>";
-					univ_issues++;
-				}
-				if(ucz12==""){
-					problems += "<li>Uczelnia 1 - brak roku rozpoczęcia</li>";
-					univ_issues++;
-				}
-				else if(!is_value_numeric(ucz12)){
-					problems += "<li>Uczelnia 1 - podany rok rozpoczęcia nie jest liczbą</li>";
-					univ_issues++;
-				}
-				else if(ucz12.length != 4){
-					problems += "<li>Uczelnia 1 - podany rok rozpoczęcia jest za krótki</li>";
-					univ_issues++;
-				}
-				if(ucz13==""){
-					problems += "<li>Uczelnia 1 - brak roku zakończenia</li>";
-					univ_issues++;
-				}
-				else if(!is_value_numeric(ucz13)){
-					problems += "<li>Uczelnia 1 - podany rok zakończenia nie jest liczbą</li>";
-					univ_issues++;
-				}
-				else if(ucz13.length != 4){
-					problems += "<li>Uczelnia 1 - podany rok zakończenia jest za krótki</li>";
-					univ_issues++;
-				}
-				if(parseInt(ucz12)>parseInt(ucz13)){
-					problems += "<li>Uczelnia 1 - rok rozpoczęcia nie może być po roku zakończenia</li>";
-					univ_issues++;
-				}
-				if(parseInt(ucz12)>obecny.getFullYear()){
-					problems += "<li>Uczelnia 1 - rok rozpoczęcia jeszcze nie nadszedł</li>";
-					univ_issues++;
-				}
-				if(parseInt(ucz13)>obecny.getFullYear()){
-					problems += "<li>Uczelnia 1 - rok zakończenia jeszcze nie nadszedł</li>";
-					univ_issues++;
-				}
-				if(ucz14==""){
-					problems += "<li>Uczelnia 1 - brak liczby miesięcy</li>";
-					univ_issues++;
-				}
-				else if(ucz14==0){
-					problems += "<li>Uczelnia 1 - liczba miesięcy nie może być zerowa</li>";
-					univ_issues++;
-				}
-				if(univ_issues==0) {
-					problems += "<li>Uczelnia 1 - brak błędów</li>";
-				}
-				problems += "<br>";
-				univ_issues = 0;
-			}
-			if(ucz2==true) {
-				if(ucz21==""){
-					problems += "<li>Uczelnia 2 - brak nazwy</li>";
-					univ_issues++;
-				}
-				if(ucz22==""){
-					problems += "<li>Uczelnia 2 - brak roku rozpoczęcia</li>";
-					univ_issues++;
-				}
-				else if(!is_value_numeric(ucz22)){
-					problems += "<li>Uczelnia 2 - podany rok rozpoczęcia nie jest liczbą</li>";
-					univ_issues++;
-				}
-				else if(ucz22.length != 4){
-					problems += "<li>Uczelnia 2 - podany rok rozpoczęcia jest za krótki</li>";
-					univ_issues++;
-				}
-				if(ucz23==""){
-					problems += "<li>Uczelnia 2 - brak roku zakończenia</li>";
-					univ_issues++;
-				}
-				else if(!is_value_numeric(ucz23)){
-					problems += "<li>Uczelnia 2 - podany rok zakończenia nie jest liczbą</li>";
-					univ_issues++;
-				}
-				else if(ucz23.length != 4){
-					problems += "<li>Uczelnia 2 - podany rok zakończenia jest za krótki</li>";
-					univ_issues++;
-				}
-				if(parseInt(ucz22)>parseInt(ucz23)){
-					problems += "<li>Uczelnia 2 - rok rozpoczęcia nie może być po roku zakończenia</li>";
-					univ_issues++;
-				}
-				if(parseInt(ucz22)>obecny.getFullYear()){
-					problems += "<li>Uczelnia 2 - rok rozpoczęcia jeszcze nie nadszedł</li>";
-					univ_issues++;
-				}
-				if(parseInt(ucz23)>obecny.getFullYear()){
-					problems += "<li>Uczelnia 2 - rok zakończenia jeszcze nie nadszedł</li>";
-					univ_issues++;
-				}
-				if(ucz24==""){
-					problems += "<li>Uczelnia 2 - brak liczby miesięcy</li>";
-					univ_issues++;
-				}
-				else if(ucz24==0){
-					problems += "<li>Uczelnia 2 - liczba miesięcy nie może być zerowa</li>";
-					univ_issues++;
-				}
-				if(univ_issues==0) {
-					problems += "<li>Uczelnia 2 - brak błędów</li>";
-				}
-				problems += "<br>";
-				univ_issues = 0;
-			}
-			if(ucz3==true) {
-				if(ucz31==""){
-					problems += "<li>Uczelnia 3 - brak nazwy</li>";
-					univ_issues++;
-				}
-				if(ucz32==""){
-					problems += "<li>Uczelnia 3 - brak roku rozpoczęcia</li>";
-					univ_issues++;
-				}
-				else if(!is_value_numeric(ucz32)){
-					problems += "<li>Uczelnia 3 - podany rok rozpoczęcia nie jest liczbą</li>";
-					univ_issues++;
-				}
-				else if(ucz32.length != 4){
-					problems += "<li>Uczelnia 3 - podany rok rozpoczęcia jest za krótki</li>";
-					univ_issues++;
-				}
-				if(ucz33==""){
-					problems += "<li>Uczelnia 3 - brak roku zakończenia</li>";
-					univ_issues++;
-				}
-				else if(!is_value_numeric(ucz33)){
-					problems += "<li>Uczelnia 3 - podany rok zakończenia nie jest liczbą</li>";
-					univ_issues++;
-				}
-				else if(ucz33.length != 4){
-					problems += "<li>Uczelnia 3 - podany rok zakończenia jest za krótki</li>";
-					univ_issues++;
-				}
-				if(parseInt(ucz32)>parseInt(ucz33)){
-					problems += "<li>Uczelnia 3 - rok rozpoczęcia nie może być po roku zakończenia</li>";
-					univ_issues++;
-				}
-				if(parseInt(ucz32)>obecny.getFullYear()){
-					problems += "<li>Uczelnia 3 - rok rozpoczęcia jeszcze nie nadszedł</li>";
-					univ_issues++;
-				}
-				if(parseInt(ucz33)>obecny.getFullYear()){
-					problems += "<li>Uczelnia 3 - rok zakończenia jeszcze nie nadszedł</li>";
-					univ_issues++;
-				}
-				if(ucz34==""){
-					problems += "<li>Uczelnia 3 - brak liczby miesięcy</li>";
-					univ_issues++;
-				}
-				else if(ucz34==0){
-					problems += "<li>Uczelnia 3 - liczba miesięcy nie może być zerowa</li>";
-					univ_issues++;
-				}
-				if(univ_issues==0) {
-					problems += "<li>Uczelnia 3 - brak błędów</li>";
-				}
-			}
-			}
+			if(konto=="")
+				problems += "Nie wpisano numeru konta bankowego<br>";
+			else if(!is_value_numeric(konto))
+				problems += "Wpisany numer konta bankowego nie jest liczbą<br>";
+			else if(konto.length != 26)
+				problems += "Wpisany numer konta bankowego jest za krótki<br>";
+			if(motyw=="")
+				problems += "Nie wybrano osiągnięcia uzasadniającego przyznanie stypendium<br>";
+			if(dziedzina=="")
+				problems += "Nie wpisano przedmiotu/dyscypliny<br>";
+			else if(dziedzina=="")
+				problems += "Przedmiot/dyscyplina nie może mieć cyfr<br>";
 			document.getElementById("troubleshoot").innerHTML = problems;
 		}
 	}

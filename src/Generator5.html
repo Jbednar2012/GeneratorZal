@@ -19,15 +19,18 @@
 	<div id="not_ready" style='background-attachment: fixed; background-repeat: no-repeat; background-size: contain; background-position: center; background-image: url("bg.jpg");'>
 	<a href="../main.html" class="menu_hyperlink"><div class="title" id="title"><font style="font-size:0.5in">Politechnika Świętokrzyska</font><br><font style="font-size:0.3in">Generator załączników</font></div></a>
 	<div class="other_att" id="other_att">
-		<a href="Generator1.html">1<span class='att_info'>Oświadczenie o studiowaniu i niepobieraniu świadczeń pomocy materialnej na więcej niż jednym kierunku</span></a>
-		<a href="Generator3.html">3<span class='att_info'>Oświadczenie o nieprowadzeniu wspólnego gospodarstwa domowego</span></a>
-		<a href="Generator4.html">4<span class='att_info'>Wniosek o ustalenie prawa do świadczeń pomocy materialnej</span></a>
+		<a href="Generator1.html" onMouseOver='show_title("Oświadczenie o studiowaniu i niepobieraniu świadczeń pomocy materialnej na więcej niż jednym kierunku")' onMouseOut=hide_title()>1</a>
+		<a href="Generator3.html" onMouseOver='show_title("Oświadczenie o nieprowadzeniu wspólnego gospodarstwa domowego")' onMouseOut=hide_title()>3</a>
+		<a href="Generator4.html" onMouseOver='show_title("Wniosek o ustalenie prawa do świadczeń pomocy materialnej")' onMouseOut=hide_title()>4</a>
 		<b>5</b>
-		<a href="Generator9.html">9<span class='att_info'>Oświadczenie o zmianie sytuacji materialnej dla stypendium socjalnego</span></a>
-		<a href="Generator10b.html">10b<span class='att_info'>Wniosek o przyznanie stypendium Rektora na kolejny semestr tego samego roku studiów</span></a>
-		<a href="Generator13.html">13<span class='att_info'>Klauzula w sprawie przetwarzania danych osobowych</span></a>
-		<a href="Generator16.html">16<span class='att_info'>Zgoda na otrzymywanie korespondencji drogą elektroniczną</span></a>
+		<a href="Generator9.html" onMouseOver='show_title("Oświadczenie o zmianie sytuacji materialnej dla stypendium socjalnego")' onMouseOut=hide_title()>9</a>
+		<a href="Generator10.html" onMouseOver='show_title("Wniosek o przyznanie stypendium Rektora")' onMouseOut=hide_title()>10</a>
+		<a href="Generator10a.html" onMouseOver='show_title("Wniosek o przyznanie stypendium Rektora dla studentów pierwszego roku I stopnia")' onMouseOut=hide_title()>10a</a>
+		<a href="Generator10b.html" onMouseOver='show_title("Wniosek o przyznanie stypendium Rektora na kolejny semestr tego samego roku studiów")' onMouseOut=hide_title()>10b</a>
+		<a href="Generator13.html" onMouseOver='show_title("Klauzula w sprawie przetwarzania danych osobowych")' onMouseOut=hide_title()>13</a>
+		<a href="Generator16.html" onMouseOver='show_title("Zgoda na otrzymywanie korespondencji drogą elektroniczną")' onMouseOut=hide_title()>16</a>
 	</div>
+	<div class="att_info" id="att_info"></div>
 	<div id="preparing" class="preparing">
 	<div id="help_button" class="help_button" onmouseover=show_help() onmouseout=hide_help()>
 	<div id="help" class="help">
@@ -42,6 +45,14 @@
 			document.getElementById('help').style.display = 'none';
 		}
 		
+		function show_title(title) {
+			document.getElementById('att_info').innerHTML = title;
+		}
+		
+		function hide_title() {
+			document.getElementById('att_info').innerHTML = "";
+		}
+		
 		function return_to_edition() {
 			document.getElementById('ready').style.display = 'none';
 			document.getElementById('not_ready').style.display = 'block';
@@ -50,8 +61,8 @@
 		function print_page(){
 			if (!window.print){
 				return_to_edition();
-				document.getElementById("troubleshoot").innerHTML = "Niestety, twoja przeglądarka nie ma opcji drukowania<br>";
-				return 0;
+				document.getElementById("troubleshoot").innerHTML = "Niestety, przeglądarka nie ma opcji drukowania<br>";
+				document.getElementById("troubleshoot").style.display = "block";
 			}
 			window.print();
 		}
@@ -211,7 +222,7 @@
 			document.getElementById('ready').style.display = 'block';
 			document.getElementById('not_ready').style.display = 'none';
 			var art_title = "Załącznik nr 5 do Regulaminu świadczeń dla studentów PŚk wprowadzonego zarządzeniem nr 58/19";
-			var innards = "<div class='buttons'><button onClick=ask_for_return()>Wróc do trybu edycji</button><button onClick=print_page()>Drukuj</button></div></div><div class='fill_text' style='text-align:right; font-size: 13px; width: 100%'><i>"+art_title+"</i></div><br><br><br>";
+			var innards = "<div class='buttons'><button onClick=print_page()>Drukuj</button><button onClick=ask_for_return()>Wróć do trybu edycji</button></div></div><div class='fill_text' style='text-align:right; font-size: 13px; width: 100%'><i>"+art_title+"</i></div><br><br><br>";
 			innards += "<font class='fill_text'>Data wpływu ....................</font><br><br>";
 			innards += "<div class='handwriting"+ch_p+"' style='color: "+k_dl+"; width: 100%;'>"+name+" "+surname+"</div>";
 			innards += "<div class='label' style=' width: 100%;'>Nazwisko i imię wnioskodawcy</div>";
@@ -234,15 +245,15 @@
 			if(name=="")
 				problems += "Nie wpisano imienia<br>";
 			else if(numbers_are_in(name))
-				problems += "Imię nie może mieć cyfer<br>";
+				problems += "Imię nie może mieć cyfr<br>";
 			if(surname=="")
 				problems += "Nie wpisano naziwska<br>";
 			else if(numbers_are_in(surname))
-				problems += "Nazwisko nie może mieć cyfer<br>";
+				problems += "Nazwisko nie może mieć cyfr<br>";
 			if(miasto=="")
 				problems += "Nie wpisano naziwy miejscowości<br>";
 			else if(numbers_are_in(miasto))
-				problems += "Nazwa miejscowości nie może mieć cyfer<br>";
+				problems += "Nazwa miejscowości nie może mieć cyfr<br>";
 			if(zl=="")
 				problems += "Nie wpisano kwoty wysokości składki (złote)<br>";
 			else if(!is_value_numeric(zl))

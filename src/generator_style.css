@@ -55,26 +55,25 @@ div.other_att a:link, div.other_att a:visited {
 	text-shadow: #0000ff7f 1px 1px;
 }
 
-div.other_att a .att_info {
-  visibility: hidden;
-  background-color: #00000000;
+div.att_info {
+  background-color: #bfbfffe0;
   color: #ffffff;
+  text-shadow: #0000ff7f 1px 1px;
   font-size: 3mm;
   text-align: center;
+  width: 80%;
+  height: 5mm;
+  position: relative;
   border-radius: 3px;
-  border-width: 1px;
-  padding: 2px 0;
-  position: absolute;
+  top: 24%;
+  left: 10%;
+  right: 10%;
   z-index: 1;
 }
 
 div.other_att a:hover {
 	color: white;
 	text-shadow: #0000007f 1px 1px;
-}
-
-div.other_att a:hover .att_info {
-	visibility: visible;
 }
 
 div.other_att b {
@@ -198,12 +197,14 @@ div.empty_handwriting  {
 font.handwriting0 {
 	font-family: Mistral;
 	font-size: 0.55cm;
+	font-weight: normal;
 	text-decoration: underline dotted black;
 }
 
 div.handwriting0  {
 	font-family: Mistral;
 	font-size: 0.55cm;
+	font-weight: normal;
 	text-decoration: underline dotted black;
 	float: left;
 	width: 50%;
@@ -212,12 +213,14 @@ div.handwriting0  {
 font.handwriting1 {
 	font-family: Segoe Print;
 	font-size: 0.4cm;
+	font-weight: normal;
 	text-decoration: underline dotted black;
 }
 
 div.handwriting1  {
 	font-family: Segoe Print;
 	font-size: 0.4cm;
+	font-weight: normal;
 	text-decoration: underline dotted black;
 	float: left;
 	width: 50%;
@@ -226,12 +229,14 @@ div.handwriting1  {
 font.handwriting2 {
 	font-family: Segoe Script;
 	font-size: 0.35cm;
+	font-weight: normal;
 	text-decoration: underline dotted black;
 }
 
 div.handwriting2  {
 	font-family: Segoe Script;
 	font-size: 0.35cm;
+	font-weight: normal;
 	text-decoration: underline dotted black;
 	float: left;
 	width: 50%;
